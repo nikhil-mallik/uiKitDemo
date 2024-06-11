@@ -28,6 +28,8 @@ extension ProductListViewController {
     func configuration() {
         // Register custom cell nib for table view
         productTableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
+        productTableView.delegate = self
+        productTableView.dataSource = self
         initViewModel()
         observeEvent()
     }
@@ -91,5 +93,22 @@ extension ProductListViewController: UITableViewDataSource {
         cell.product = product
         return cell
     }
+}
 
+// Extension conforming to UITableViewDelegate protocol
+extension ProductListViewController: UITableViewDelegate {
+    
+    // Called when a table view row is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedProduct = viewModel.products[indexPath.row]
+        showProductDetail(for: selectedProduct)
+    }
+    
+    // Function to show product details
+    func showProductDetail(for product: ProductListModel) {
+        print("showProductDetail")
+        let productDetailVC = ProductDetailsViewController.sharedIntance()
+        productDetailVC.product = product
+        navigationController?.pushViewController(productDetailVC, animated: true)
+    }
 }

@@ -14,6 +14,7 @@ struct ProductListModel: Codable {
     let description: String
     let category: String
     let image: String
+    var isLiked: Bool?
     let rating: Rate
 }
 
