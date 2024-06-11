@@ -24,7 +24,7 @@ This project is a UIKit demo application designed to provide learners with a pra
 - **Architecture**: Model-View-ViewModel (MVVM)
   - **Model**: Represents the data and business logic (e.g., `LoginModel`, `LoginResponseModel`, `RegisterModel`, `UserListModel`, `ProductListModel`).
   - **ViewModel**: Manages the data for the view and handles business logic (e.g., `LoginViewModel`, `RegisterViewModel`, `UserListViewModel`, `ProductListViewModel`, `CollectionViewModel`).
-  - **View**: The user interface components (e.g., `LoginViewController`, `RegisterViewController`, `ItemListViewController` etc).
+  - **View**: The user interface components (e.g., `LoginViewController`, `RegisterViewController`, `ProductListViewController` etc).
 
 - **Networking**
   - **API Manager**: A singleton class that handles API requests and responses using URLSession. It includes methods for making GET and POST requests and handles common headers and error responses.
