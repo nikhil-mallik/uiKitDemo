@@ -40,6 +40,9 @@
 		7D63763F2C11C22700D10B30 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7D63763E2C11C22700D10B30 /* Alamofire */; };
 		7D6376412C11E01E00D10B30 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6376402C11E01E00D10B30 /* LoginModel.swift */; };
 		7D6D84E02C180FC2008CA723 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84DF2C180FC2008CA723 /* ProductDetailsViewController.swift */; };
+		7D6D84E62C18268E008CA723 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84E52C18268E008CA723 /* CollectionViewController.swift */; };
+		7D6D84ED2C182DAB008CA723 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84EC2C182DAB008CA723 /* CollectionViewModel.swift */; };
+		7D6D84F12C182E52008CA723 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84EE2C182E52008CA723 /* ProductCollectionViewCell.swift */; };
 		7D7E8A492C16C16E0095B81B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7E8A482C16C16E0095B81B /* LoginViewModel.swift */; };
 		7D8276E62C17316A00FB8FAA /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8276E52C17316A00FB8FAA /* ProductDetailViewModel.swift */; };
 		7DABE06C2C170B2400403B7D /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DABE06A2C170B2400403B7D /* ProductCell.xib */; };
@@ -83,6 +86,9 @@
 		7D6376362C11BF4400D10B30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7D6376402C11E01E00D10B30 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		7D6D84DF2C180FC2008CA723 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		7D6D84E52C18268E008CA723 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		7D6D84EC2C182DAB008CA723 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		7D6D84EE2C182E52008CA723 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D7E8A482C16C16E0095B81B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7D8276E52C17316A00FB8FAA /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		7DABE06A2C170B2400403B7D /* ProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7D6D84E12C182652008CA723 /* CollectionView */,
 				7D5AD9462C14349F00E17724 /* User List */,
 				7D5AD9452C14348A00E17724 /* Product List */,
 				7D6376152C119C0800D10B30 /* Login */,
@@ -389,6 +396,48 @@
 			path = DashboardViewController;
 			sourceTree = "<group>";
 		};
+		7D6D84E12C182652008CA723 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D84E42C182672008CA723 /* Model */,
+				7D6D84E32C18266F008CA723 /* View */,
+				7D6D84E22C18265F008CA723 /* ViewModel */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		7D6D84E22C18265F008CA723 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D84EC2C182DAB008CA723 /* CollectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7D6D84E32C18266F008CA723 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D84E72C182767008CA723 /* CellView */,
+				7D6D84E52C18268E008CA723 /* CollectionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D6D84E42C182672008CA723 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D6D84E72C182767008CA723 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D84EE2C182E52008CA723 /* ProductCollectionViewCell.swift */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -477,6 +526,7 @@
 				7D6375FE2C119B5600D10B30 /* LoginViewController.swift in Sources */,
 				7D6376332C11AE0500D10B30 /* DashboardViewController.swift in Sources */,
 				7D5AD9552C143D5900E17724 /* productListModel.swift in Sources */,
+				7D6D84ED2C182DAB008CA723 /* CollectionViewModel.swift in Sources */,
 				7D7E8A492C16C16E0095B81B /* LoginViewModel.swift in Sources */,
 				7D5AD94F2C143D2900E17724 /* userListModel.swift in Sources */,
 				7DABE06D2C170B2400403B7D /* ProductCell.swift in Sources */,
@@ -490,6 +540,7 @@
 				7D5AD9672C144BE100E17724 /* UIImageView + Extension.swift in Sources */,
 				7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */,
 				7D6376282C11A1D200D10B30 /* RegisterModel.swift in Sources */,
+				7D6D84E62C18268E008CA723 /* CollectionViewController.swift in Sources */,
 				7D5AD93E2C12FEE700E17724 /* TokenService.swift in Sources */,
 				7D8276E62C17316A00FB8FAA /* ProductDetailViewModel.swift in Sources */,
 				7D6D84E02C180FC2008CA723 /* ProductDetailsViewController.swift in Sources */,
@@ -500,6 +551,7 @@
 				7D6376242C119DE800D10B30 /* UIViewController + Extension.swift in Sources */,
 				7D6375FC2C119B5600D10B30 /* SceneDelegate.swift in Sources */,
 				7D5AD9382C12CEFD00E17724 /* Validation.swift in Sources */,
+				7D6D84F12C182E52008CA723 /* ProductCollectionViewCell.swift in Sources */,
 				7D63762A2C11A24800D10B30 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

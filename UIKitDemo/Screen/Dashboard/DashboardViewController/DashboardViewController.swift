@@ -13,11 +13,12 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userListButton: UIButton!
     @IBOutlet weak var productListButton: UIButton!
+    @IBOutlet weak var logoutButtonOutlet: UIBarButtonItem!
+    @IBOutlet weak var collectionViewButton: UIButton!
     
     // Holds the user's name
     var userName = ""
-    
-    @IBOutlet weak var logoutButtonOutlet: UIBarButtonItem!
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -49,7 +50,15 @@ class DashboardViewController : UIViewController {
     
     @IBAction func productListButtonTapped(_ sender: Any) {
         // Navigate to the product list screen
-        let productListVC = ProductListViewController.sharedIntance()
+       let productListVC = ProductListViewController.sharedIntance()
+     
+        self.navigationController?.pushViewController(productListVC, animated: true)
+    }
+    
+    
+    @IBAction func collectionViewAction(_ sender: Any) {
+        // Navigate to the product Collection View screen
+        let productListVC = CollectionViewController.sharedIntance()
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
 }

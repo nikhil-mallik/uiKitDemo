@@ -20,8 +20,6 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel! 
     
-    // Weak reference to the parent view controller
-    weak var vc: ProductListViewController?
     
     // Property observer to configure cell when product is set
     var product: ProductListModel? {
