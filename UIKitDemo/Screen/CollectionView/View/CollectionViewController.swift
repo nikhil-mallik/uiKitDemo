@@ -9,8 +9,7 @@ import UIKit
 
 class CollectionViewController: UIViewController {
     
-
-   
+    // MARK: - Outlet
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
     
     // MARK: - Variables
@@ -20,10 +19,18 @@ class CollectionViewController: UIViewController {
         super.viewDidLoad()
         configuration()
     }
+}
+
+// MARK: - Shared Instance
+extension CollectionViewController {
     
+    // Method to create a shared instance of the view controller
+    static func sharedIntance() -> CollectionViewController {
+        return CollectionViewController.instantiateFromStoryboard("CollectionViewController")
+    }
+    
+    // MARK: - Configuration
     func configuration() {
-//        collectionViewOutlet.dataSource = self
-//        collectionViewOutlet.delegate = self
         initViewModel()
         observeEvent()
     }
@@ -37,7 +44,6 @@ class CollectionViewController: UIViewController {
     func observeEvent() {
         viewModel.eventHandler = { [weak self] event in
             guard let self else { return }
-
             switch event {
             case .loading:
                 /// Indicator show
@@ -60,18 +66,15 @@ class CollectionViewController: UIViewController {
     }
 }
 
-extension CollectionViewController {
-    
-    static func sharedIntance() -> CollectionViewController {
-        return CollectionViewController.instantiateFromStoryboard("CollectionViewController")
-    }
-}
-
+// MARK: - UICollectionViewDataSource
 extension CollectionViewController : UICollectionViewDataSource {
+    
+    // Method to return the number of items in a section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.products.count
     }
     
+    // Method to configure and return the cell for an item at a specific index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProductCollectionViewCell else {
             return UICollectionViewCell()
@@ -82,7 +85,10 @@ extension CollectionViewController : UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension CollectionViewController: UICollectionViewDelegate {
+    
+    // Method to handle item selection in the collection view
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedProduct = viewModel.products[indexPath.row]
         showProductDetail(for: selectedProduct)
@@ -97,10 +103,11 @@ extension CollectionViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
+    // Method to return the size for an item at a specific index path
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (collectionView.frame.size.width - 20) / 2
-        
         return CGSize(width: size, height: size)
     }
 }

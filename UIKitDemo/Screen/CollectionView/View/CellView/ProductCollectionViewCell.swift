@@ -10,10 +10,9 @@ import UIKit
 class ProductCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets for UI elements
-
     @IBOutlet weak var cellImageView: UIImageView!
-    
     @IBOutlet weak var cellTitleLabel: UILabel!
+    
     // Property observer to configure cell when product is set
     var product: ProductListModel? {
         didSet {
@@ -24,10 +23,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     // Method called when the cell is awakened from a nib
     override func awakeFromNib() {
         super.awakeFromNib()
- 
     }
 
-    
     // Method to configure cell with product details
     func productDetailConfiguration() {
         // Ensure product is not nil
@@ -36,5 +33,4 @@ class ProductCollectionViewCell: UICollectionViewCell {
         cellTitleLabel.text = product.category
         cellImageView.setImage(with: product.image) // Set product image
     }
-
 }
