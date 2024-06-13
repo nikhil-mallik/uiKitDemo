@@ -20,7 +20,6 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel! 
     
-    
     // Property observer to configure cell when product is set
     var product: ProductListModel? {
         didSet {

@@ -19,7 +19,7 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var unlikeButton: UIButton!
-    
+    var isLiked: Bool = false
     
     // MARK: - Variables
     private var viewModel = productDetailViewModel()
@@ -46,7 +46,7 @@ class ProductDetailsViewController: UIViewController {
     
     // Update the visibility of like and unlike buttons
     func updateLikeUnlikeButtons() {
-            if product?.isLiked ?? false {
+            if isLiked == false {
                 likeButton.isHidden = false
                 unlikeButton.isHidden = true
             } else {
@@ -57,14 +57,14 @@ class ProductDetailsViewController: UIViewController {
     
     // Action for unlike button
     @IBAction func unlikeButtonAction(_ sender: Any) {
-        product!.isLiked = true
+        isLiked = true
         updateLikeUnlikeButtons()
         print("unlike tapped")
     }
     
     // Action for like button
     @IBAction func likeButtonAction(_ sender: Any) {
-        product!.isLiked = false
+        isLiked = false
         updateLikeUnlikeButtons()
         print("like tapped")
     }

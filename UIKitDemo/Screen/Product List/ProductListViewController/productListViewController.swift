@@ -107,7 +107,7 @@ extension ProductListViewController: UITableViewDelegate {
     // Function to show product details
     func showProductDetail(for product: ProductListModel) {
         print("showProductDetail")
-        let productDetailVC = ProductDetailsViewController.sharedIntance()
+        let productDetailVC = ProductDetailsView.sharedIntance()
         productDetailVC.product = product
         navigationController?.pushViewController(productDetailVC, animated: true)
     }
