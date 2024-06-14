@@ -15,6 +15,8 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var productListButton: UIButton!
     @IBOutlet weak var logoutButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var collectionViewButton: UIButton!
+    @IBOutlet weak var addButtonOutlet: UIButton!
+    
     
     // Holds the user's name
     var userName = ""
@@ -61,6 +63,16 @@ class DashboardViewController : UIViewController {
         let productListVC = CollectionViewController.sharedIntance()
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
+    
+    
+    @IBAction func addButtonAction(_ sender: Any) {
+        let addButtonVC = AddButtonViewController.sharedIntance()
+        self.navigationController?.pushViewController(addButtonVC, animated: true)
+    }
+    
+    
+    
+    
 }
 
 // MARK: - Extension
