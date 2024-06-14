@@ -30,7 +30,7 @@ class AddButtonViewController: UIViewController {
             return
         }
         
-        guard let number = Int(numberText) else {
+        guard let number = Int(numberText), number >= 1 else {
             AlertHelper.showAlert(withTitle: "Alert", message: "Invalid input. Please enter a valid integer.", from: self)
             return
         }

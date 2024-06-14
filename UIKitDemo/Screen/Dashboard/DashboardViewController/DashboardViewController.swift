@@ -66,7 +66,7 @@ class DashboardViewController : UIViewController {
     
     
     @IBAction func addButtonAction(_ sender: Any) {
-        let addButtonVC = AddButtonViewController.sharedIntance()
+        let addButtonVC = ButtonScrollView.sharedIntance()
         self.navigationController?.pushViewController(addButtonVC, animated: true)
     }
     
