@@ -15,12 +15,12 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var productListButton: UIButton!
     @IBOutlet weak var logoutButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var collectionViewButton: UIButton!
-    @IBOutlet weak var addButtonOutlet: UIButton!
-    
+    @IBOutlet weak var buttonCollectionViewBtn: UIButton!
+    @IBOutlet weak var buttonScrollViewBtn: UIButton!
     
     // Holds the user's name
     var userName = ""
-       
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -52,8 +52,7 @@ class DashboardViewController : UIViewController {
     
     @IBAction func productListButtonTapped(_ sender: Any) {
         // Navigate to the product list screen
-       let productListVC = ProductListViewController.sharedIntance()
-     
+        let productListVC = ProductListViewController.sharedIntance()
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
     
@@ -65,14 +64,18 @@ class DashboardViewController : UIViewController {
     }
     
     
-    @IBAction func addButtonAction(_ sender: Any) {
-        let addButtonVC = ButtonScrollView.sharedIntance()
+    @IBAction func buttonCollectionViewBtnAction(_ sender: Any) {
+        // Navigate to the Generate Button Collection View screen
+        let addButtonVC = AddButtonViewController.sharedIntance()
         self.navigationController?.pushViewController(addButtonVC, animated: true)
     }
     
     
-    
-    
+    @IBAction func buttonScrollViewBtnAction(_ sender: Any) {
+        // Navigate to the Generate Button Scroll View screen
+        let addButtonVC = ButtonScrollView.sharedIntance()
+        self.navigationController?.pushViewController(addButtonVC, animated: true)
+    }
 }
 
 // MARK: - Extension

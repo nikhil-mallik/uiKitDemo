@@ -10,6 +10,8 @@ import UIKit
 class ButtonViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cellBgView: UIView!
+    
+    
     @IBOutlet weak var cellButton: UIButton!
     
     // Property observer to configure cell when count is set

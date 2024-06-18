@@ -9,6 +9,7 @@ import UIKit
 
 class AddButtonViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var NumberLabelOutlet: UILabel!
     @IBOutlet weak var numberInputOutlet: UITextField!
     @IBOutlet weak var submitButtonOutlet: UIButton!
@@ -22,19 +23,20 @@ class AddButtonViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
+    // MARK: - Actions
     @IBAction func submitButtonAction(_ sender: Any) {
-        
+        // Validate the input number
         guard let numberText = numberInputOutlet.text, !numberText.isEmpty else {
             AlertHelper.showAlert(withTitle: "Alert", message: "Please enter a number.", from: self)
             return
         }
         
         guard let number = Int(numberText), number >= 1 else {
-            AlertHelper.showAlert(withTitle: "Alert", message: "Invalid input. Please enter a valid integer.", from: self)
+            AlertHelper.showAlert(withTitle: "Alert", message: "Invalid input. Please enter a valid number.", from: self)
             return
         }
         
+        // Update the view model and reload the collection view
         viewModel.updateButtonCount(to: number)
         TableViewOutlet.reloadData()
     }
@@ -73,7 +75,7 @@ extension AddButtonViewController : UICollectionViewDataSource {
 extension AddButtonViewController: UICollectionViewDelegateFlowLayout {
     // Method to return the size for an item at a specific index path
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (collectionView.frame.size.width - 20) / 2
+        let size = (collectionView.frame.size.width - 50) / 5
         return CGSize(width: size, height: size)
     }
 }

@@ -91,13 +91,15 @@ extension CollectionViewController: UICollectionViewDelegate {
     // Method to handle item selection in the collection view
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedProduct = viewModel.products[indexPath.row]
-        showProductDetail(for: selectedProduct)
+        showProductDetail(for: selectedProduct, at: indexPath.row)
         
         // Function to show product details
-        func showProductDetail(for product: ProductListModel) {
+        func showProductDetail(for product: ProductListModel, at index: Int) {
             print("showProductDetail")
             let productDetailVC = ProductDetailsView.sharedIntance()
             productDetailVC.product = product
+            productDetailVC.currentIndex = index
+            productDetailVC.viewModel.products = viewModel.products
             navigationController?.pushViewController(productDetailVC, animated: true)
         }
     }

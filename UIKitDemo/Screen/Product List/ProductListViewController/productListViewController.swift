@@ -101,14 +101,16 @@ extension ProductListViewController: UITableViewDelegate {
     // Called when a table view row is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedProduct = viewModel.products[indexPath.row]
-        showProductDetail(for: selectedProduct)
+        showProductDetail(for: selectedProduct, at: indexPath.row)
     }
     
     // Function to show product details
-    func showProductDetail(for product: ProductListModel) {
+    func showProductDetail(for product: ProductListModel, at index: Int) {
         print("showProductDetail")
         let productDetailVC = ProductDetailsView.sharedIntance()
         productDetailVC.product = product
+        productDetailVC.currentIndex = index
+        productDetailVC.viewModel.products = viewModel.products
         navigationController?.pushViewController(productDetailVC, animated: true)
     }
 }

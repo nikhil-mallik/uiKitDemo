@@ -35,6 +35,22 @@ final class productListViewModel {
             }
         }
     }
+    
+    func fetchPreviousProduct(currentProductIndex: Int) -> ProductListModel? {
+            guard currentProductIndex > 0 && currentProductIndex < products.count else {
+                return nil
+            }
+            return products[currentProductIndex - 1]
+        }
+        
+        // Fetch product details for the next product
+        func fetchNextProduct(currentProductIndex: Int) -> ProductListModel? {
+            guard currentProductIndex >= 0 && currentProductIndex < products.count - 1 else {
+                return nil
+            }
+            return products[currentProductIndex + 1]
+        }
+    
 }
 
 

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -243,7 +244,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBW-L9-ZD8">
-                                <rect key="frame" x="25" y="296.5" width="364" height="303"/>
+                                <rect key="frame" x="25" y="258" width="364" height="380"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tA-rq-0d8">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="35"/>
@@ -255,10 +256,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="jJH-mv-NkS">
-                                        <rect key="frame" x="0.0" y="45" width="364" height="258"/>
+                                        <rect key="frame" x="0.0" y="45" width="364" height="335"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sea-9S-jMr">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="User List" cornerStyle="capsule">
                                                     <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
@@ -268,7 +269,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sm3-uP-l9M">
-                                                <rect key="frame" x="0.0" y="74.5" width="364" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="75" width="364" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Product List" cornerStyle="capsule">
                                                     <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
@@ -278,7 +279,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbp-cd-FIV">
-                                                <rect key="frame" x="0.0" y="149" width="364" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="150" width="364" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Collection View" cornerStyle="capsule">
                                                     <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
@@ -288,23 +289,34 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO8-w7-9Gq">
-                                                <rect key="frame" x="0.0" y="223.5" width="364" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="225" width="364" height="35"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Add Button" cornerStyle="capsule">
+                                                <buttonConfiguration key="configuration" style="filled" title="Button Collection View " cornerStyle="capsule">
                                                     <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="addButtonAction:" destination="Tqn-0P-ZpE" eventType="touchUpInside" id="BAS-xA-EGy"/>
+                                                    <action selector="buttonCollectionViewBtnAction:" destination="Tqn-0P-ZpE" eventType="touchUpInside" id="t0t-7F-XEp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zj7-Tk-mSm">
+                                                <rect key="frame" x="0.0" y="300" width="364" height="35"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Button Scroll View" cornerStyle="capsule">
+                                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="buttonScrollViewBtnAction:" destination="Tqn-0P-ZpE" eventType="touchUpInside" id="pWe-ff-cJw"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="sea-9S-jMr" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" multiplier="0.985714" id="3qy-TB-WlJ"/>
-                                    <constraint firstItem="Xbp-cd-FIV" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" multiplier="0.985714" id="92V-M5-nSq"/>
-                                    <constraint firstItem="vO8-w7-9Gq" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" multiplier="0.985714" id="MBd-Gx-Xr9"/>
-                                    <constraint firstItem="Sm3-uP-l9M" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" multiplier="0.985714" id="e4z-AK-lsf"/>
+                                    <constraint firstItem="sea-9S-jMr" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="3qy-TB-WlJ"/>
+                                    <constraint firstItem="Xbp-cd-FIV" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="92V-M5-nSq"/>
+                                    <constraint firstItem="vO8-w7-9Gq" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="MBd-Gx-Xr9"/>
+                                    <constraint firstItem="zj7-Tk-mSm" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="cjW-GS-KNV"/>
+                                    <constraint firstItem="Sm3-uP-l9M" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="e4z-AK-lsf"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -326,7 +338,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButtonOutlet" destination="vO8-w7-9Gq" id="8KA-99-8Lb"/>
+                        <outlet property="buttonCollectionViewBtn" destination="vO8-w7-9Gq" id="CH0-pv-xGH"/>
+                        <outlet property="buttonScrollViewBtn" destination="zj7-Tk-mSm" id="YbO-OS-yum"/>
                         <outlet property="collectionViewButton" destination="Xbp-cd-FIV" id="W5d-8v-h0C"/>
                         <outlet property="logoutButtonOutlet" destination="WkS-bg-Ypj" id="U5B-qe-wlf"/>
                         <outlet property="nameLabel" destination="7tA-rq-0d8" id="eUR-ZA-rNy"/>
@@ -792,9 +805,28 @@
                             <constraint firstItem="804-9e-w0O" firstAttribute="leading" secondItem="wpc-YY-zkw" secondAttribute="leading" id="bIP-mt-n5C"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Product Details" id="rYm-c5-wSn"/>
+                    <navigationItem key="navigationItem" title="Product Details" id="rYm-c5-wSn">
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="Gf2-qM-HyB">
+                                <imageReference key="image" image="arrowtriangle.right.fill" catalog="system" symbolScale="medium"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <connections>
+                                    <action selector="nextProductBtnAction:" destination="NUc-L8-Gvx" id="G6P-Rg-lNT"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="ORU-9I-qdW">
+                                <imageReference key="image" image="arrowtriangle.left.fill" catalog="system" symbolScale="medium"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <connections>
+                                    <action selector="previousProductBtnAction:" destination="NUc-L8-Gvx" id="2L9-Vf-O2u"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="linkeUnlikeButton" destination="rAX-z2-LdZ" id="hgc-qB-V27"/>
+                        <outlet property="nextProductOutletBtn" destination="Gf2-qM-HyB" id="0DD-2s-0Gk"/>
+                        <outlet property="previousProductOutletBtn" destination="ORU-9I-qdW" id="FcX-sN-UGs"/>
                         <outlet property="productCategory" destination="hPN-s4-Doi" id="b6R-M1-fY9"/>
                         <outlet property="productDescription" destination="wB6-8X-P9J" id="P2t-WD-VKY"/>
                         <outlet property="productImage" destination="YFi-LG-div" id="Yz9-3r-4sJ"/>
@@ -1113,49 +1145,50 @@
                                                 <rect key="frame" x="0.0" y="135.5" width="398" height="670.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kUq-d2-rGS">
-                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="itemSize" width="60" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ButtonViewCell" id="2BP-fa-tbC" customClass="ButtonViewCell" customModule="UIKitDemo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q26-ak-hg2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qp-CI-kYg">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OqG-MP-Cvl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="52.5" height="34.5"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39H-uO-NAJ">
-                                                                            <rect key="frame" x="10" y="10" width="75" height="34.5"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Grv-jP-b2o">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="60" id="Jef-58-bsD"/>
-                                                                                <constraint firstAttribute="height" constant="50" id="Mph-xJ-aqu"/>
+                                                                                <constraint firstAttribute="width" constant="60" id="UnH-9G-z5W"/>
+                                                                                <constraint firstAttribute="height" constant="50" id="uGa-5l-QST"/>
                                                                             </constraints>
                                                                             <state key="normal" title="Button"/>
-                                                                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                                            <buttonConfiguration key="configuration" style="filled" title="100"/>
                                                                         </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="1uO-CH-add"/>
-                                                                        <constraint firstAttribute="height" constant="50" id="Iu6-Ka-TVF"/>
+                                                                        <constraint firstItem="Grv-jP-b2o" firstAttribute="top" secondItem="OqG-MP-Cvl" secondAttribute="top" id="1Py-QD-56M"/>
+                                                                        <constraint firstItem="Grv-jP-b2o" firstAttribute="leading" secondItem="OqG-MP-Cvl" secondAttribute="leading" id="MSs-cJ-umY"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="8qp-CI-kYg" firstAttribute="leading" secondItem="q26-ak-hg2" secondAttribute="leading" id="83f-c1-mNa"/>
-                                                                <constraint firstItem="8qp-CI-kYg" firstAttribute="top" secondItem="q26-ak-hg2" secondAttribute="top" id="IMS-PV-e8i"/>
-                                                                <constraint firstAttribute="bottom" secondItem="8qp-CI-kYg" secondAttribute="bottom" id="pko-JZ-lAZ"/>
-                                                                <constraint firstAttribute="trailing" secondItem="8qp-CI-kYg" secondAttribute="trailing" id="tFK-Pq-gVF"/>
+                                                                <constraint firstAttribute="bottom" secondItem="OqG-MP-Cvl" secondAttribute="bottom" constant="15.5" id="K3v-qz-6f2"/>
+                                                                <constraint firstItem="OqG-MP-Cvl" firstAttribute="top" secondItem="q26-ak-hg2" secondAttribute="top" id="KSL-6u-dT4"/>
+                                                                <constraint firstItem="OqG-MP-Cvl" firstAttribute="leading" secondItem="q26-ak-hg2" secondAttribute="leading" id="Qhi-wH-q1A"/>
+                                                                <constraint firstAttribute="trailing" secondItem="OqG-MP-Cvl" secondAttribute="trailing" constant="7.5" id="ztV-g8-lYT"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
+                                                        <size key="customSize" width="60" height="50"/>
                                                         <connections>
-                                                            <outlet property="cellBgView" destination="8qp-CI-kYg" id="lVw-oZ-fK0"/>
-                                                            <outlet property="cellButton" destination="39H-uO-NAJ" id="bos-aU-Zgs"/>
+                                                            <outlet property="cellBgView" destination="OqG-MP-Cvl" id="F2A-Ut-wyK"/>
+                                                            <outlet property="cellButton" destination="Grv-jP-b2o" id="fgr-ap-ilj"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -1194,7 +1227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dvu-9H-Jx9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10119" y="-155"/>
+            <point key="canvasLocation" x="10118.840579710146" y="-155.35714285714286"/>
         </scene>
         <!--Button Scroll View-->
         <scene sceneID="68D-UV-tEc">
@@ -1297,6 +1330,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowtriangle.left.fill" catalog="system" width="128" height="113"/>
+        <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="login" width="860" height="860"/>

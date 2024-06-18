@@ -7,9 +7,9 @@
 
 import UIKit
 
-
 class ButtonScrollView: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var generateNumberLbl: UILabel!
     @IBOutlet weak var enterNumberTxt: UITextField!
     @IBOutlet weak var submitBtnOutlet: UIButton!
@@ -21,13 +21,14 @@ class ButtonScrollView: UIViewController {
         super.viewDidLoad()
     }
     
+    // MARK: - Action
     @IBAction func submitBtnAction(_ sender: Any) {
         guard let numberText = enterNumberTxt.text, !numberText.isEmpty else {
             AlertHelper.showAlert(withTitle: "Alert", message: "Please enter a number.", from: self)
             return
         }
         guard let number = Int(numberText), number >= 1 else {
-            AlertHelper.showAlert(withTitle: "Alert", message: "Invalid input. Please enter a valid integer.", from: self)
+            AlertHelper.showAlert(withTitle: "Alert", message: "Invalid input. Please enter a valid number.", from: self)
             return
         }
         viewModel.updateButtonCount(to: number)
@@ -51,12 +52,12 @@ extension ButtonScrollView {
         let buttonWidth: CGFloat = 60
         let buttonHeight: CGFloat = 50
         let horizontalSpacing: CGFloat = 10
-        let verticalSpacing: CGFloat = 10
+        let verticalSpacing: CGFloat = 20
         
         var currentX: CGFloat = horizontalSpacing // Start with horizontal spacing
         var currentY: CGFloat = verticalSpacing // Start with vertical spacing
         
-        for (index, buttonModel) in viewModel.totalButton.enumerated() {
+        for (_, buttonModel) in viewModel.totalButton.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle("\(buttonModel.count)", for: .normal)
             button.backgroundColor = .systemIndigo
@@ -77,5 +78,4 @@ extension ButtonScrollView {
         let contentWidth = max(scrollViewOutlet.frame.size.width, currentX)
         scrollViewOutlet.contentSize = CGSize(width: contentWidth, height: currentY + buttonHeight + verticalSpacing)
     }
-
 }

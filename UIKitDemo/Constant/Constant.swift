@@ -13,9 +13,16 @@ let rest_key = "712DE557-225D-4481-AFA5-2186915518FE" // REST key for the API
 
 // MARK: - TokenKey
 struct TokenKey {
+    
     // Key for storing user login information
     static let userLogin = "USER_LOGIN_KEY"
     
     // Key for storing user name information
     static let userName = "USER_NAME_KEY"
+}
+
+struct isLikedValue {
+    
+    // Key for storing product Like information
+    static let isLikedProduct = "isLiked"
 }
