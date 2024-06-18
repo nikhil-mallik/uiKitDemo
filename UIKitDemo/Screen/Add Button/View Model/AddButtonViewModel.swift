@@ -16,5 +16,3 @@ class AddButtonViewModel {
         totalButton = (1...count).map { AddButtonModel(count: $0) }
     }
 }
-
-

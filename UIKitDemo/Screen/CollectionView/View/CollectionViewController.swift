@@ -100,6 +100,7 @@ extension CollectionViewController: UICollectionViewDelegate {
             productDetailVC.product = product
             productDetailVC.currentIndex = index
             productDetailVC.viewModel.products = viewModel.products
+            productDetailVC.productDelegate = self
             navigationController?.pushViewController(productDetailVC, animated: true)
         }
     }
@@ -111,5 +112,13 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (collectionView.frame.size.width - 20) / 2
         return CGSize(width: size, height: size)
+    }
+}
+
+extension CollectionViewController: ProductDetailsDelegate {
+    // Delegate method to update product
+    func didUpdateProduct(_ product: ProductListModel, at index: Int) {
+        viewModel.products[index] = product
+        collectionViewOutlet.reloadItems(at: [IndexPath(row: index, section: 0)])
     }
 }

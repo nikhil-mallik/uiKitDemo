@@ -21,13 +21,17 @@ final class productListViewModel {
         
         // Make a network request to fetch products
         APIManager.shared.request(requestModel: nil, responseModelType: [ProductListModel].self, type: APIEndPoint.products) { response in
-            
+            print("API Hit")
             // Notify event handler
             self.eventHandler?(.stopLoading)
             switch response {
             case .success(let products):
                 // Update products array with fetched products
-                self.products = products
+                self.products = products.map { product in
+                    var updatedProduct = product
+                    updatedProduct.isLiked = false
+                    return updatedProduct
+                }
                 self.eventHandler?(.dataLoaded) // Notify event handler
             case .failure(let error):
                 // Notify event handler

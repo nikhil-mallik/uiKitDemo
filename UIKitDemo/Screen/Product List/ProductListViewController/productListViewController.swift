@@ -111,6 +111,15 @@ extension ProductListViewController: UITableViewDelegate {
         productDetailVC.product = product
         productDetailVC.currentIndex = index
         productDetailVC.viewModel.products = viewModel.products
+        productDetailVC.productDelegate = self
         navigationController?.pushViewController(productDetailVC, animated: true)
+    }
+}
+
+extension ProductListViewController: ProductDetailsDelegate {
+    // Delegate method to update product
+    func didUpdateProduct(_ product: ProductListModel, at index: Int) {
+        viewModel.products[index] = product
+        productTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
 }

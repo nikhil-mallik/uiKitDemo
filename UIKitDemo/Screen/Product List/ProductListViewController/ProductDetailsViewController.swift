@@ -22,7 +22,7 @@ class ProductDetailsViewController: UIViewController {
     var isLiked: Bool = false
     
     // MARK: - Variables
-    private var viewModel = productDetailViewModel()
+    private var viewModel = productListViewModel()
     var product: ProductListModel?
     
     override func viewDidLoad() {

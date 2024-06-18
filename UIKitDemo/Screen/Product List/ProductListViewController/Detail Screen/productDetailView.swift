@@ -21,10 +21,11 @@ class ProductDetailsView : UIViewController {
     @IBOutlet weak var nextProductOutletBtn: UIBarButtonItem!
     
     // MARK: - Variables
-    var viewModel = productDetailViewModel()
+    var viewModel = productListViewModel()
     var product: ProductListModel?
     var currentIndex: Int = 0
     var isLiked: Bool?
+    weak var productDelegate: ProductDetailsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +65,12 @@ class ProductDetailsView : UIViewController {
         
         // Store the like status in UserDefaults
         if let product = product {
-            isLikedUserDefault.shared.saveLikeStatus(productId: product.id, isLiked: isLiked!)
-            // Print to console for debugging
-            print("Button tapped. Current like status: \(String(describing: isLiked))")
+            // Update the product in the viewModel's product array
+            if let index = viewModel.products.firstIndex(where: { $0.id == product.id }) {
+                viewModel.products[index].isLiked = isLiked
+                // Notify delegate
+                productDelegate?.didUpdateProduct(viewModel.products[index], at: index)
+            }
         }
         // Update the button
         updateLikeUnlikeButtons()
@@ -90,9 +94,7 @@ extension ProductDetailsView {
         productPriceLabel.text = "$\(product.price)"
         productRatingButton.setTitle("\(product.rating.rate)", for: .normal)
         productImage.setImage(with: product.image)
-        
-        // Retrieve the like status from UserDefaults
-        isLiked = isLikedUserDefault.shared.getLikeStatus(for: product.id)
+        isLiked = product.isLiked
         
         // Updating the buttons
         updateLikeUnlikeButtons()
@@ -116,3 +118,9 @@ extension ProductDetailsView {
         nextProductOutletBtn.isEnabled = currentIndex < viewModel.products.count - 1
     }
 }
+
+
+protocol ProductDetailsDelegate: AnyObject {
+    func didUpdateProduct(_ product: ProductListModel, at index: Int)
+}
+

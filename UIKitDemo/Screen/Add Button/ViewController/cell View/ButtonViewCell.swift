@@ -10,8 +10,6 @@ import UIKit
 class ButtonViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cellBgView: UIView!
-    
-    
     @IBOutlet weak var cellButton: UIButton!
     
     // Property observer to configure cell when count is set
@@ -25,7 +23,7 @@ class ButtonViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     // Method to configure cell with product details
     func totalCountConfiguration() {
         // Ensure count is not nil
@@ -33,5 +31,4 @@ class ButtonViewCell: UICollectionViewCell {
         // Set count UI elements
         cellButton.setTitle("\(addButtonModel.count)", for: .normal)
     }
-
 }

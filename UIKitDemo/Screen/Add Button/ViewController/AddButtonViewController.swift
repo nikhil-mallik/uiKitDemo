@@ -40,7 +40,6 @@ class AddButtonViewController: UIViewController {
         viewModel.updateButtonCount(to: number)
         TableViewOutlet.reloadData()
     }
-    
 }
 
 // Extension for shared instance creation
