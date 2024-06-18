@@ -26,9 +26,9 @@ class Utility {
     
     // Function to set the loading state of a button
     static func setButtonLoadingState(button: UIButton, isLoading: Bool) {
-            var configuration = button.configuration?.updated(for: button)
-            configuration?.showsActivityIndicator = isLoading
-            button.configuration = configuration
+//            var configuration = button.configuration?.updated(for: button)
+//            configuration?.showsActivityIndicator = isLoading
+//            button.configuration = configuration
         }
     
     

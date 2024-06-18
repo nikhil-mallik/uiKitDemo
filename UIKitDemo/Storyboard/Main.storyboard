@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -104,7 +105,7 @@
                                             <constraint firstAttribute="height" constant="50" id="0yy-6c-VVV"/>
                                         </constraints>
                                         <state key="normal" title="Login"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule" showsActivityIndicator="YES">
+                                        <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule">
                                             <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -189,7 +190,7 @@
                                             <constraint firstAttribute="height" constant="50" id="eYe-8d-29Y"/>
                                         </constraints>
                                         <state key="normal" title="Sign Up"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Sign Up" cornerStyle="capsule" showsActivityIndicator="YES">
+                                        <buttonConfiguration key="configuration" style="filled" title="Sign Up" cornerStyle="capsule">
                                             <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
                                         </buttonConfiguration>
                                         <connections>
