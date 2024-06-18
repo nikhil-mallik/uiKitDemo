@@ -57,20 +57,20 @@ class ProductDetailsView : UIViewController {
         product = nextProduct
         configureUI()
     }
-
+    
     @IBAction func linkeUnlikeButtonAction(_ sender: Any) {
         // Toggle the isLiked
         isLiked!.toggle()
-        // Update the button
-        updateLikeUnlikeButtons()
-        // Print to console for debugging
-        print("Button tapped. Current like status: \(String(describing: isLiked))")
+        
         // Store the like status in UserDefaults
         if let product = product {
             isLikedUserDefault.shared.saveLikeStatus(productId: product.id, isLiked: isLiked!)
+            // Print to console for debugging
+            print("Button tapped. Current like status: \(String(describing: isLiked))")
         }
+        // Update the button
+        updateLikeUnlikeButtons()
     }
-    
 }
 
 // Extension for shared instance creation
@@ -82,7 +82,7 @@ extension ProductDetailsView {
     // Configure UI elements with product data
     func configureUI() {
         guard let product = product else { return }
-        print(product.description)
+        
         // Update UI elements with product data
         productTitle.text = product.title
         productCategory.text = product.category
@@ -90,11 +90,13 @@ extension ProductDetailsView {
         productPriceLabel.text = "$\(product.price)"
         productRatingButton.setTitle("\(product.rating.rate)", for: .normal)
         productImage.setImage(with: product.image)
-        updateLikeUnlikeButtons()
-        updateButtonStates()
         
         // Retrieve the like status from UserDefaults
         isLiked = isLikedUserDefault.shared.getLikeStatus(for: product.id)
+        
+        // Updating the buttons
+        updateLikeUnlikeButtons()
+        updateButtonStates()
     }
     
     // Update the visibility of like and unlike buttons
