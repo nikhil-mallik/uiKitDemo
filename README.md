@@ -42,14 +42,16 @@ This project is a UIKit demo application designed to provide learners with a pra
 
 1. **Login Screen**: Users can enter their email and password to log in.
 2. **Registration Screen**: Enables new users to sign up with their details.
-3. **Dashboard**: A welcome screen showing the user’s name and options to navigate to item lists or user lists.
+3. **Dashboard**: A welcome screen showing the user’s name and options to navigate to item or user lists.
 4. **Item List Screen**: Displays a list of items with images and basic details.
 5. **Item Detail Screen**: Shows detailed information about a selected item, including description and rating.
 6. **User List Screen**: Displays a list of users, for administrative purposes.
+7. **Button Collection Screen**: Displays a dynamic number of buttons in a Collection View based on user input.
+8. **Button Scroll Screen**: Displays a dynamic number of buttons in a Scroll View based on user input.
 
 ## Navigation
 
-- **Storyboard-Based**: The app uses storyboards to define UI and screen navigation. Each view controller is instantiated from the storyboard using a shared instance method.
+- **Storyboard-Based**: The app defines UI and screen navigation using storyboards. Each view controller is instantiated from the storyboard using a shared instance method.
 
 ## Error Handling
 
