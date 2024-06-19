@@ -17,12 +17,9 @@ class ButtonScrollView: UIViewController {
     @IBOutlet weak var test1BtnOutlet: UIButton!
     @IBOutlet weak var test2BtnOutlet: UIButton!
     
-    
-    
     // MARK: - Variables
     private var viewModel = AddButtonViewModel()
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -37,6 +34,7 @@ class ButtonScrollView: UIViewController {
             AlertHelper.showAlert(withTitle: "Alert", message: "Invalid input. Please enter a valid number.", from: self)
             return
         }
+        
         viewModel.updateButtonCount(to: number)
         print("Button count updated to: \(number)")
         setupButtons()
@@ -70,49 +68,7 @@ extension ButtonScrollView {
         return ButtonScrollView.instantiateFromStoryboard("ButtonScrollView")
     }
     
-    // Method to setup buttons in the scroll view
-    //    private func setupButtons() {
-    //        // Remove existing buttons
-    ////        scrollViewOutlet.subviews.forEach { $0.removeFromSuperview() }
-    //
-    //        // Calculate button size and spacing
-    //        let totalWidth = UIScreen.main.bounds.width - 60 // (leading -> 10 + trailing -> 10) and 40 for spacing between buttons (10 * 4)
-    //        let buttonWidth = totalWidth / 5
-    //        let buttonHeight: CGFloat = 50
-    //        let horizontalSpacing: CGFloat = 10
-    //        let verticalSpacing: CGFloat = 20
-    //
-    //        // Find the lowest Y position among existing subviews to start adding new buttons
-    //        let maxY = scrollViewOutlet.subviews.map({ $0.frame.maxY }).max() ?? 0
-    //        var currentX: CGFloat = horizontalSpacing // Start with horizontal spacing
-    //        var currentY: CGFloat = maxY + verticalSpacing // Start below the lowest subview and vertical spacing
-    //
-    //        for (index, buttonModel) in viewModel.totalButton.enumerated() {
-    //            let button = UIButton(type: .system)
-    //            button.setTitle("\(buttonModel.count)", for: .normal)
-    //            button.backgroundColor = .systemIndigo
-    //            button.setTitleColor(.white, for: .normal)
-    //            button.frame = CGRect(x: currentX, y: currentY, width: buttonWidth, height: buttonHeight)
-    //            button.layer.cornerRadius = buttonHeight / 4
-    //            button.tag = index // Set tag to identify the button index
-    //            button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
-    //            scrollViewOutlet.addSubview(button)
-    //
-    //            currentX += buttonWidth + horizontalSpacing // Add button width and horizontal spacing
-    //
-    //            // Check if the next button will exceed the width of the scroll view
-    //            if currentX + buttonWidth > UIScreen.main.bounds.width - horizontalSpacing {
-    //                currentX = horizontalSpacing // Reset X position for the next row
-    //                currentY += buttonHeight + verticalSpacing // Move to the next row
-    //            }
-    //        }
-    //
-    //        // Adjust content size of scroll view based on the last button position
-    //        let contentHeight = currentY + buttonHeight + verticalSpacing
-    //        scrollViewOutlet.contentSize = CGSize(width: UIScreen.main.bounds.width, height: contentHeight)
-    //
-    //    }
-    
+    // Method to setup buttons in the scroll view   
     private func setupButtons() {
         // Remove previously added buttons
         scrollViewOutlet.subviews.forEach { view in
@@ -126,6 +82,7 @@ extension ButtonScrollView {
         
         // Calculate total button height
         let totalButtonHeight = max(button1Height, button2Height)  // buttons are aligned horizontally, using the maximum height
+        print("button1 Height -> \(button1Height), button2 Height -> \(button2Height), totalButton Height -> \(totalButtonHeight)")
 
         // Calculate button size and spacing
         let totalWidth = UIScreen.main.bounds.width - 60 // (leading -> 10 + trailing -> 10) and 40 for spacing between buttons (10 * 4)
@@ -137,6 +94,7 @@ extension ButtonScrollView {
         
         // Find the lowest Y position among existing subviews to start adding new buttons
         let minY = scrollViewOutlet.subviews.map({ $0.frame.minY }).min() ?? 0
+//        let maxY = scrollViewOutlet.subviews.map({ $0.frame.maxY }).max() ?? 0
         print(" minY -> \(minY)")
         var currentX: CGFloat = horizontalSpacing // Start with horizontal spacing
         var currentY: CGFloat = minY + totalButtonHeight + topSpacing
