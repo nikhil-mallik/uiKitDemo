@@ -19,7 +19,7 @@ class ButtonScrollView: UIViewController {
     
     // MARK: - Variables
     private var viewModel = AddButtonViewModel()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -42,15 +42,22 @@ class ButtonScrollView: UIViewController {
     
     // Method to handle button clicks
     @objc func buttonClicked(_ sender: UIButton) {
-        
+        if sender.titleLabel?.text == "Reset" {
+            resetButtonAction(sender)
+            return
+        }
         let buttonIndex = sender.tag
-        print("Button Index -> \(buttonIndex)")
         let buttonTitle = sender.title(for: .normal) ?? "Unknown"
+        print("Button: Index -> \(buttonIndex), Title -> \(buttonTitle)")
         sender.isEnabled = false
         sender.alpha = 0.5 // indicate that the button is disabled
         
+        
+        // Check if all buttons are disabled after disabling the current button expert Reset Button
+        let nonResetButtons = scrollViewOutlet.subviews.compactMap { $0 as? UIButton }.filter { $0.titleLabel?.text != "Reset" }
+        
         // Check if all buttons are disabled after disabling the current button
-        let allButtonsDisabled = scrollViewOutlet.subviews.compactMap({ $0 as? UIButton }).allSatisfy({ !$0.isEnabled })
+        let allButtonsDisabled = nonResetButtons.allSatisfy { !$0.isEnabled }
         
         // If all buttons are disabled after clicking the current button
         if allButtonsDisabled {
@@ -59,16 +66,26 @@ class ButtonScrollView: UIViewController {
             AlertHelper.showAlert(withTitle: "Alert", message: "Button '\(buttonTitle)' is disabled.", from: self)
         }
     }
+    
+    // Method to handle Reset button clicks
+    @objc func resetButtonAction(_ sender: UIButton) {
+        print("Reset button ")
+        // Remove previously added buttons
+        scrollViewOutlet.subviews.forEach { view in
+            if view is UIButton {
+                view.removeFromSuperview()
+                enterNumberTxt.text = ""
+            }
+        }
+    }
 }
 
-
-// Extension for shared instance creation
+// Extension for Setup Buttons
 extension ButtonScrollView {
-    static func sharedIntance() -> ButtonScrollView {
-        return ButtonScrollView.instantiateFromStoryboard("ButtonScrollView")
-    }
     
-    // Method to setup buttons in the scroll view   
+    // MARK: - Helper Methods
+    
+    // Method to setup buttons in the scroll view
     private func setupButtons() {
         // Remove previously added buttons
         scrollViewOutlet.subviews.forEach { view in
@@ -76,29 +93,36 @@ extension ButtonScrollView {
                 view.removeFromSuperview()
             }
         }
-     
-        let button1Height = test1BtnOutlet.frame.height
-        let button2Height = test2BtnOutlet.frame.height
         
-        // Calculate total button height
+        // Heights and positions of predefined buttons
+        let button1Height = test1BtnOutlet.frame.height
+        let button1Y = test1BtnOutlet.frame.origin.y
+        let button2Height = test2BtnOutlet.frame.height
+        let button2Y = test2BtnOutlet.frame.origin.y
+        
+        print("Button 1: height = \(button1Height), y = \(button1Y)")
+        print("Button 2: height = \(button2Height), y = \(button2Y)")
+        
+        // Calculate the top anchor based on existing buttons
+        let existingValueY = max(button1Y, button2Y)
+        
+        // Calculate total button height using the maximum height
         let totalButtonHeight = max(button1Height, button2Height)  // buttons are aligned horizontally, using the maximum height
-        print("button1 Height -> \(button1Height), button2 Height -> \(button2Height), totalButton Height -> \(totalButtonHeight)")
-
+        print("existingValueY -> \(existingValueY), totalButton Height -> \(totalButtonHeight)")
+        
         // Calculate button size and spacing
         let totalWidth = UIScreen.main.bounds.width - 60 // (leading -> 10 + trailing -> 10) and 40 for spacing between buttons (10 * 4)
         let buttonWidth = totalWidth / 5
         let buttonHeight: CGFloat = 50
         let horizontalSpacing: CGFloat = 10
         let verticalSpacing: CGFloat = 20
-        let topSpacing: CGFloat = 30
+        let topSpacing: CGFloat = 10
         
         // Find the lowest Y position among existing subviews to start adding new buttons
         let minY = scrollViewOutlet.subviews.map({ $0.frame.minY }).min() ?? 0
-//        let maxY = scrollViewOutlet.subviews.map({ $0.frame.maxY }).max() ?? 0
-        print(" minY -> \(minY)")
         var currentX: CGFloat = horizontalSpacing // Start with horizontal spacing
-        var currentY: CGFloat = minY + totalButtonHeight + topSpacing
-
+        var currentY: CGFloat = minY + totalButtonHeight + existingValueY + topSpacing
+        
         for (index, buttonModel) in viewModel.totalButton.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle("\(buttonModel.count)", for: .normal)
@@ -110,8 +134,6 @@ extension ButtonScrollView {
             button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
             scrollViewOutlet.addSubview(button)
             
-            print("Button \(index) added at (\(currentX), \(currentY))")
-            
             currentX += buttonWidth + horizontalSpacing // Add button width and horizontal spacing
             
             // Check if the next button will exceed the width of the scroll view
@@ -120,12 +142,28 @@ extension ButtonScrollView {
                 currentY += buttonHeight + verticalSpacing // Move to the next row
             }
         }
+        // Add a Reset button at the end
+        let resetButton = UIButton(type: .system)
+        resetButton.setTitle("Reset", for: .normal)
+        resetButton.backgroundColor = .systemRed
+        resetButton.setTitleColor(.white, for: .normal)
+        resetButton.frame = CGRect(x: currentX, y: currentY, width: buttonWidth, height: buttonHeight)
+        resetButton.layer.cornerRadius = buttonHeight / 4
+        resetButton.tag = viewModel.totalButton.count
+        resetButton.addTarget(self, action: #selector(resetButtonAction(_:)), for: .touchUpInside)
+        scrollViewOutlet.addSubview(resetButton)
         
         // Adjust content size of scroll view based on the last button position
         let contentHeight = currentY + buttonHeight + verticalSpacing
         scrollViewOutlet.contentSize = CGSize(width: UIScreen.main.bounds.width, height: contentHeight)
-        print("Scroll view content size adjusted to: \(scrollViewOutlet.contentSize)")
-    
     }
-    
+}
+
+
+
+// MARK: - Extension for shared instance creation
+extension ButtonScrollView {
+    static func sharedIntance() -> ButtonScrollView {
+        return ButtonScrollView.instantiateFromStoryboard("ButtonScrollView")
+    }
 }
