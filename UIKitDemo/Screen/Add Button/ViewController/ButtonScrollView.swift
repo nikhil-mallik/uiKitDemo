@@ -52,7 +52,6 @@ class ButtonScrollView: UIViewController {
         sender.isEnabled = false
         sender.alpha = 0.5 // indicate that the button is disabled
         
-        
         // Check if all buttons are disabled after disabling the current button expert Reset Button
         let nonResetButtons = scrollViewOutlet.subviews.compactMap { $0 as? UIButton }.filter { $0.titleLabel?.text != "Reset" }
         
@@ -84,7 +83,6 @@ class ButtonScrollView: UIViewController {
 extension ButtonScrollView {
     
     // MARK: - Helper Methods
-    
     // Method to setup buttons in the scroll view
     private func setupButtons() {
         // Remove previously added buttons
@@ -142,6 +140,7 @@ extension ButtonScrollView {
                 currentY += buttonHeight + verticalSpacing // Move to the next row
             }
         }
+        
         // Add a Reset button at the end
         let resetButton = UIButton(type: .system)
         resetButton.setTitle("Reset", for: .normal)
