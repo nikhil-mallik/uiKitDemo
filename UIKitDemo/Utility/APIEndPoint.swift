@@ -25,7 +25,7 @@ extension APIEndPoint: EndPointType {
     
         case .logout:
             return APIManager.logoutHeaders
-       
+        
         }
     }
     

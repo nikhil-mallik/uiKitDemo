@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D1E15B82C243F52006CF5A6 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */; };
+		7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */; };
 		7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */; };
 		7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9332C12B76000E17724 /* APIEndPoint.swift */; };
 		7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */; };
@@ -51,6 +53,7 @@
 		7D6D850B2C1C361C008CA723 /* ButtonScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D850A2C1C361C008CA723 /* ButtonScrollView.swift */; };
 		7D6D850D2C1C4464008CA723 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D850C2C1C4464008CA723 /* UITextField + Extension.swift */; };
 		7D6D850F2C1C5AA9008CA723 /* isLikedUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D850E2C1C5AA9008CA723 /* isLikedUserDefault.swift */; };
+		7D6D85182C240E54008CA723 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D85172C240E54008CA723 /* CountryViewController.swift */; };
 		7D7E8A492C16C16E0095B81B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7E8A482C16C16E0095B81B /* LoginViewModel.swift */; };
 		7DABE06C2C170B2400403B7D /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DABE06A2C170B2400403B7D /* ProductCell.xib */; };
 		7DABE06D2C170B2400403B7D /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABE06B2C170B2400403B7D /* ProductCell.swift */; };
@@ -59,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
+		7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EndPointType + Enum.swift"; sourceTree = "<group>"; };
 		7D5AD9332C12B76000E17724 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
 		7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 		7D6D850A2C1C361C008CA723 /* ButtonScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonScrollView.swift; sourceTree = "<group>"; };
 		7D6D850C2C1C4464008CA723 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		7D6D850E2C1C5AA9008CA723 /* isLikedUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isLikedUserDefault.swift; sourceTree = "<group>"; };
+		7D6D85172C240E54008CA723 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		7D7E8A482C16C16E0095B81B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7DABE06A2C170B2400403B7D /* ProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		7DABE06B2C170B2400403B7D /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7D6D85132C240E0E008CA723 /* Country Dropdown */,
 				7D6D84F72C1B1A13008CA723 /* Add Button */,
 				7D6D84E12C182652008CA723 /* CollectionView */,
 				7D5AD9462C14349F00E17724 /* User List */,
@@ -507,6 +514,40 @@
 			path = "cell View";
 			sourceTree = "<group>";
 		};
+		7D6D85132C240E0E008CA723 /* Country Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D85162C240E2B008CA723 /* Country Model */,
+				7D6D85152C240E29008CA723 /* Country View */,
+				7D6D85142C240E27008CA723 /* Country View Model */,
+			);
+			path = "Country Dropdown";
+			sourceTree = "<group>";
+		};
+		7D6D85142C240E27008CA723 /* Country View Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */,
+			);
+			path = "Country View Model";
+			sourceTree = "<group>";
+		};
+		7D6D85152C240E29008CA723 /* Country View */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D85172C240E54008CA723 /* CountryViewController.swift */,
+			);
+			path = "Country View";
+			sourceTree = "<group>";
+		};
+		7D6D85162C240E2B008CA723 /* Country Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */,
+			);
+			path = "Country Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -604,6 +645,7 @@
 				7D5AD9572C143D6A00E17724 /* productListViewController.swift in Sources */,
 				7D6376412C11E01E00D10B30 /* LoginModel.swift in Sources */,
 				7D5AD9422C1340B500E17724 /* Utility.swift in Sources */,
+				7D6D85182C240E54008CA723 /* CountryViewController.swift in Sources */,
 				7D6D850D2C1C4464008CA723 /* UITextField + Extension.swift in Sources */,
 				7D5AD95F2C1443D500E17724 /* UserListViewModel.swift in Sources */,
 				7D6D85032C1B2B23008CA723 /* AddButtonModel.swift in Sources */,
@@ -615,6 +657,7 @@
 				7D6D84F62C1AFBE1008CA723 /* productDetailView.swift in Sources */,
 				7D6D85072C1C0378008CA723 /* ButtonViewCell.swift in Sources */,
 				7D6376282C11A1D200D10B30 /* RegisterModel.swift in Sources */,
+				7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */,
 				7D6D84E62C18268E008CA723 /* CollectionViewController.swift in Sources */,
 				7D5AD93E2C12FEE700E17724 /* TokenService.swift in Sources */,
 				7D6D84E02C180FC2008CA723 /* ProductDetailsViewController.swift in Sources */,
@@ -623,6 +666,7 @@
 				7D6D84FC2C1B258D008CA723 /* AddButtonViewController.swift in Sources */,
 				7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */,
 				7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */,
+				7D1E15B82C243F52006CF5A6 /* CountryViewModel.swift in Sources */,
 				7D6376242C119DE800D10B30 /* UIViewController + Extension.swift in Sources */,
 				7D6375FC2C119B5600D10B30 /* SceneDelegate.swift in Sources */,
 				7D5AD9382C12CEFD00E17724 /* Validation.swift in Sources */,

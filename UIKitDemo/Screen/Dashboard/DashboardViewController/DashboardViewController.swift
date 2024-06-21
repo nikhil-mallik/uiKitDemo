@@ -17,6 +17,7 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var collectionViewButton: UIButton!
     @IBOutlet weak var buttonCollectionViewBtn: UIButton!
     @IBOutlet weak var buttonScrollViewBtn: UIButton!
+    @IBOutlet weak var countryDropdownBtn: UIButton!
     
     // Holds the user's name
     var userName = ""
@@ -76,6 +77,14 @@ class DashboardViewController : UIViewController {
         let addButtonVC = ButtonScrollView.sharedIntance()
         self.navigationController?.pushViewController(addButtonVC, animated: true)
     }
+    
+    
+    @IBAction func countryDropdownBtnAction(_ sender: Any) {
+        // Navigate to the Country Dropdown View screen
+        let countryVC = CountryViewController.sharedIntance()
+        self.navigationController?.pushViewController(countryVC, animated: true)
+    }
+    
 }
 
 // MARK: - Extension
