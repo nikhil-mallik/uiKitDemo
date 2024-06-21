@@ -53,6 +53,13 @@ class CountryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.vc = self
+        initialCall()
+    }
+    
+    func initialCall() {
+        chooseCountryBtnOutlet.setTitle("", for: .normal)
+        chooseStateBtnOutlet.setTitle("", for: .normal)
+        chooseCityBtnOutlet.setTitle("", for: .normal)
         setupBindings()
         hideTableView()
         viewModel.fetchCountries()
