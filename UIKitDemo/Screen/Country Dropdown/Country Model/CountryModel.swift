@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 // Models for the JSON response
 struct Country: Codable {
     let name: String
