@@ -5,7 +5,7 @@
 //  Created by Nikhil Mallik on 20/06/24.
 //
 
-import Foundation
+import UIKit
 import Combine
 import Alamofire
 
@@ -39,24 +39,29 @@ class CountryViewModel: ObservableObject {
     }
     
     // MARK: - Fetch States
-    func fetchStates(for country: String) {
+    func fetchStates(for country: String, button: UIButton? = nil) {
         guard let url = URL(string: stateAPI) else { return }
         let body = ["country": country]
+        if let button = button { LoaderViewHelper.showLoader(on: button) }
         fetchData(with: url, method: .post, body: body, expecting: StatesResponse.self) { [weak self] (response) in
             self?.states = response.data.states
             self?.filteredStates = response.data.states
             self?.reloadTableView(for: .state)
+            LoaderViewHelper.hideLoader()
+            print("States fetched -> \(response.data.states.count)")
         }
     }
     
     // MARK: - Fetch Cities
-    func fetchCities(for country: String, state: String) {
+    func fetchCities(for country: String, state: String, button: UIButton? = nil) {
         guard let url = URL(string: cityAPI) else { return }
         let body = ["country": country, "state": state]
+        if let button = button { LoaderViewHelper.showLoader(on: button) }
         fetchData(with: url, method: .post, body: body, expecting: CitiesResponse.self) { [weak self] (response) in
             self?.cities = response.data
             self?.filteredCities = response.data
             self?.reloadTableView(for: .city)
+            LoaderViewHelper.hideLoader()
             print("Cities fetched -> \(response.data.count)")
             if self?.cities.count == 0 {
                 self?.vc?.selectedCityNameLbl.text = "City not available"
@@ -109,6 +114,7 @@ class CountryViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
+                    AlertHelper.showAlert(withTitle: "Alert", message: "Error fetching data: \(error)", from: self.vc!)
                     print("Error fetching data: \(error)")
                 }
             }, receiveValue: { response in

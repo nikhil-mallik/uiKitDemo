@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D1E15B82C243F52006CF5A6 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */; };
 		7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */; };
+		7D1E15BC2C298C0B006CF5A6 /* LoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */; };
 		7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */; };
 		7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9332C12B76000E17724 /* APIEndPoint.swift */; };
 		7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderHelper.swift; sourceTree = "<group>"; };
 		7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EndPointType + Enum.swift"; sourceTree = "<group>"; };
 		7D5AD9332C12B76000E17724 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
 		7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				7D5AD93D2C12FEE700E17724 /* TokenService.swift */,
 				7D5AD9432C140A3000E17724 /* BgVideoPlay.swift */,
 				7D6D850E2C1C5AA9008CA723 /* isLikedUserDefault.swift */,
+				7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				7D6D85072C1C0378008CA723 /* ButtonViewCell.swift in Sources */,
 				7D6376282C11A1D200D10B30 /* RegisterModel.swift in Sources */,
 				7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */,
+				7D1E15BC2C298C0B006CF5A6 /* LoaderHelper.swift in Sources */,
 				7D6D84E62C18268E008CA723 /* CollectionViewController.swift in Sources */,
 				7D5AD93E2C12FEE700E17724 /* TokenService.swift in Sources */,
 				7D6D84E02C180FC2008CA723 /* ProductDetailsViewController.swift in Sources */,

@@ -334,12 +334,12 @@ extension CountryViewController: UITableViewDelegate{
             selectedState = nil
             selectedCity = nil
             viewModel.clearCities()
-            viewModel.fetchStates(for: selectedCountry!.name)
+            viewModel.fetchStates(for: selectedCountry!.name, button: chooseStateBtnOutlet)
         case .state:
             selectedState = viewModel.filteredStates.isEmpty ? nil : viewModel.filteredStates[indexPath.row]
             selectedCity = nil
             if let country = selectedCountry {
-                viewModel.fetchCities(for: country.name, state: selectedState?.name ?? "")
+                viewModel.fetchCities(for: country.name, state: selectedState?.name ?? "", button: chooseCityBtnOutlet)
             }
         case .city:
             guard indexPath.row < viewModel.filteredCities.count else { return  }
@@ -384,13 +384,9 @@ extension CountryViewController: UITableViewDataSource{
                 cell.textLabel?.text = viewModel.filteredStates[indexPath.row].name
             }
         case .city:
-            
             if indexPath.row < viewModel.filteredCities.count {
-                
                 cell.textLabel?.text = viewModel.filteredCities[indexPath.row]
-            }
-            else {
-                //                cell.textLabel?.text = viewModel.cities[indexPath.row]
+            } else {
                 cell.textLabel?.text = "City not available"
             }
         }
