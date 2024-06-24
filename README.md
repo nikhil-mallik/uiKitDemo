@@ -23,6 +23,7 @@ This project is a UIKit demo application designed to provide learners with a pra
    - **Country Dropdown**: Allows users to select a country from a dropdown list.
    - **State Dropdown**: Displays states based on the selected country.
    - **City Dropdown**: Shows cities based on the selected state.
+   - **Search Functionality**: Integrates `UISearchBar` into the table views for country, state, and city selection, enabling users to filter items based on their names.
 
 ## Technical Details
 
@@ -41,10 +42,29 @@ This project is a UIKit demo application designed to provide learners with a pra
   - **Table View**: Used for displaying user lists.
   - **Dropdowns**: Utilizes UITableViews embedded in dropdown views (`countryTableViewOutlet`, `stateTableViewOutlet`, `cityTableViewOutlet`) to display selectable items.
   - **Labels and Buttons**: Updates UI elements (`selectedCountryNameLbl`, `selectedStateNameLbl`, `selectedCityNameLbl`, `allSelectedFieldLbl`) based on user selection.
+  - **Search Bar**: Adds a `UISearchBar` to the table view headers for filtering country, state, and city names.
 
 - **Data Binding**
   - **Event Handling**: The ViewModels use closures to handle events such as loading, data loaded, errors, and navigation. This allows for reactive updates to the UI based on the state of the data.
   - **Combine Framework**: Uses Combine publishers and subscribers (`@Published`, `sink`) in the ViewModel to update UI components reactively.
+
+## Improvements
+
+1. **Search Functionality**
+   - Integrated UISearchBar to filter the data displayed in the table views for countries, states, and cities
+   - Implemented functions to filter data based on the search text and show filtered results in the table view.
+   - Added functionality to clear the search bar and display original data when the search bar is empty.
+   - Made the search bar the table header for each table view.
+
+2. **Code Performance and Readability**:
+   - Reduced the number of API calls by optimizing data fetching strategies.
+   - Broke down long functions into smaller, more manageable ones for better readability and maintainability.
+   - Added comments and MARK directives to organize code sections and improve readability.
+
+3. **User Experience**:
+   - Added a custom loader to show during data loading, enhancing user experience.
+   - Displayed error messages when data fetching fails, providing feedback to users.
+   - Implemented a global custom loader class for UIView and UIButton to standardize the loading experience across the app.
 
 ## Screens
 
@@ -56,7 +76,7 @@ This project is a UIKit demo application designed to provide learners with a pra
 6. **User List Screen**: Displays a list of users, for administrative purposes.
 7. **Button Collection Screen**: Displays a dynamic number of buttons in a Collection View based on user input.
 8. **Button Scroll Screen**: Displays a dynamic number of buttons in a Scroll View based on user input.
-9. **Country Selection Screen**: Allows users to choose a country, state, and city from dropdown menus.
+9. **Country Selection Screen**: Allows users to choose a country, state, and city from dropdown menus, with search functionality integrated.
 
 ## Navigation
 
@@ -71,5 +91,6 @@ This project is a UIKit demo application designed to provide learners with a pra
 - **UIViewController Extensions**: Provides methods for creating shared instances of view controllers from the storyboard.
 - **UICollectionView and UITableView Extensions**: Implements delegate and data source methods for managing collection and table views.
 - **UITableView Extensions**: Implements delegate and data source methods for managing table views within dropdown menus.
+- **UISearchBarDelegate**: Handles search functionality, including filtering data, clearing the search bar, and displaying original data when the search bar is empty.
 
 This UIKit demo project aims to deliver a comprehensive learning tool for understanding the essential concepts and best practices in iOS development. Through hands-on implementation, learners will gain valuable experience in building and managing a UIKit-based application.
