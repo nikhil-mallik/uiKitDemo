@@ -19,6 +19,11 @@ This project is a UIKit demo application designed to provide learners with a pra
 4. **Logout**
    - **Logout Functionality**: Users can log out to clear their session and redirect them to the login screen.
 
+4. **Country Selection**
+   - **Country Dropdown**: Allows users to select a country from a dropdown list.
+   - **State Dropdown**: Displays states based on the selected country.
+   - **City Dropdown**: Shows cities based on the selected state.
+
 ## Technical Details
 
 - **Architecture**: Model-View-ViewModel (MVVM)
@@ -34,9 +39,12 @@ This project is a UIKit demo application designed to provide learners with a pra
   - **Custom Views**: Includes styled text fields and buttons, managed by the `Utility` class for consistent UI styling.
   - **Collection View**: Displays a grid of items with custom sizing and layout.
   - **Table View**: Used for displaying user lists.
+  - **Dropdowns**: Utilizes UITableViews embedded in dropdown views (`countryTableViewOutlet`, `stateTableViewOutlet`, `cityTableViewOutlet`) to display selectable items.
+  - **Labels and Buttons**: Updates UI elements (`selectedCountryNameLbl`, `selectedStateNameLbl`, `selectedCityNameLbl`, `allSelectedFieldLbl`) based on user selection.
 
 - **Data Binding**
   - **Event Handling**: The ViewModels use closures to handle events such as loading, data loaded, errors, and navigation. This allows for reactive updates to the UI based on the state of the data.
+  - **Combine Framework**: Uses Combine publishers and subscribers (`@Published`, `sink`) in the ViewModel to update UI components reactively.
 
 ## Screens
 
@@ -48,6 +56,7 @@ This project is a UIKit demo application designed to provide learners with a pra
 6. **User List Screen**: Displays a list of users, for administrative purposes.
 7. **Button Collection Screen**: Displays a dynamic number of buttons in a Collection View based on user input.
 8. **Button Scroll Screen**: Displays a dynamic number of buttons in a Scroll View based on user input.
+9. **Country Selection Screen**: Allows users to choose a country, state, and city from dropdown menus.
 
 ## Navigation
 
@@ -61,5 +70,6 @@ This project is a UIKit demo application designed to provide learners with a pra
 
 - **UIViewController Extensions**: Provides methods for creating shared instances of view controllers from the storyboard.
 - **UICollectionView and UITableView Extensions**: Implements delegate and data source methods for managing collection and table views.
+- **UITableView Extensions**: Implements delegate and data source methods for managing table views within dropdown menus.
 
 This UIKit demo project aims to deliver a comprehensive learning tool for understanding the essential concepts and best practices in iOS development. Through hands-on implementation, learners will gain valuable experience in building and managing a UIKit-based application.
