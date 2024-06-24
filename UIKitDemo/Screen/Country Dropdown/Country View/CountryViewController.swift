@@ -33,6 +33,11 @@ class CountryViewController: UIViewController {
     // Label for displaying all selected fields
     @IBOutlet weak var allSelectedFieldLbl: UILabel!
     
+    // MARK: - SearchBars Outlets
+    @IBOutlet weak var countrySearchBar: UISearchBar!
+    @IBOutlet weak var stateSearchBar: UISearchBar!
+    @IBOutlet weak var citySearchBar: UISearchBar!
+    
     let viewModel = CountryViewModel()  // ViewModel instance
     var currentDropdownType: DropdownType = .country // Current dropdown type
     var tapGestureRecognizer: UITapGestureRecognizer? // Tap gesture recognizer for dismissing dropdown
@@ -50,6 +55,7 @@ class CountryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.vc = self
+        setupSearchBars()
         initialCall()
     }
     
@@ -64,6 +70,7 @@ class CountryViewController: UIViewController {
         setupTapGestureRecognizer()
         updateAllSelectedFieldLabel()
         checkButtonEnableDisable()
+        
     }
     
     // MARK: - Setup Button title empty
@@ -90,6 +97,34 @@ class CountryViewController: UIViewController {
     }
 }
 
+// MARK: - UISearchBarDelegate
+extension CountryViewController: UISearchBarDelegate {
+    
+    // Setup Search Bars
+    func setupSearchBars() {
+        countrySearchBar.delegate = self
+        stateSearchBar.delegate = self
+        citySearchBar.delegate = self
+        
+        // Setting the search bars as the table header views
+        countryTableViewOutlet.tableHeaderView = countrySearchBar
+        stateTableViewOutlet.tableHeaderView = stateSearchBar
+        cityTableViewOutlet.tableHeaderView = citySearchBar
+    }
+    
+    // Search Bar Text Did Change
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        switch currentDropdownType {
+        case .country:
+            viewModel.searchCountries(with: searchText)
+        case .state:
+            viewModel.searchStates(with: searchText)
+        case .city:
+            viewModel.searchCities(with: searchText)
+        }
+    }
+}
+
 // MARK: - Extension for shared instance
 extension CountryViewController {
     static func sharedIntance() -> CountryViewController {
@@ -102,15 +137,15 @@ extension CountryViewController {
     
     // Setup bindings to update UI based on ViewModel changes
     func setupBindings() {
-        viewModel.$countries.receive(on: DispatchQueue.main).sink { [weak self] _ in
+        viewModel.$filteredCountries.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.reloadTableView(for: .country)
         }.store(in: &viewModel.cancellables)
         
-        viewModel.$states.receive(on: DispatchQueue.main).sink { [weak self] _ in
+        viewModel.$filteredStates.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.reloadTableView(for: .state)
         }.store(in: &viewModel.cancellables)
         
-        viewModel.$cities.receive(on: DispatchQueue.main).sink { [weak self] _ in
+        viewModel.$filteredCities.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.reloadTableView(for: .city)
         }.store(in: &viewModel.cancellables)
     }
@@ -129,11 +164,11 @@ extension CountryViewController {
     
     // Handles the action when a dropdown button is tapped
     func handleDropdownAction(type: DropdownType, tableView: UITableView) {
-            currentDropdownType = type
-            toggleDropdown(for: tableView)
-            hideOtherTableViews(except: tableView)
-            checkButtonEnableDisable()
-            updateAllSelectedFieldLabel()
+        currentDropdownType = type
+        toggleDropdown(for: tableView)
+        hideOtherTableViews(except: tableView)
+        checkButtonEnableDisable()
+        updateAllSelectedFieldLabel()
     }
     
     // Hides all table views except the one passed as parameter
@@ -263,14 +298,17 @@ extension CountryViewController: UITableViewDelegate{
         tableView.translatesAutoresizingMaskIntoConstraints = true
         switch self.currentDropdownType {
         case .country:
-            tableView.frame.size.height = 650
+            let maxHeight = CGFloat(viewModel.filteredCountries.count * 44)
+            let adjustedHeight = min(maxHeight, 600)
+            tableView.frame.size.height = adjustedHeight
         case .state:
-            let maxHeight = CGFloat(viewModel.states.count * 44)
+            let maxHeight = CGFloat(viewModel.filteredStates.count * 44)
             let adjustedHeight = min(maxHeight, 500)
             tableView.frame.size.height = adjustedHeight
         case .city:
-            let maxHeight = CGFloat(viewModel.cities.count * 44)
+            let maxHeight = CGFloat(viewModel.filteredCities.count * 44) + 44
             let adjustedHeight = min(maxHeight, 400)
+            print(adjustedHeight)
             tableView.frame.size.height = adjustedHeight
         }
         UIView.animate(withDuration: 0.3) {
@@ -292,19 +330,20 @@ extension CountryViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch currentDropdownType {
         case .country:
-            selectedCountry = viewModel.countries[indexPath.row]
+            selectedCountry = viewModel.filteredCountries[indexPath.row]
             selectedState = nil
             selectedCity = nil
+            viewModel.clearCities()
             viewModel.fetchStates(for: selectedCountry!.name)
         case .state:
-            selectedState = viewModel.states.isEmpty ? nil : viewModel.states[indexPath.row]
+            selectedState = viewModel.filteredStates.isEmpty ? nil : viewModel.filteredStates[indexPath.row]
             selectedCity = nil
             if let country = selectedCountry {
                 viewModel.fetchCities(for: country.name, state: selectedState?.name ?? "")
             }
         case .city:
-            guard indexPath.row < viewModel.cities.count else { return  }
-            selectedCity = viewModel.cities[indexPath.row]
+            guard indexPath.row < viewModel.filteredCities.count else { return  }
+            selectedCity = viewModel.filteredCities[indexPath.row]
         }
         updateDropdownSelection()
         tableView.reloadData()
@@ -319,12 +358,12 @@ extension CountryViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch currentDropdownType {
         case .country:
-            return viewModel.countries.count
+            return max(viewModel.filteredCountries.count, 1)
         case .state:
-            return viewModel.states.isEmpty ? 0 :viewModel.states.count
+            return max(viewModel.filteredStates.count, 1)
         case .city:
-            print("city count -> \(viewModel.cities.count)")
-            return viewModel.cities.isEmpty ? 0 : viewModel.cities.count
+            print("city count -> \(viewModel.filteredCities.count)")
+            return max(viewModel.filteredCities.count, 1)
         }
     }
     
@@ -333,14 +372,27 @@ extension CountryViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         switch currentDropdownType {
         case .country:
-            guard indexPath.row < viewModel.countries.count else { return cell }
-            cell.textLabel?.text = viewModel.countries[indexPath.row].name
+            if viewModel.filteredCountries.isEmpty {
+                cell.textLabel?.text = "Country not available"
+            } else {
+                cell.textLabel?.text = viewModel.filteredCountries[indexPath.row].name
+            }
         case .state:
-            guard indexPath.row < viewModel.states.count else { return cell }
-            cell.textLabel?.text = viewModel.states.isEmpty ? "State not available" : viewModel.states[indexPath.row].name
+            if viewModel.filteredStates.isEmpty{
+                cell.textLabel?.text =  "State not available"
+            } else {
+                cell.textLabel?.text = viewModel.filteredStates[indexPath.row].name
+            }
         case .city:
-            guard indexPath.row < viewModel.cities.count else { return cell }
-            cell.textLabel?.text = viewModel.cities.isEmpty ? "City not available" : viewModel.cities[indexPath.row]
+            
+            if indexPath.row < viewModel.filteredCities.count {
+                
+                cell.textLabel?.text = viewModel.filteredCities[indexPath.row]
+            }
+            else {
+                //                cell.textLabel?.text = viewModel.cities[indexPath.row]
+                cell.textLabel?.text = "City not available"
+            }
         }
         cell.backgroundColor = .systemGray5
         return cell

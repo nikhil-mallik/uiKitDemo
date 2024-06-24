@@ -13,8 +13,11 @@ class CountryViewModel: ObservableObject {
     
     // MARK: - Published Properties
     @Published var countries: [Country] = []
+    @Published var filteredCountries: [Country] = []
     @Published var states: [Statess] = []
+    @Published var filteredStates: [Statess] = []
     @Published var cities: [String] = []
+    @Published var filteredCities: [String] = []
     
     // MARK: - Variable
     weak var vc: CountryViewController?       // Weak reference to the view controller
@@ -25,8 +28,14 @@ class CountryViewModel: ObservableObject {
         guard let url = URL(string: countryAPI) else { return }
         fetchData(with: url, expecting: CountriesResponse.self) { [weak self] (response) in
             self?.countries = response.data
-            print("Countries fetched -> \(response.data.count)")
+            self?.filteredCountries = response.data
         }
+    }
+    
+    // MARK: - Clear Cities
+    func clearCities() {
+        cities.removeAll()
+        filteredCities.removeAll()
     }
     
     // MARK: - Fetch States
@@ -35,8 +44,8 @@ class CountryViewModel: ObservableObject {
         let body = ["country": country]
         fetchData(with: url, method: .post, body: body, expecting: StatesResponse.self) { [weak self] (response) in
             self?.states = response.data.states
+            self?.filteredStates = response.data.states
             self?.reloadTableView(for: .state)
-            print("States fetched -> \(response.data.states.count)")
         }
     }
     
@@ -46,8 +55,42 @@ class CountryViewModel: ObservableObject {
         let body = ["country": country, "state": state]
         fetchData(with: url, method: .post, body: body, expecting: CitiesResponse.self) { [weak self] (response) in
             self?.cities = response.data
+            self?.filteredCities = response.data
             self?.reloadTableView(for: .city)
             print("Cities fetched -> \(response.data.count)")
+            if self?.cities.count == 0 {
+                self?.vc?.selectedCityNameLbl.text = "City not available"
+            }
+        }
+    }
+    
+    // MARK: - Country Search Methods
+    func searchCountries(with query: String) {
+        if query.count >= 2 {
+            filteredCountries = countries.filter { $0.name.lowercased().contains(query.lowercased()) }
+        } else {
+            filteredCountries.removeAll()
+            filteredCountries = countries
+        }
+    }
+    
+    // MARK: - States Search Methods
+    func searchStates(with query: String) {
+        if query.count >= 2 {
+            filteredStates = states.filter { $0.name.lowercased().contains(query.lowercased()) }
+        } else {
+            filteredStates.removeAll()
+            filteredStates = states
+        }
+    }
+    
+    // MARK: - Cities Search Methods
+    func searchCities(with query: String) {
+        if query.count >= 2 {
+            filteredCities = cities.filter { $0.lowercased().contains(query.lowercased()) }
+        } else {
+            filteredCities.removeAll()
+            filteredCities = cities
         }
     }
     
