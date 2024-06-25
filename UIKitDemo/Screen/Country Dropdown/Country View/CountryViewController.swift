@@ -117,26 +117,19 @@ extension CountryViewController: UISearchBarDelegate {
         switch currentDropdownType {
         case .country:
             viewModel.searchCountries(with: searchText)
-            stateSearchBar.text = ""
-            citySearchBar.text = ""
         case .state:
             viewModel.searchStates(with: searchText)
-            countrySearchBar.text = ""
-            citySearchBar.text = ""
         case .city:
             viewModel.searchCities(with: searchText)
-            countrySearchBar.text = ""
-            stateSearchBar.text = ""
-            
         }
     }
     
+    // Clear All Search ar
     func clearAllSearchBars() {
-            countrySearchBar.text = ""
-            stateSearchBar.text = ""
-            citySearchBar.text = ""
-       
-        }
+        countrySearchBar.text = ""
+        stateSearchBar.text = ""
+        citySearchBar.text = ""
+    }
 }
 
 // MARK: - Extension for shared instance
@@ -340,7 +333,6 @@ extension CountryViewController: UITableViewDelegate{
         }
     }
 
-    
     // Handle selection of a row in the dropdown
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch currentDropdownType {
@@ -349,23 +341,21 @@ extension CountryViewController: UITableViewDelegate{
             selectedState = nil
             selectedCity = nil
             viewModel.clearCities()
-            clearAllSearchBars()
             viewModel.fetchStates(for: selectedCountry!.name, button: chooseStateBtnOutlet)
         case .state:
             selectedState = viewModel.filteredStates.isEmpty ? nil : viewModel.filteredStates[indexPath.row]
             selectedCity = nil
-            clearAllSearchBars()
             if let country = selectedCountry {
                 viewModel.fetchCities(for: country.name, state: selectedState?.name ?? "", button: chooseCityBtnOutlet)
             }
         case .city:
             guard indexPath.row < viewModel.filteredCities.count else { return  }
-            clearAllSearchBars()
             selectedCity = viewModel.filteredCities[indexPath.row]
             viewModel.resetArrayData(for: .country)
         }
         updateDropdownSelection()
         tableView.reloadData()
+        clearAllSearchBars()
         toggleDropdown(for: tableView)
     }
 }

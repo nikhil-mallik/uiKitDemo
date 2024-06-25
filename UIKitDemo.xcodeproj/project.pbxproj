@@ -10,6 +10,9 @@
 		7D1E15B82C243F52006CF5A6 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */; };
 		7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */; };
 		7D1E15BC2C298C0B006CF5A6 /* LoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */; };
+		7D24F6A92C2A9C3000958EEA /* UserImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F6A82C2A9C3000958EEA /* UserImageViewController.swift */; };
+		7D24F6AC2C2AA0F300958EEA /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F6AB2C2AA0F300958EEA /* UserImageCollectionViewCell.swift */; };
+		7D24F6B02C2AA39900958EEA /* ImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F6AF2C2AA39900958EEA /* ImagePickerHelper.swift */; };
 		7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */; };
 		7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9332C12B76000E17724 /* APIEndPoint.swift */; };
 		7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */; };
@@ -66,6 +69,9 @@
 		7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderHelper.swift; sourceTree = "<group>"; };
+		7D24F6A82C2A9C3000958EEA /* UserImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageViewController.swift; sourceTree = "<group>"; };
+		7D24F6AB2C2AA0F300958EEA /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D24F6AF2C2AA39900958EEA /* ImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerHelper.swift; sourceTree = "<group>"; };
 		7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EndPointType + Enum.swift"; sourceTree = "<group>"; };
 		7D5AD9332C12B76000E17724 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
 		7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +137,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D24F6A12C2A9B8E00958EEA /* Image Upload */ = {
+			isa = PBXGroup;
+			children = (
+				7D24F6A42C2A9BC500958EEA /* ViewController */,
+				7D24F6A32C2A9BC200958EEA /* ViewModel */,
+			);
+			path = "Image Upload";
+			sourceTree = "<group>";
+		};
+		7D24F6A32C2A9BC200958EEA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7D24F6A42C2A9BC500958EEA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D24F6AA2C2AA0D700958EEA /* CellView */,
+				7D24F6A82C2A9C3000958EEA /* UserImageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7D24F6AA2C2AA0D700958EEA /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				7D24F6AB2C2AA0F300958EEA /* UserImageCollectionViewCell.swift */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
 		7D5AD9452C14348A00E17724 /* Product List */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +314,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7D24F6A12C2A9B8E00958EEA /* Image Upload */,
 				7D6D85132C240E0E008CA723 /* Country Dropdown */,
 				7D6D84F72C1B1A13008CA723 /* Add Button */,
 				7D6D84E12C182652008CA723 /* CollectionView */,
@@ -307,6 +347,7 @@
 				7D5AD9432C140A3000E17724 /* BgVideoPlay.swift */,
 				7D6D850E2C1C5AA9008CA723 /* isLikedUserDefault.swift */,
 				7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */,
+				7D24F6AF2C2AA39900958EEA /* ImagePickerHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -646,6 +687,7 @@
 				7D6D85092C1C0D0B008CA723 /* AddButtonViewModel.swift in Sources */,
 				7D5AD93A2C12D23B00E17724 /* TrimmedText.swift in Sources */,
 				7D5AD9572C143D6A00E17724 /* productListViewController.swift in Sources */,
+				7D24F6AC2C2AA0F300958EEA /* UserImageCollectionViewCell.swift in Sources */,
 				7D6376412C11E01E00D10B30 /* LoginModel.swift in Sources */,
 				7D5AD9422C1340B500E17724 /* Utility.swift in Sources */,
 				7D6D85182C240E54008CA723 /* CountryViewController.swift in Sources */,
@@ -653,6 +695,7 @@
 				7D5AD95F2C1443D500E17724 /* UserListViewModel.swift in Sources */,
 				7D6D85032C1B2B23008CA723 /* AddButtonModel.swift in Sources */,
 				7D6375FA2C119B5600D10B30 /* AppDelegate.swift in Sources */,
+				7D24F6B02C2AA39900958EEA /* ImagePickerHelper.swift in Sources */,
 				7D6D850B2C1C361C008CA723 /* ButtonScrollView.swift in Sources */,
 				7D5AD9592C143D7700E17724 /* productListViewModel.swift in Sources */,
 				7D5AD9672C144BE100E17724 /* UIImageView + Extension.swift in Sources */,
@@ -667,6 +710,7 @@
 				7D6D84E02C180FC2008CA723 /* ProductDetailsViewController.swift in Sources */,
 				7D6376312C11ADD600D10B30 /* RegisterViewController.swift in Sources */,
 				7D6376262C11A05A00D10B30 /* Constant.swift in Sources */,
+				7D24F6A92C2A9C3000958EEA /* UserImageViewController.swift in Sources */,
 				7D6D84FC2C1B258D008CA723 /* AddButtonViewController.swift in Sources */,
 				7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */,
 				7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */,

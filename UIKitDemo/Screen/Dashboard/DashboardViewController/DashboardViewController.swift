@@ -18,6 +18,7 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var buttonCollectionViewBtn: UIButton!
     @IBOutlet weak var buttonScrollViewBtn: UIButton!
     @IBOutlet weak var countryDropdownBtn: UIButton!
+    @IBOutlet weak var userImageBtn: UIButton!
     
     // Holds the user's name
     var userName = ""
@@ -57,13 +58,11 @@ class DashboardViewController : UIViewController {
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
     
-    
     @IBAction func collectionViewAction(_ sender: Any) {
         // Navigate to the product Collection View screen
         let productListVC = CollectionViewController.sharedIntance()
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
-    
     
     @IBAction func buttonCollectionViewBtnAction(_ sender: Any) {
         // Navigate to the Generate Button Collection View screen
@@ -71,19 +70,23 @@ class DashboardViewController : UIViewController {
         self.navigationController?.pushViewController(addButtonVC, animated: true)
     }
     
-    
     @IBAction func buttonScrollViewBtnAction(_ sender: Any) {
         // Navigate to the Generate Button Scroll View screen
         let addButtonVC = ButtonScrollView.sharedIntance()
         self.navigationController?.pushViewController(addButtonVC, animated: true)
     }
     
-    
     @IBAction func countryDropdownBtnAction(_ sender: Any) {
         // Navigate to the Country Dropdown View screen
         let countryVC = CountryViewController.sharedIntance()
         self.navigationController?.pushViewController(countryVC, animated: true)
     }
+    
+    @IBAction func userImageAction(_ sender: Any) {
+        let userImageVC = UserImageViewController.sharedIntance()
+        self.navigationController?.pushViewController(userImageVC, animated: true)
+    }
+    
     
 }
 

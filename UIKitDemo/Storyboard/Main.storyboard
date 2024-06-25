@@ -245,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBW-L9-ZD8">
-                                <rect key="frame" x="25" y="283" width="364" height="330"/>
+                                <rect key="frame" x="25" y="258" width="364" height="380"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tA-rq-0d8">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="35"/>
@@ -257,7 +257,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jJH-mv-NkS">
-                                        <rect key="frame" x="0.0" y="45" width="364" height="285"/>
+                                        <rect key="frame" x="0.0" y="45" width="364" height="335"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sea-9S-jMr">
                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="35"/>
@@ -319,10 +319,21 @@
                                                     <action selector="countryDropdownBtnAction:" destination="Tqn-0P-ZpE" eventType="touchUpInside" id="Nsl-Br-IaU"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8E-Ts-zb1">
+                                                <rect key="frame" x="0.0" y="300" width="364" height="35"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="User Image" cornerStyle="capsule">
+                                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="userImageAction:" destination="Tqn-0P-ZpE" eventType="touchUpInside" id="yjJ-sk-kZR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="o8E-Ts-zb1" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="2cl-32-zyO"/>
                                     <constraint firstItem="sea-9S-jMr" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="3qy-TB-WlJ"/>
                                     <constraint firstItem="Xbp-cd-FIV" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="92V-M5-nSq"/>
                                     <constraint firstItem="vO8-w7-9Gq" firstAttribute="height" secondItem="7tA-rq-0d8" secondAttribute="height" id="MBd-Gx-Xr9"/>
@@ -357,6 +368,7 @@
                         <outlet property="logoutButtonOutlet" destination="WkS-bg-Ypj" id="U5B-qe-wlf"/>
                         <outlet property="nameLabel" destination="7tA-rq-0d8" id="eUR-ZA-rNy"/>
                         <outlet property="productListButton" destination="Sm3-uP-l9M" id="P0L-4c-9KU"/>
+                        <outlet property="userImageBtn" destination="o8E-Ts-zb1" id="TOM-FS-eaI"/>
                         <outlet property="userListButton" destination="sea-9S-jMr" id="XsL-pT-ytK"/>
                     </connections>
                 </viewController>
@@ -1642,6 +1654,92 @@
             </objects>
             <point key="canvasLocation" x="10277" y="600"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="Rgv-JY-IA0">
+            <objects>
+                <viewController storyboardIdentifier="UserImageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="coL-Qz-8c8" customClass="UserImageViewController" customModule="UIKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pSY-hJ-OIC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9dT-Zm-2WI">
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BNq-na-hoc">
+                                    <size key="itemSize" width="186" height="166"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="C2p-pA-4dp" customClass="UserImageCollectionViewCell" customModule="UIKitDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Wda-NH-xGE">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6m-gQ-MF1">
+                                                    <rect key="frame" x="10" y="10" width="160" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="180" height="180"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="B6m-gQ-MF1" id="Y6G-gZ-Nzu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="coL-Qz-8c8" id="0Hh-Zi-pic"/>
+                                    <outlet property="delegate" destination="coL-Qz-8c8" id="gQl-2t-bdQ"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-0t-60U">
+                                <rect key="frame" x="344" y="812" width="50" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8hC-Nz-0bt"/>
+                                    <constraint firstAttribute="height" constant="35" id="YFB-Wa-JIR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="list.bullet" catalog="system">
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="floatingBtnAction:" destination="coL-Qz-8c8" eventType="touchUpInside" id="RxM-Z3-Tkh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b3U-qZ-lBr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b3U-qZ-lBr" firstAttribute="trailing" secondItem="Gye-0t-60U" secondAttribute="trailing" constant="20" id="1SJ-z2-p2G"/>
+                            <constraint firstAttribute="bottom" secondItem="9dT-Zm-2WI" secondAttribute="bottom" id="EiC-5K-gMC"/>
+                            <constraint firstItem="9dT-Zm-2WI" firstAttribute="top" secondItem="b3U-qZ-lBr" secondAttribute="top" id="PVR-IC-ypy"/>
+                            <constraint firstItem="b3U-qZ-lBr" firstAttribute="bottom" secondItem="Gye-0t-60U" secondAttribute="bottom" constant="15" id="Vl4-Ik-nqr"/>
+                            <constraint firstItem="9dT-Zm-2WI" firstAttribute="trailing" secondItem="b3U-qZ-lBr" secondAttribute="trailing" id="h6M-7s-YoY"/>
+                            <constraint firstItem="9dT-Zm-2WI" firstAttribute="leading" secondItem="b3U-qZ-lBr" secondAttribute="leading" id="qRJ-Lk-pZB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="OFc-Vx-yXh">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="zkE-mZ-ifp">
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <connections>
+                                <action selector="addImageAction:" destination="coL-Qz-8c8" id="0tS-XC-o1g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="AddImageButton" destination="zkE-mZ-ifp" id="MA8-7P-N66"/>
+                        <outlet property="floatingBtnOutlet" destination="Gye-0t-60U" id="P7m-PT-Y8E"/>
+                        <outlet property="userImageCollectionView" destination="9dT-Zm-2WI" id="cHT-zb-c7q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eki-da-qky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11028.985507246378" y="600"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JHr-2C-gQj">
             <objects>
@@ -1696,6 +1794,24 @@
             </objects>
             <point key="canvasLocation" x="9462" y="-99"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qUf-0J-AM8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NKZ-cs-tlf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FBa-fL-14l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YJr-am-cds">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="coL-Qz-8c8" kind="relationship" relationship="rootViewController" id="YmY-bs-ntS"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="11030" y="-99"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
@@ -1703,7 +1819,9 @@
         <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="login" width="860" height="860"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="signUp" width="450" height="450"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="darkTextColor">
