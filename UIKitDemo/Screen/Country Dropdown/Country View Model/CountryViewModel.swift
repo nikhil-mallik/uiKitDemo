@@ -79,6 +79,7 @@ class CountryViewModel: ObservableObject {
         }
     }
     
+    
     // MARK: - States Search Methods
     func searchStates(with query: String) {
         if query.count >= 2 {
@@ -96,6 +97,20 @@ class CountryViewModel: ObservableObject {
         } else {
             filteredCities.removeAll()
             filteredCities = cities
+        }
+    }
+    
+    func resetArrayData(for type: CountryViewController.DropdownType) {
+        switch type {
+        case .country:
+            searchStates(with: "")
+            searchCities(with: "")
+        case .state:
+            searchCountries(with: "")
+            searchCities(with: "")
+        case .city:
+            searchCountries(with: "")
+            searchStates(with: "")
         }
     }
     
@@ -126,6 +141,8 @@ class CountryViewModel: ObservableObject {
     private func reloadTableView(for type: CountryViewController.DropdownType) {
         DispatchQueue.main.async {
             self.vc?.reloadTableView(for: type)
+            self.resetArrayData(for: type)
+            self.vc?.clearAllSearchBars()
             self.vc?.checkButtonEnableDisable()
         }
     }
