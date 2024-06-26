@@ -19,10 +19,10 @@ class ImagePickerHelper: NSObject, UIImagePickerControllerDelegate, UINavigation
         self.viewController = viewController
         self.completionHandler = completion
         
-        let actionSheet = UIAlertController(title: "Select Image", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Select Image", message: nil, preferredStyle: .alert)
         
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { [weak self] _ in
-            self?.presentImagePicker(sourceType: .camera)
+            self?.checkCameraSupport()
         }
         
         let galleryAction = UIAlertAction(title: "Gallery", style: .default) { [weak self] _ in
@@ -41,6 +41,20 @@ class ImagePickerHelper: NSObject, UIImagePickerControllerDelegate, UINavigation
         }
         
         viewController.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    // Method to check if camera is supported and present it
+    private func checkCameraSupport() {
+        guard let viewController = viewController else { return }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            presentImagePicker(sourceType: .camera)
+        } else {
+            let alert = UIAlertController(title: "Camera Not Available", message: "This device does not support camera.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            viewController.present(alert, animated: true, completion: nil)
+        }
     }
     
     private func presentImagePicker(sourceType: UIImagePickerController.SourceType) {

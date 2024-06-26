@@ -83,7 +83,7 @@ class DashboardViewController : UIViewController {
     }
     
     @IBAction func userImageAction(_ sender: Any) {
-        let userImageVC = UserImageViewController.sharedIntance()
+        let userImageVC = UserImageScrollViewController.sharedIntance()
         self.navigationController?.pushViewController(userImageVC, animated: true)
     }
     
