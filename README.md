@@ -19,11 +19,15 @@ This project is a UIKit demo application designed to provide learners with a pra
 4. **Logout**
    - **Logout Functionality**: Users can log out to clear their session and redirect them to the login screen.
 
-4. **Country Selection**
+5. **Country Selection**
    - **Country Dropdown**: Allows users to select a country from a dropdown list.
    - **State Dropdown**: Displays states based on the selected country.
    - **City Dropdown**: Shows cities based on the selected state.
    - **Search Functionality**: Integrates `UISearchBar` into the table views for country, state, and city selection, enabling users to filter items based on their names.
+
+6. **Image Management**
+   - **Add Images**: Users can add images to a scrollable view, which can be displayed either in a list or grid layout.
+   - **Full-Screen View**: Users can view images in full-screen mode with gestures like swipe, double-tap, and pinch to zoom.
 
 ## Technical Details
 
@@ -43,6 +47,8 @@ This project is a UIKit demo application designed to provide learners with a pra
   - **Dropdowns**: Utilizes UITableViews embedded in dropdown views (`countryTableViewOutlet`, `stateTableViewOutlet`, `cityTableViewOutlet`) to display selectable items.
   - **Labels and Buttons**: Updates UI elements (`selectedCountryNameLbl`, `selectedStateNameLbl`, `selectedCityNameLbl`, `allSelectedFieldLbl`) based on user selection.
   - **Search Bar**: Adds a `UISearchBar` to the table view headers for filtering country, state, and city names.
+  - **Scroll Views**: Manages the layout and display of images in scroll views (`UserImageScrollViewController`).
+  - **Image Gestures**: Provides full-screen image viewing with swipe, double-tap, and pinch-to-zoom gestures (`FullScreenImageViewControllers`).
 
 - **Data Binding**
   - **Event Handling**: The ViewModels use closures to handle events such as loading, data loaded, errors, and navigation. This allows for reactive updates to the UI based on the state of the data.
@@ -77,6 +83,8 @@ This project is a UIKit demo application designed to provide learners with a pra
 7. **Button Collection Screen**: Displays a dynamic number of buttons in a Collection View based on user input.
 8. **Button Scroll Screen**: Displays a dynamic number of buttons in a Scroll View based on user input.
 9. **Country Selection Screen**: Allows users to choose a country, state, and city from dropdown menus, with search functionality integrated.
+10. **User Image Scroll Screen**: Allows users to add and view images in a scrollable view, with list or grid layout options.
+11. **Full-Screen Image View**: Enables full-screen viewing of images with swipe, double-tap, and pinch-to-zoom gestures.
 
 ## Navigation
 
@@ -92,5 +100,7 @@ This project is a UIKit demo application designed to provide learners with a pra
 - **UICollectionView and UITableView Extensions**: Implements delegate and data source methods for managing collection and table views.
 - **UITableView Extensions**: Implements delegate and data source methods for managing table views within dropdown menus.
 - **UISearchBarDelegate**: Handles search functionality, including filtering data, clearing the search bar, and displaying original data when the search bar is empty.
+- **UserImageScrollViewController**: Manages adding, displaying, and interacting with images in a scrollable view.
+- **FullScreenImageViewControllers**: Handles full-screen image viewing with gesture support for navigation and zooming.
 
-This UIKit demo project aims to deliver a comprehensive learning tool for understanding the essential concepts and best practices in iOS development. Through hands-on implementation, learners will gain valuable experience in building and managing a UIKit-based application.
+This UIKit demo project aims to deliver a comprehensive learning tool for understanding the essential concepts and best practices in iOS development. Through hands-on implementation, learners will gain valuable experience building and managing a UIKit-based application.
