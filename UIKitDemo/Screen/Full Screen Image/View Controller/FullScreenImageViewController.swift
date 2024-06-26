@@ -89,7 +89,7 @@ class FullScreenImageViewControllers: UIViewController {
         let offsetY = max((scrollViewOutlet.bounds.size.height - scrollViewOutlet.contentSize.height) * 0.5, 0.0)
         imageView.center = CGPoint(x: scrollViewOutlet.contentSize.width * 0.5 /*+ offsetX*/, y: scrollViewOutlet.contentSize.height * 0.5 + offsetY)
         
-//        // Position label below the image
+        // Position label below the image
 //        let labelY = imageView.frame.maxY + 10
 //        lableTxtOutlet.frame = CGRect(x: 0, y: labelY, width: view.frame.width, height: lableTxtOutlet.frame.height)
 //        lableTxtOutlet.textAlignment = .center

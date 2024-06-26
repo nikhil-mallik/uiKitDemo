@@ -1841,21 +1841,15 @@
                                                     <action selector="floatingBtnAction:" destination="NDT-H4-mat" eventType="touchUpInside" id="bFA-W4-lnN"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image not found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8k-Wc-J23">
-                                                <rect key="frame" x="89.5" y="379.5" width="235.5" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="CEW-ve-jKf"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image not found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8k-Wc-J23">
+                                                <rect key="frame" x="142.5" y="392" width="129.5" height="20.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="w8k-Wc-J23" firstAttribute="centerX" secondItem="NcB-7R-UpF" secondAttribute="centerX" id="16m-2C-IOC"/>
-                                            <constraint firstItem="w8k-Wc-J23" firstAttribute="centerY" secondItem="NcB-7R-UpF" secondAttribute="centerY" id="xbr-dF-YiG"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>

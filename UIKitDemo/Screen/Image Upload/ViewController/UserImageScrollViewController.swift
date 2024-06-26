@@ -25,6 +25,7 @@ class UserImageScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFloatingButton()
+        setupNoImageFoundLabel()
         floatingBtnTitle()
     }
     
@@ -38,7 +39,7 @@ class UserImageScrollViewController: UIViewController {
                 self?.viewImage.append(image)
                 self?.setupNoImageFoundLabel()
                 self?.layoutImages()
-                self?.adjustFloatingButtonPosition()         
+                self?.adjustFloatingButtonPosition()
             }
         }
     }
@@ -61,8 +62,15 @@ class UserImageScrollViewController: UIViewController {
     func setupNoImageFoundLabel() {
         if viewImage.isEmpty {
             imageNotFoundLbl.alpha = 1
+            scrollView.isScrollEnabled = false
+            let labelHeight = imageNotFoundLbl.bounds.height
+            let scrollViewHeight = scrollView.bounds.height
+            let yOffset = (scrollViewHeight - labelHeight) / 2.0
+            imageNotFoundLbl.frame.origin.y = yOffset
+            scrollView.addSubview(imageNotFoundLbl)
         } else {
             imageNotFoundLbl.alpha = 0
+            scrollView.isScrollEnabled = true
         }
     }
 }
@@ -77,9 +85,11 @@ extension UserImageScrollViewController {
 // MARK: - Add Image Function
 extension UserImageScrollViewController {
     private func layoutImages() {
+        scrollView.subviews.forEach { $0.removeFromSuperview() }
+        scrollView.addSubview(imageNotFoundLbl)
         let spacing: CGFloat = 5
         let totalWidth = scrollView.frame.width
-        var contentHeight: CGFloat = 0 // Total height of the scrollView content
+        var contentHeight: CGFloat = 0
         
         if isListEnable {
             let fixedHeight: CGFloat = 200
@@ -93,18 +103,16 @@ extension UserImageScrollViewController {
                 imageView.frame = CGRect(x: 0, y: yOffset, width: itemWidth, height: fixedHeight)
                 scrollView.addSubview(imageView)
                 
-                // Tap gesture to imageView
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
                 imageView.isUserInteractionEnabled = true
                 imageView.addGestureRecognizer(tapGesture)
                 imageView.tag = index
                 
                 yOffset += fixedHeight + spacing
-                contentHeight = yOffset // Update content height for list view
+                contentHeight = yOffset
             }
             scrollView.contentSize = CGSize(width: totalWidth, height: contentHeight)
         } else {
-            // Grid layout: Multiple images per row
             let itemsPerRow: CGFloat = 5
             let itemWidth = (totalWidth - (itemsPerRow - 1) * spacing) / itemsPerRow
             var xOffset: CGFloat = 0
@@ -117,7 +125,6 @@ extension UserImageScrollViewController {
                 imageView.frame = CGRect(x: xOffset, y: yOffset, width: itemWidth, height: itemWidth)
                 scrollView.addSubview(imageView)
                 
-                // Add tap gesture to imageView
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
                 imageView.isUserInteractionEnabled = true
                 imageView.addGestureRecognizer(tapGesture)
@@ -130,7 +137,6 @@ extension UserImageScrollViewController {
                     yOffset += itemWidth + spacing
                 }
             }
-            // Calculate total content height for grid view
             let rows = ceil(Double(viewImage.count) / Double(itemsPerRow))
             contentHeight = CGFloat(rows) * (itemWidth + spacing)
             scrollView.contentSize = CGSize(width: totalWidth, height: contentHeight)
@@ -142,6 +148,7 @@ extension UserImageScrollViewController {
 // MARK: - Extension for FloatingButton
 extension UserImageScrollViewController {
     // Setup Image
+    
     func floatingBtnTitle() {
         if isListEnable == false {
             floatingBtnOutlet.setTitle("", for: .normal)
@@ -174,7 +181,7 @@ extension UserImageScrollViewController {
         let floatingBtnY = view.safeAreaInsets.bottom + 20
         
         // Animate button position change
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             // Adjust button position based on scrollView content size
             let maxContentHeight = self.scrollView.contentSize.height
             let scrollViewHeight = self.scrollView.frame.height
