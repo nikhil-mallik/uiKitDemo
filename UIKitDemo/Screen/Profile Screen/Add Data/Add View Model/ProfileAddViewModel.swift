@@ -48,6 +48,10 @@ class ProfileAddViewModel {
             self?.reloadTableView(for: .state)
             LoaderViewHelper.hideLoader()
             print("States fetched -> \(response.data.states.count)")
+            if self?.states.count == 0 {
+                self?.vc?.selectedStateNameLbl.text = "State not available"
+                self?.vc?.selectedCityNameLbl.text = "City not available"
+            }
         }
     }
     
