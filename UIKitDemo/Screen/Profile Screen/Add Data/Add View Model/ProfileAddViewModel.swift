@@ -17,7 +17,8 @@ class ProfileAddViewModel {
     @Published var filteredStates: [Statess] = []
     @Published var cities: [String] = []
     @Published var filteredCities: [String] = []
-    
+    var defaultStates = Statess(name: "No State Available", stateCode: "XXXXX")
+    var defaultCities = City(name: "No City Available")
     // MARK: - Variables
     weak var vc: AddProfileViewController?       // Weak reference to the view controller
     var cancellables = Set<AnyCancellable>()  // Set to hold cancellable objects
@@ -51,6 +52,8 @@ class ProfileAddViewModel {
             if self?.states.count == 0 {
                 self?.vc?.selectedStateNameLbl.text = "State not available"
                 self?.vc?.selectedCityNameLbl.text = "City not available"
+                self?.vc?.selectedState = self?.defaultStates
+                self?.vc?.selectedCity = self?.defaultCities.name
             }
         }
     }
@@ -68,6 +71,7 @@ class ProfileAddViewModel {
             print("Cities fetched -> \(response.data.count)")
             if self?.cities.count == 0 {
                 self?.vc?.selectedCityNameLbl.text = "City not available"
+                self?.vc?.selectedCity = self?.defaultCities.name
             }
 //            completion()
         }

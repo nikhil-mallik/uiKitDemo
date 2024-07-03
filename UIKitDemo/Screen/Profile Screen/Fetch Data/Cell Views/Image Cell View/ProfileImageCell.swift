@@ -14,13 +14,17 @@ class ProfileImageCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupProfileImage()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupProfileImage() {
+        // Make profile image circular
+        coverImageView.layer.borderColor = UIColor.black.cgColor
+        coverImageView.layer.borderWidth = 1.0
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.borderColor = UIColor.black.cgColor
+        profileImageView.layer.borderWidth = 3.0
+        profileImageView.backgroundColor = UIColor.lightGray
     }
-    
 }
