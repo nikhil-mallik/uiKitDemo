@@ -305,10 +305,6 @@ extension AddProfileViewController {
 
 // MARK: - Fake Data
 extension AddProfileViewController {
-    
-
-    
-    
     func fakeData() {
         let dob = datepicker.date
         let profile = ProfileModel(

@@ -132,16 +132,26 @@ extension AddProfileViewController {
     }
     
     func updateDropdownSelection() {
-        
         selectedCountryNameLbl.text = selectedCountry?.name ?? "Country"
         selectedStateNameLbl.text = selectedState?.name ?? " State"
         selectedCityNameLbl.text = selectedCity ?? "City"
     }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension AddProfileViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        // Ignore touches on the table views to avoid interfering with cell selection
+        if let view = touch.view, view.isDescendant(of: countryTableViewOutlet) || view.isDescendant(of: stateTableViewOutlet) || view.isDescendant(of: cityTableViewOutlet) {
+            return false
+        }
+        return true
+    }
     
-    // Sets up tap gesture recognizer to handle taps outside dropdowns
     func setupTapGestureRecognizer() {
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideDropdown(_:)))
         tapGestureRecognizer?.cancelsTouchesInView = false
+        tapGestureRecognizer?.delegate = self  // Set the delegate
         if let tapGestureRecognizer = tapGestureRecognizer {
             view.addGestureRecognizer(tapGestureRecognizer)
         }
