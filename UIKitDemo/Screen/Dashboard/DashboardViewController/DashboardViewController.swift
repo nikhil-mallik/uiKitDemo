@@ -19,6 +19,7 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var buttonScrollViewBtn: UIButton!
     @IBOutlet weak var countryDropdownBtn: UIButton!
     @IBOutlet weak var userImageBtn: UIButton!
+    @IBOutlet weak var profileSectionBtn: UIButton!
     
     // Holds the user's name
     var userName = ""
@@ -85,6 +86,11 @@ class DashboardViewController : UIViewController {
     @IBAction func userImageAction(_ sender: Any) {
         let userImageVC = UserImageScrollViewController.sharedIntance()
         self.navigationController?.pushViewController(userImageVC, animated: true)
+    }
+    
+    @IBAction func profileSectionAction(_ sender: Any) {
+        let profileVC = AddProfileViewController.sharedIntance()
+        self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
     
