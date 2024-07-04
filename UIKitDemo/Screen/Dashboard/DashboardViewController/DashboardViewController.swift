@@ -50,36 +50,42 @@ class DashboardViewController : UIViewController {
     @IBAction func userListButtonTapped(_ sender: Any) {
         // Navigate to the user list screen
         let userListVC = UserListViewController.sharedIntance()
+        userListVC.navigationItem.title = "User List"
         self.navigationController?.pushViewController(userListVC, animated: true)
     }
     
     @IBAction func productListButtonTapped(_ sender: Any) {
         // Navigate to the product list screen
         let productListVC = ProductListViewController.sharedIntance()
+        productListVC.navigationItem.title = "Product List"
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
     
     @IBAction func collectionViewAction(_ sender: Any) {
         // Navigate to the product Collection View screen
         let productListVC = CollectionViewController.sharedIntance()
+        productListVC.navigationItem.title = "Collection View"
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
     
     @IBAction func buttonCollectionViewBtnAction(_ sender: Any) {
         // Navigate to the Generate Button Collection View screen
         let addButtonVC = AddButtonViewController.sharedIntance()
+        addButtonVC.navigationItem.title = "Collection View Btn"
         self.navigationController?.pushViewController(addButtonVC, animated: true)
     }
     
     @IBAction func buttonScrollViewBtnAction(_ sender: Any) {
         // Navigate to the Generate Button Scroll View screen
         let addButtonVC = ButtonScrollView.sharedIntance()
+        addButtonVC.navigationItem.title = "Custom Button"
         self.navigationController?.pushViewController(addButtonVC, animated: true)
     }
     
     @IBAction func countryDropdownBtnAction(_ sender: Any) {
         // Navigate to the Country Dropdown View screen
         let countryVC = CountryViewController.sharedIntance()
+        countryVC.navigationItem.title = "Country API"
         self.navigationController?.pushViewController(countryVC, animated: true)
     }
     
@@ -89,12 +95,14 @@ class DashboardViewController : UIViewController {
     }
     
     @IBAction func profileSectionAction(_ sender: Any) {
-        let profileVC = AddProfileViewController.sharedIntance()
+        let profileVC = ProfileListViewController.sharedIntance()
+        profileVC.clearUserData()
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
     @IBAction func stickyHeaderAction(_ sender: UIButton) {
         let stickyVC = StickHeaderViewController.sharedIntance()
+        stickyVC.navigationItem.title = "Sticky Header"
         self.navigationController?.pushViewController(stickyVC, animated: true)
     }
     

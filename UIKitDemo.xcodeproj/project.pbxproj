@@ -36,6 +36,9 @@
 		7D40A4892C35871D007B8370 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D40A4872C35871D007B8370 /* ImageTableViewCell.xib */; };
 		7D40A48D2C365996007B8370 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A48B2C365996007B8370 /* ImageCollectionViewCell.swift */; };
 		7D40A48E2C365996007B8370 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D40A48C2C365996007B8370 /* ImageCollectionViewCell.xib */; };
+		7D40A4912C3690F7007B8370 /* ProfileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4902C3690F7007B8370 /* ProfileListViewController.swift */; };
+		7D40A4952C3691B2007B8370 /* ProfileListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4932C3691B2007B8370 /* ProfileListTableViewCell.swift */; };
+		7D40A4962C3691B2007B8370 /* ProfileListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D40A4942C3691B2007B8370 /* ProfileListTableViewCell.xib */; };
 		7D58BF0B2C2E864E00E910F7 /* AddProfileView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BF0A2C2E864E00E910F7 /* AddProfileView + Extensions.swift */; };
 		7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */; };
 		7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9332C12B76000E17724 /* APIEndPoint.swift */; };
@@ -117,6 +120,9 @@
 		7D40A4872C35871D007B8370 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		7D40A48B2C365996007B8370 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D40A48C2C365996007B8370 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		7D40A4902C3690F7007B8370 /* ProfileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListViewController.swift; sourceTree = "<group>"; };
+		7D40A4932C3691B2007B8370 /* ProfileListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListTableViewCell.swift; sourceTree = "<group>"; };
+		7D40A4942C3691B2007B8370 /* ProfileListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileListTableViewCell.xib; sourceTree = "<group>"; };
 		7D58BF0A2C2E864E00E910F7 /* AddProfileView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddProfileView + Extensions.swift"; sourceTree = "<group>"; };
 		7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EndPointType + Enum.swift"; sourceTree = "<group>"; };
 		7D5AD9332C12B76000E17724 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				7D24F6C22C2D363600958EEA /* Profile Model */,
+				7D40A48F2C3690B6007B8370 /* List Fetch Data */,
 				7D24F6BC2C2D35CC00958EEA /* Add Data */,
 				7D24F6BB2C2D35C000958EEA /* Fetch Data */,
 			);
@@ -386,6 +393,24 @@
 				7D40A48C2C365996007B8370 /* ImageCollectionViewCell.xib */,
 			);
 			path = "Collection View Cell";
+			sourceTree = "<group>";
+		};
+		7D40A48F2C3690B6007B8370 /* List Fetch Data */ = {
+			isa = PBXGroup;
+			children = (
+				7D40A4922C369113007B8370 /* Cell View */,
+				7D40A4902C3690F7007B8370 /* ProfileListViewController.swift */,
+			);
+			path = "List Fetch Data";
+			sourceTree = "<group>";
+		};
+		7D40A4922C369113007B8370 /* Cell View */ = {
+			isa = PBXGroup;
+			children = (
+				7D40A4932C3691B2007B8370 /* ProfileListTableViewCell.swift */,
+				7D40A4942C3691B2007B8370 /* ProfileListTableViewCell.xib */,
+			);
+			path = "Cell View";
 			sourceTree = "<group>";
 		};
 		7D58BF092C2E862000E910F7 /* Extensions */ = {
@@ -887,6 +912,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D40A4712C3512F6007B8370 /* ProfileImageCell.xib in Resources */,
+				7D40A4962C3691B2007B8370 /* ProfileListTableViewCell.xib in Resources */,
 				7D40A46D2C35114E007B8370 /* ProfileButtonCell.xib in Resources */,
 				7D5AD9402C133FFC00E17724 /* loginbg.mp4 in Resources */,
 				7D40A4692C351137007B8370 /* ProfileInfoCell.xib in Resources */,
@@ -936,8 +962,10 @@
 				7D6D85182C240E54008CA723 /* CountryViewController.swift in Sources */,
 				7D6D850D2C1C4464008CA723 /* UITextField + Extension.swift in Sources */,
 				7D40A4882C35871D007B8370 /* ImageTableViewCell.swift in Sources */,
+				7D40A4952C3691B2007B8370 /* ProfileListTableViewCell.swift in Sources */,
 				7D24F6B32C2ACAD000958EEA /* UserImageScrollViewController.swift in Sources */,
 				7D5AD95F2C1443D500E17724 /* UserListViewModel.swift in Sources */,
+				7D40A4912C3690F7007B8370 /* ProfileListViewController.swift in Sources */,
 				7D40A4682C351137007B8370 /* ProfileInfoCell.swift in Sources */,
 				7D6D85032C1B2B23008CA723 /* AddButtonModel.swift in Sources */,
 				7D40A45D2C350FA2007B8370 /* FetchProfileTableViewController.swift in Sources */,

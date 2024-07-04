@@ -10,8 +10,12 @@ import UIKit
 class FetchProfileTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var previousProductOutletBtn: UIBarButtonItem!
+    @IBOutlet weak var nextProductOutletBtn: UIBarButtonItem!
     
-    var profileData: ProfileModel?
+    var profileData: ProfileModel? 
+    var viewModel = ProfileAddViewModel.shared
+    var currentIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +24,34 @@ class FetchProfileTableViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         
         registerCell()
-        fetchProductData()
+        updateProfileData()
+    }
+    
+    // MARK: - Actions
+    @IBAction func previousProductBtnAction(_ sender: Any) {
+        guard currentIndex > 0 else {
+            print("No previous product available")
+            return
+        }
+        // Fetch previous product details
+        currentIndex -= 1
+        let previousUserData = viewModel.userData[currentIndex]
+        // Update UI with previous product data
+        profileData = previousUserData
+        updateProfileData()
+    }
+    
+    @IBAction func nextProductBtnAction(_ sender: Any) {
+        guard currentIndex < viewModel.userData.count - 1 else {
+            print("No next product available")
+            return
+        }
+        // Fetch next product details
+        currentIndex += 1
+        let nextUserData = viewModel.userData[currentIndex]
+        // Update UI with next product data
+        profileData = nextUserData
+        updateProfileData()
     }
 }
 
@@ -42,9 +73,23 @@ extension FetchProfileTableViewController {
         tableView.register(UINib(nibName: "ProfileButtonCell", bundle: nil), forCellReuseIdentifier: "ButtonCell")
     }
     
-    // Fetch and reload profile data
-    func fetchProductData() {
-        tableView.reloadData()
+ 
+    func updateProfileData() {
+           // Update profileData with current index data
+           profileData = viewModel.userData[currentIndex]
+           reloadTableView()
+       }
+       
+       func reloadTableView() {
+           // Reload table view data
+           tableView.reloadData()
+           updateButtonStates()
+       }
+    
+    // Update the states of previous and next buttons
+    func updateButtonStates() {
+        previousProductOutletBtn.isEnabled = currentIndex > 0
+        nextProductOutletBtn.isEnabled = currentIndex < viewModel.userData.count - 1
     }
     
     // MARK: - Actions
@@ -52,6 +97,7 @@ extension FetchProfileTableViewController {
         let profileVC = AddProfileViewController.sharedIntance()
         profileVC.profileInfo = profileData
         profileVC.isProfileEditing = true
+        profileVC.profileId = profileData!.id
         navigationController?.pushViewController(profileVC, animated: true)
         print("Edit")
     }
@@ -149,7 +195,6 @@ extension FetchProfileTableViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension FetchProfileTableViewController:  UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:

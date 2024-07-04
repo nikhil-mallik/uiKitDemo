@@ -10,6 +10,9 @@ import Combine
 import Alamofire
 
 class ProfileAddViewModel {
+    // MARK: - Singleton Instance
+      static let shared = ProfileAddViewModel()
+    private init() {} 
     // MARK: - Published Properties
     @Published var countries: [Country] = []
     @Published var filteredCountries: [Country] = []
@@ -17,11 +20,21 @@ class ProfileAddViewModel {
     @Published var filteredStates: [Statess] = []
     @Published var cities: [String] = []
     @Published var filteredCities: [String] = []
+    
+    // MARK: - Variables
     var defaultStates = Statess(name: "No State Available", stateCode: "XXXXX")
     var defaultCities = City(name: "No City Available")
-    // MARK: - Variables
-    weak var vc: AddProfileViewController?       // Weak reference to the view controller
-    var cancellables = Set<AnyCancellable>()  // Set to hold cancellable objects
+    weak var viewController: ProfileListViewController?
+    weak var vc: AddProfileViewController?
+    var cancellables = Set<AnyCancellable>()
+    var userData: [ProfileModel] = [] {
+        didSet {
+            viewController?.tableView.reloadData()
+            let total = userData.count
+            print("Total = \(total)")
+        }
+    }
+    
     
     // MARK: - Fetch Countries
     func fetchCountries() {
