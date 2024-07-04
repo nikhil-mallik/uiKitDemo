@@ -11,7 +11,7 @@ class LoaderViewHelper {
     private static var loaderView: UIView?
     
     // MARK: - Show Loader on View
-    static func showLoader(on view: UIView) {
+    static func showLoaderView(on view: UIView) {
         hideLoader() // Ensure any previous loader is removed
         
         let loaderSize: CGFloat = 60
@@ -20,7 +20,7 @@ class LoaderViewHelper {
         loaderView.layer.cornerRadius = loaderSize / 2
         loaderView.center = view.center
         
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = UIColor.white
         activityIndicator.center = CGPoint(x: loaderSize / 2, y: loaderSize / 2)
         activityIndicator.startAnimating()

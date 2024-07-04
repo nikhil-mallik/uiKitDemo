@@ -8,7 +8,7 @@
 import UIKit
 
 class ProductListViewController: UIViewController {
-
+  
     // MARK: - Outlets
     @IBOutlet weak var productTableView: UITableView!
     
@@ -91,6 +91,7 @@ extension ProductListViewController: UITableViewDataSource {
         // Set product data for the cell
         let product = viewModel.products[indexPath.row]
         cell.product = product
+        cell.delegate = self
         return cell
     }
 }
@@ -123,3 +124,21 @@ extension ProductListViewController: ProductDetailsDelegate {
         productTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
 }
+
+extension ProductListViewController: ProductCellDelegate {
+    func didToggleLikeUnlike(for product: ProductListModel) {
+        guard let index = viewModel.products.firstIndex(where: { $0.id == product.id }) else {
+            return
+        }
+        // Toggle the isLiked property of the product
+        viewModel.products[index].isLiked!.toggle()
+
+        // Update the product in the view model
+        let updatedProduct = viewModel.products[index]
+        
+        DispatchQueue.main.async {
+            self.productTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
+    }
+}
+

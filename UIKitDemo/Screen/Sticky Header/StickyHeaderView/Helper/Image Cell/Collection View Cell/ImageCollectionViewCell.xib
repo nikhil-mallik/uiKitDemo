@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageCollectionViewCell" customModule="UIKitDemo" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ImageCollectionViewCell" customModule="UIKitDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4rL-BG-vfD">
+                        <rect key="frame" x="8" y="5" width="274" height="193"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="4rL-BG-vfD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Hfh-Jp-3Vn"/>
+                <constraint firstItem="4rL-BG-vfD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="HlV-d9-I6Y"/>
+                <constraint firstAttribute="trailing" secondItem="4rL-BG-vfD" secondAttribute="trailing" constant="8" id="eev-vJ-FrR"/>
+                <constraint firstAttribute="bottom" secondItem="4rL-BG-vfD" secondAttribute="bottom" constant="5" id="hWR-1f-nxu"/>
+            </constraints>
+            <size key="customSize" width="290" height="203"/>
+            <connections>
+                <outlet property="imageView" destination="4rL-BG-vfD" id="SLQ-xV-cU3"/>
+            </connections>
+            <point key="canvasLocation" x="141.98473282442748" y="42.605633802816904"/>
+        </collectionViewCell>
+    </objects>
+</document>

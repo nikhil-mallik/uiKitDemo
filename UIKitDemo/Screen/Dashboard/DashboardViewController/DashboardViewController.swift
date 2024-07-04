@@ -20,7 +20,7 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var countryDropdownBtn: UIButton!
     @IBOutlet weak var userImageBtn: UIButton!
     @IBOutlet weak var profileSectionBtn: UIButton!
-    
+    @IBOutlet weak var stickyHeader: UIButton!
     // Holds the user's name
     var userName = ""
     
@@ -93,6 +93,10 @@ class DashboardViewController : UIViewController {
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
+    @IBAction func stickyHeaderAction(_ sender: UIButton) {
+        let stickyVC = StickHeaderViewController.sharedIntance()
+        self.navigationController?.pushViewController(stickyVC, animated: true)
+    }
     
 }
 

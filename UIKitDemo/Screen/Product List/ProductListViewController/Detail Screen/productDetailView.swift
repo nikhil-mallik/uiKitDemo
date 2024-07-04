@@ -27,6 +27,7 @@ class ProductDetailsView : UIViewController {
     var isLiked: Bool?
     weak var productDelegate: ProductDetailsDelegate?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -63,12 +64,9 @@ class ProductDetailsView : UIViewController {
         // Toggle the isLiked
         isLiked!.toggle()
         
-        // Store the like status in UserDefaults
         if let product = product {
-            // Update the product in the viewModel's product array
             if let index = viewModel.products.firstIndex(where: { $0.id == product.id }) {
                 viewModel.products[index].isLiked = isLiked
-                // Notify delegate
                 productDelegate?.didUpdateProduct(viewModel.products[index], at: index)
             }
         }
@@ -119,8 +117,6 @@ extension ProductDetailsView {
     }
 }
 
-
 protocol ProductDetailsDelegate: AnyObject {
     func didUpdateProduct(_ product: ProductListModel, at index: Int)
 }
-

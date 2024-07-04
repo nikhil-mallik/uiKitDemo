@@ -18,7 +18,8 @@ class CountryViewModel: ObservableObject {
     @Published var filteredStates: [Statess] = []
     @Published var cities: [String] = []
     @Published var filteredCities: [String] = []
-    
+    var defaultStates = Statess(name: "No State Available", stateCode: "XXXXX")
+    var defaultCities = City(name: "No City Available")
     // MARK: - Variable
     weak var vc: CountryViewController?       // Weak reference to the view controller
     var cancellables = Set<AnyCancellable>()  // Set to hold cancellable objects
@@ -49,6 +50,12 @@ class CountryViewModel: ObservableObject {
             self?.reloadTableView(for: .state)
             LoaderViewHelper.hideLoader()
             print("States fetched -> \(response.data.states.count)")
+            if self?.states.count == 0 {
+                self?.vc?.selectedStateNameLbl.text = "State not available"
+                self?.vc?.selectedCityNameLbl.text = "City not available"
+                self?.vc?.selectedState = self?.defaultStates
+                self?.vc?.selectedCity = self?.defaultCities.name
+            }
         }
     }
     
