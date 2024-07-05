@@ -13,7 +13,8 @@ class ImageTableViewCell: UITableViewCell {
       
     var products: [ProductListModel] = [] {
         didSet {
-            collectionView.reloadData()        }
+            collectionView.reloadData()     
+        }
     }
     override func awakeFromNib() {
            super.awakeFromNib()

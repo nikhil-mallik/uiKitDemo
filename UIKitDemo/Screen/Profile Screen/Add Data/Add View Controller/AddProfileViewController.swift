@@ -214,8 +214,8 @@ extension AddProfileViewController {
         if isProfileEditing {
             updateProfile()
         } else {
-             createNewProfile()
-//            fakeData()
+//             createNewProfile()
+            fakeData()
         }
     }
     

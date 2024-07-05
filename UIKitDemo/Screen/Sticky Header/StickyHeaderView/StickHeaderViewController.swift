@@ -23,6 +23,7 @@ class StickHeaderViewController: UIViewController {
         tableView.register(UINib(nibName: "StickHeaderFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: "StickHeaderFooter")
         tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         tableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableViewCell")
+        tableView.register(UINib(nibName: "SwipeImageTableViewCell", bundle: nil), forCellReuseIdentifier: "SwipeImageTableViewCell")
         // Remove top space above the image view
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.contentInset = UIEdgeInsets.zero
@@ -45,9 +46,7 @@ class StickHeaderViewController: UIViewController {
             case .stopLoading:
                 LoaderViewHelper.hideLoader()
             case .dataLoaded:
-                print("Data loaded...")
                 DispatchQueue.main.async {
-                    // UI Main works well
                     self.tableView.reloadData()
                 }
             case .error(let error):
@@ -86,6 +85,16 @@ extension StickHeaderViewController: UITableViewDelegate {
     
     // Called when a table view row is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section - 1 >= 0, indexPath.section - 1 < viewModel.sectionedProducts.count else {
+            print("Section index out of range")
+            return
+        }
+        
+        let section = viewModel.sectionedProducts[indexPath.section - 1]
+        guard indexPath.row < section.products.count else {
+            print("Row index out of range")
+            return
+        }
         let selectedProduct = viewModel.sectionedProducts[indexPath.section - 1].products[indexPath.row]
         showProductDetail(for: selectedProduct, at: indexPath.row, in: indexPath.section)
     }
@@ -117,10 +126,19 @@ extension StickHeaderViewController: UITableViewDataSource {
     // Method to configure and return a cell for a given index path
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            /* // Collection View Image Scroll
+             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
+             cell.products = viewModel.sectionedProducts.flatMap { $0.products }
+             return cell
+             */
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
+            // Swipe Gesture Image Changes
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SwipeImageTableViewCell", for: indexPath) as! SwipeImageTableViewCell
             cell.products = viewModel.sectionedProducts.flatMap { $0.products }
+            cell.currentIndex = indexPath.row
+            cell.loadCurrentImage()
             return cell
+            
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as? ProductCell else {
                 return UITableViewCell()

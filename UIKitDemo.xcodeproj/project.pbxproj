@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D02A74D2C37C171009E4359 /* SwipeImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D02A74C2C37C171009E4359 /* SwipeImageTableViewCell.xib */; };
+		7D02A74E2C37C171009E4359 /* SwipeImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D02A74B2C37C171009E4359 /* SwipeImageTableViewCell.swift */; };
 		7D1E15B82C243F52006CF5A6 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */; };
 		7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */; };
 		7D1E15BC2C298C0B006CF5A6 /* LoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */; };
@@ -92,6 +94,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D02A74B2C37C171009E4359 /* SwipeImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeImageTableViewCell.swift; sourceTree = "<group>"; };
+		7D02A74C2C37C171009E4359 /* SwipeImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeImageTableViewCell.xib; sourceTree = "<group>"; };
 		7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderHelper.swift; sourceTree = "<group>"; };
@@ -189,6 +193,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D02A74A2C37C152009E4359 /* Swipe Image */ = {
+			isa = PBXGroup;
+			children = (
+				7D02A74B2C37C171009E4359 /* SwipeImageTableViewCell.swift */,
+				7D02A74C2C37C171009E4359 /* SwipeImageTableViewCell.xib */,
+			);
+			path = "Swipe Image";
+			sourceTree = "<group>";
+		};
 		7D24F6A12C2A9B8E00958EEA /* Image Upload */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +392,7 @@
 		7D40A4852C3586C5007B8370 /* Image Cell */ = {
 			isa = PBXGroup;
 			children = (
+				7D02A74A2C37C152009E4359 /* Swipe Image */,
 				7D40A48A2C36597B007B8370 /* Collection View Cell */,
 				7D40A4862C35871D007B8370 /* ImageTableViewCell.swift */,
 				7D40A4872C35871D007B8370 /* ImageTableViewCell.xib */,
@@ -916,6 +930,7 @@
 				7D40A46D2C35114E007B8370 /* ProfileButtonCell.xib in Resources */,
 				7D5AD9402C133FFC00E17724 /* loginbg.mp4 in Resources */,
 				7D40A4692C351137007B8370 /* ProfileInfoCell.xib in Resources */,
+				7D02A74D2C37C171009E4359 /* SwipeImageTableViewCell.xib in Resources */,
 				7DABE0702C170BA500403B7D /* UserListCell.xib in Resources */,
 				7DABE06C2C170B2400403B7D /* ProductCell.xib in Resources */,
 				7D40A4752C352466007B8370 /* ProfileBioDataCell.xib in Resources */,
@@ -968,6 +983,7 @@
 				7D40A4912C3690F7007B8370 /* ProfileListViewController.swift in Sources */,
 				7D40A4682C351137007B8370 /* ProfileInfoCell.swift in Sources */,
 				7D6D85032C1B2B23008CA723 /* AddButtonModel.swift in Sources */,
+				7D02A74E2C37C171009E4359 /* SwipeImageTableViewCell.swift in Sources */,
 				7D40A45D2C350FA2007B8370 /* FetchProfileTableViewController.swift in Sources */,
 				7D6375FA2C119B5600D10B30 /* AppDelegate.swift in Sources */,
 				7D24F6B02C2AA39900958EEA /* ImagePickerHelper.swift in Sources */,
