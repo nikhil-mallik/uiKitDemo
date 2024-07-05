@@ -51,6 +51,19 @@ class ProfileAddViewModel {
         filteredCities.removeAll()
     }
     
+    func deleteUserData(withId id: Int) {
+        // Find the index of the item with the given id
+        if let index = userData.firstIndex(where: { $0.id == id }) {
+            // Remove the item from viewModel.userData
+            userData.remove(at: index)
+            print("Item with id \(id)  deleted from userData.")
+        } else {
+            print("Item with id \(id) not found in userData.")
+        }
+    }
+
+    
+    
     // MARK: - Fetch States
     func fetchStates(for country: String, button: UIButton? = nil) {
         guard let url = URL(string: stateAPI) else { return }

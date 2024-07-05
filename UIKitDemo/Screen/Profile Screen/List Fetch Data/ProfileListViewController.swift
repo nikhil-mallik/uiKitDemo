@@ -81,4 +81,14 @@ extension ProfileListViewController: UITableViewDelegate {
             print("Failed to instantiate FetchProfileTableViewController from storyboard.")
         }
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+            guard let self = self else { return }
+            let idToDelete = self.viewModel.userData[indexPath.row].id
+            self.viewModel.deleteUserData(withId: idToDelete)
+            completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
