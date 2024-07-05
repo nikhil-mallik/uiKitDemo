@@ -1,7 +1,7 @@
 # UIKit Demo Project for Learning Purposes
 
 ## Overview
-This project is a UIKit demo application designed to provide learners with a practical understanding of various UIKit components and architectural patterns. The application covers essential concepts such as user authentication, data fetching, UI updates, and navigation within an iOS app. The app is built using the Model-View-ViewModel (MVVM) architecture to clearly separate concerns and facilitate efficient data binding and user interaction.
+This project is a UIKit demo application designed to provide learners with a practical understanding of various UIKit components and architectural patterns. The application covers essential concepts such as user authentication, data fetching, UI updates, and navigation within an iOS app. The app uses the Model-View-ViewModel (MVVM) architecture to clearly separate concerns and facilitate efficient data binding and user interaction.
 
 ## Key Features
 
@@ -49,6 +49,10 @@ This project is a UIKit demo application designed to provide learners with a pra
   - **Search Bar**: Adds a `UISearchBar` to the table view headers for filtering country, state, and city names.
   - **Scroll Views**: Manages the layout and display of images in scroll views (`UserImageScrollViewController`).
   - **Image Gestures**: Provides full-screen image viewing with swipe, double-tap, and pinch-to-zoom gestures (`FullScreenImageViewControllers`).
+  - **Collection View Cell xib**: Custom cell designs for `CollectionViewCell` to display product images and other data.
+  - **Table View Cell xib**: Custom cell designs for `TableViewCell` to display detailed information in a structured format.
+  - **Custom Text Field**: CustomUITextField class prevents users from pasting text into certain text fields.
+  - **Loader Views**: LoaderViewHelper class provides methods to show and hide loading indicators on views and buttons.
 
 - **Data Binding**
   - **Event Handling**: The ViewModels use closures to handle events such as loading, data loaded, errors, and navigation. This allows for reactive updates to the UI based on the state of the data.
@@ -85,6 +89,13 @@ This project is a UIKit demo application designed to provide learners with a pra
 9. **Country Selection Screen**: Allows users to choose a country, state, and city from dropdown menus, with search functionality integrated.
 10. **User Image Scroll Screen**: Allows users to add and view images in a scrollable view, with list or grid layout options.
 11. **Full-Screen Image View**: Enables full-screen viewing of images with swipe, double-tap, and pinch-to-zoom gestures.
+12. **Profile Section Screen:** Shows the list of user details that have been added.
+13. **Profile Detail Screen:** Shows the details of the selected user and includes swipe functionality for deleting the user.
+14. **Profile Add Details Screen:** Shows the form where users can enter data and save it locally.
+15. **Profile Edit Details Screen:** Shows the form where users can edit and save data.
+16. **Sticky Header Screen:** Shows the list of product data categorized by category name, with a sticky header and scrollable functionality. The first cell uses the `TableViewCell` class.
+17. **Swipe Image TableViewCell:** Shows all product images with swipe gestures.
+18. **Image TableViewCell:** Shows all product images in a vertical scroll within a `CollectionViewCell`.
 
 ## Navigation
 
@@ -103,4 +114,4 @@ This project is a UIKit demo application designed to provide learners with a pra
 - **UserImageScrollViewController**: Manages adding, displaying, and interacting with images in a scrollable view.
 - **FullScreenImageViewControllers**: Handles full-screen image viewing with gesture support for navigation and zooming.
 
-This UIKit demo project aims to deliver a comprehensive learning tool for understanding the essential concepts and best practices in iOS development. Through hands-on implementation, learners will gain valuable experience building and managing a UIKit-based application.
+This UIKit demo project aims to deliver a comprehensive learning tool for understanding the essential concepts and best practices in iOS development. Through hands-on implementation, learners will gain valuable experience in building and managing a UIKit-based application.
