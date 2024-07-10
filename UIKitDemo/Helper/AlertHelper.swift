@@ -28,3 +28,28 @@ class AlertHelper {
         viewController.present(alert, animated: true, completion: nil)
     }
 }
+
+extension UIViewController {
+    // MARK: - Alert for Enums
+    func showEnumAlert<T: RawRepresentable & CaseIterable>(
+        title: String,
+        message: String,
+        enumType: T.Type,
+        handler: @escaping (T) -> Void
+    ) where T.RawValue == String {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // Add actions for each enum case
+        enumType.allCases.forEach { value in
+            alert.addAction(UIAlertAction(title: value.rawValue, style: .default, handler: { _ in
+                handler(value)
+            }))
+        }
+        
+        // Add a cancel action
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        // Present the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+}

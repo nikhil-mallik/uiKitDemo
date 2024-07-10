@@ -106,6 +106,13 @@ class DashboardViewController : UIViewController {
         self.navigationController?.pushViewController(stickyVC, animated: true)
     }
     
+    
+    @IBAction func taskManager(_ sender: Any) {
+        let taskVC = TaskManagerViewController.sharedIntance()
+        taskVC.viewModel.clearArray()
+        self.navigationController?.pushViewController(taskVC, animated: true)
+    }
+    
 }
 
 // MARK: - Extension
