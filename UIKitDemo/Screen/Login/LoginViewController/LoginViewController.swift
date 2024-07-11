@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Variables
     private var viewModel = LoginViewModel()
-        
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +56,8 @@ extension LoginViewController {
     func initViewData() {
         hideError()
         // Apply styles to text fields
-        Utility.styleTextField(emailTextField)
-        Utility.styleTextField(passwordTextField)
+        emailTextField.styledTextField()
+        passwordTextField.styledTextField()
         Utility.setButtonLoadingState(button: loginButton, isLoading: false)
         observeEvent()
     }
@@ -73,8 +73,8 @@ extension LoginViewController {
     // Perform login check with credentials
     func loginCheckCredential() {
         Utility.setButtonLoadingState(button: loginButton, isLoading: true)
-        let email = TrimmedTextHelper.trimmedText(from: emailTextField)
-        let password = TrimmedTextHelper.trimmedText(from: passwordTextField)
+        let email = emailTextField.trimmedText()
+        let password = passwordTextField.trimmedText()
         
         let loginData = LoginModel(login: email, password: password)
         print(loginData)
@@ -123,6 +123,4 @@ extension LoginViewController {
         errorLabel.alpha = 0
         errorLabel.text = ""
     }
-    
 }
-

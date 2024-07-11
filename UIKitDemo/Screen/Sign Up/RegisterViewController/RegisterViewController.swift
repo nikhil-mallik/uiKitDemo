@@ -66,18 +66,18 @@ extension RegisterViewController {
         hideError()
         
         // Style the text fields
-        Utility.styleTextField(fnameTextField)
-        Utility.styleTextField(lnameTextField)
-        Utility.styleTextField(emailTextField)
-        Utility.styleTextField(passwordTextField)
+        fnameTextField.styledTextField()
+        lnameTextField.styledTextField()
+        emailTextField.styledTextField()
+       passwordTextField.styledTextField()
     }
     
     // Register user with provided details
     func registerUser() {
-        let fname = TrimmedTextHelper.trimmedText(from: fnameTextField)
-        let lname = TrimmedTextHelper.trimmedText(from: lnameTextField)
-        let email = TrimmedTextHelper.trimmedText(from: emailTextField)
-        let password = TrimmedTextHelper.trimmedText(from: passwordTextField)
+        let fname = fnameTextField.trimmedText()
+        let lname = lnameTextField.trimmedText()
+        let email = emailTextField.trimmedText()
+        let password =  passwordTextField.trimmedText()
         let registerData = RegisterModel(name: "\(fname) \(lname)", email: email, password: password)
         
         // Call register user method from view model

@@ -61,9 +61,9 @@ extension UserListViewController {
             
             switch event {
             case .loading:
-                print("Product loading....")
+                LoaderViewHelper.showLoaderView(on: self.view)
             case .stopLoading:
-                print("Stop loading...")
+                LoaderViewHelper.hideLoader()
             case .dataLoaded:
                 print("Data loaded...")
                 DispatchQueue.main.async {

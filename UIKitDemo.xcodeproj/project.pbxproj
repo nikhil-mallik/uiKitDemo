@@ -45,7 +45,6 @@
 		7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9332C12B76000E17724 /* APIEndPoint.swift */; };
 		7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */; };
 		7D5AD9382C12CEFD00E17724 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9372C12CEFD00E17724 /* Validation.swift */; };
-		7D5AD93A2C12D23B00E17724 /* TrimmedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9392C12D23B00E17724 /* TrimmedText.swift */; };
 		7D5AD93C2C12E28300E17724 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD93B2C12E28300E17724 /* AlertHelper.swift */; };
 		7D5AD93E2C12FEE700E17724 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD93D2C12FEE700E17724 /* TokenService.swift */; };
 		7D5AD9402C133FFC00E17724 /* loginbg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D5AD93F2C133FFC00E17724 /* loginbg.mp4 */; };
@@ -141,7 +140,6 @@
 		7D5AD9332C12B76000E17724 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
 		7D5AD9352C12BD9400E17724 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7D5AD9372C12CEFD00E17724 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		7D5AD9392C12D23B00E17724 /* TrimmedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmedText.swift; sourceTree = "<group>"; };
 		7D5AD93B2C12E28300E17724 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		7D5AD93D2C12FEE700E17724 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		7D5AD93F2C133FFC00E17724 /* loginbg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginbg.mp4; sourceTree = "<group>"; };
@@ -629,7 +627,6 @@
 			isa = PBXGroup;
 			children = (
 				7D6376292C11A24800D10B30 /* APIManager.swift */,
-				7D5AD9392C12D23B00E17724 /* TrimmedText.swift */,
 				7D5AD93B2C12E28300E17724 /* AlertHelper.swift */,
 				7D5AD93D2C12FEE700E17724 /* TokenService.swift */,
 				7D5AD9432C140A3000E17724 /* BgVideoPlay.swift */,
@@ -1091,7 +1088,6 @@
 				7DABE06D2C170B2400403B7D /* ProductCell.swift in Sources */,
 				7DD134502C3D534A00473503 /* TaskManagerViewController.swift in Sources */,
 				7D6D85092C1C0D0B008CA723 /* AddButtonViewModel.swift in Sources */,
-				7D5AD93A2C12D23B00E17724 /* TrimmedText.swift in Sources */,
 				7D5AD9572C143D6A00E17724 /* productListViewController.swift in Sources */,
 				7DD1344E2C3D531A00473503 /* TaskManagerViewModel.swift in Sources */,
 				7D6376412C11E01E00D10B30 /* LoginModel.swift in Sources */,

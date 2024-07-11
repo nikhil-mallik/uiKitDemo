@@ -15,3 +15,21 @@ class CustomUITextField: UITextField {
         return super.canPerformAction(action, withSender: sender)
    }
 }
+
+// MARK: - UITextField Extension
+extension UITextField {
+    // Method to get trimmed text from a UITextField
+    func trimmedText() -> String {
+        // Trim whitespace and newlines from the text, or return an empty string if the text is nil
+        return self.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    }
+        
+    func styledTextField() {
+        // Create the bottom line
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
+        bottomLine.backgroundColor = UIColor.init(red: 75/255, green: 0/255, blue: 130/255, alpha: 1).cgColor
+        // Add the line to the text field
+        self.layer.addSublayer(bottomLine)
+    }
+}

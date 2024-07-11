@@ -7,29 +7,40 @@
 
 import Foundation
 
+import Foundation
+
 class LabelCountViewModel: NSObject {
-    // MARK: - Singleton Instance
-    static let shared = LabelCountViewModel()
-    private override init() {
+    @objc dynamic var counts: LabelCountModel? {
+        didSet {
+            if counts == nil {
+                counts = LabelCountModel(labelCount: 0)
+            }
+        }
+    }
+    
+    override init() {
         super.init()
-        // Initialize counts with a default value
+        // Ensure counts is initialized
         counts = LabelCountModel(labelCount: 0)
     }
     
-    @objc dynamic var counts: LabelCountModel?
     func addCount() {
         counts?.willChangeValue(forKey: "labelCount")
         counts?.labelCount += 1
         counts?.didChangeValue(forKey: "labelCount")
+        NotificationCenter.default.post(name: .countDidChange, object: nil, userInfo: ["newCount": counts?.labelCount ?? 0])
+        print("Count =>> \(counts?.labelCount ?? 0)")
     }
     
     func subtractCount() {
         counts?.willChangeValue(forKey: "labelCount")
         counts?.labelCount -= 1
         counts?.didChangeValue(forKey: "labelCount")
-    }
-    
-    func resetCount() {
-        counts = LabelCountModel(labelCount: 0)
+        NotificationCenter.default.post(name: .countDidChange, object: nil, userInfo: ["newCount": counts?.labelCount ?? 0])
+        print("Count =>> \(counts?.labelCount ?? 0)")
     }
 }
+extension Notification.Name {
+    static let countDidChange = Notification.Name("countDidChange")
+}
+

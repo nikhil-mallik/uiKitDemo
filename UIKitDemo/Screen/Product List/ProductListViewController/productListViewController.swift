@@ -46,11 +46,9 @@ extension ProductListViewController {
 
             switch event {
             case .loading:
-                /// Indicator show
-                print("Product loading....")
+                LoaderViewHelper.showLoaderView(on: self.view)
             case .stopLoading:
-                // Indicator hide kardo
-                print("Stop loading...")
+                LoaderViewHelper.hideLoader()
             case .dataLoaded:
                 print("Data loaded...")
                 DispatchQueue.main.async {

@@ -13,8 +13,9 @@ class CountCViewController: UIViewController {
     @IBOutlet weak var decrementButton: UIButton!
     @IBOutlet weak var incrementButton: UIButton!
     @IBOutlet weak var navigateHomeBtn: UIButton!
-    let viewModel = LabelCountViewModel.shared
-    
+    weak var delegate: LabelCountUpdateDelegate?
+    var startingCount: Int = 0
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         countLbl.alpha = 0
@@ -22,10 +23,13 @@ class CountCViewController: UIViewController {
     }
     
     @IBAction func incrementBtnAction(_ sender: Any) {
-        viewModel.addCount()
+        startingCount += 1
+        delegate?.updateCount(startingCount)
     }
+    
     @IBAction func decrementBtnAction(_ sender: Any) {
-        viewModel.subtractCount()
+        startingCount -= 1
+        delegate?.updateCount(startingCount)
     }
     
     @IBAction func navigateHomeBtnAction(_ sender: Any) {
@@ -48,7 +52,7 @@ class CountCViewController: UIViewController {
 
 // MARK: - Extension for shared instance
 extension CountCViewController {
-    static func sharedIntance() -> CountCViewController {
+    static func sharedInstance() -> CountCViewController {
         return CountCViewController.instantiateFromStoryboard("CountCViewController")
     }
 }

@@ -13,25 +13,31 @@ class CountBViewController: UIViewController {
     @IBOutlet weak var decrementButton: UIButton!
     @IBOutlet weak var incrementButton: UIButton!
     @IBOutlet weak var navigateBtn: UIButton!
-    let viewModel = LabelCountViewModel.shared
+    
+    weak var delegate: LabelCountUpdateDelegate?
+    var startingCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         countLbl.alpha = 0
         setButtonTitle()
     }
-    
+        
     @IBAction func incrementBtnAction(_ sender: Any) {
-        viewModel.addCount()
+        startingCount += 1
+        delegate?.updateCount(startingCount)
     }
     @IBAction func decrementBtnAction(_ sender: Any) {
-        viewModel.subtractCount()
+        startingCount -= 1
+        delegate?.updateCount(startingCount)
     }
     
     @IBAction func navigateBtnAction(_ sender: Any) {
-        let LabelCVC = CountCViewController.sharedIntance()
-        LabelCVC.navigationItem.title = "Label Count C"
-        self.navigationController?.pushViewController(LabelCVC, animated: true)
+        let labelCVC = CountCViewController.sharedInstance()
+        labelCVC.delegate = delegate
+        labelCVC.startingCount = startingCount
+        labelCVC.navigationItem.title = "Label Count C"
+        self.navigationController?.pushViewController(labelCVC, animated: true)
     }
     
     func setButtonTitle() {
@@ -42,7 +48,7 @@ class CountBViewController: UIViewController {
 
 // MARK: - Extension for shared instance
 extension CountBViewController {
-    static func sharedIntance() -> CountBViewController {
+    static func sharedInstance() -> CountBViewController {
         return CountBViewController.instantiateFromStoryboard("CountBViewController")
     }
 }

@@ -115,9 +115,8 @@ class DashboardViewController : UIViewController {
     
     
     @IBAction func labelCountAction(_ sender: Any) {
-        let labelCountVC = LabelCountAViewController.sharedIntance()
+        let labelCountVC = LabelCountAViewController.sharedInstance()
         labelCountVC.title = "Label A"
-        labelCountVC.viewModel.resetCount()
         self.navigationController?.pushViewController(labelCountVC, animated: true)
     }
     
