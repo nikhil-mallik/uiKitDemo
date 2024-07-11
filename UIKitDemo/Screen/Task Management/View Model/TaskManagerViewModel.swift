@@ -48,6 +48,4 @@ class TaskManagerViewModel: NSObject {
     func clearArray() {
         tasks.removeAll()
     }
-    
-    
 }

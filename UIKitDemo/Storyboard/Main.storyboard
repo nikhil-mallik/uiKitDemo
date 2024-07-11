@@ -246,7 +246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBW-L9-ZD8">
-                                <rect key="frame" x="25" y="183.5" width="364" height="529.5"/>
+                                <rect key="frame" x="25" y="158.5" width="364" height="579"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tA-rq-0d8">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="35"/>
@@ -258,7 +258,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jJH-mv-NkS">
-                                        <rect key="frame" x="0.0" y="45" width="364" height="484.5"/>
+                                        <rect key="frame" x="0.0" y="45" width="364" height="534"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sea-9S-jMr">
                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="35"/>
@@ -358,6 +358,16 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="taskManager:" destination="Tqn-0P-ZpE" eventType="touchUpInside" id="SFa-vc-Paw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xs7-YG-tfk">
+                                                <rect key="frame" x="0.0" y="499.5" width="364" height="34.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Label Count" cornerStyle="capsule">
+                                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="labelCountAction:" destination="Tqn-0P-ZpE" eventType="touchUpInside" id="aPr-dq-N02"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -3057,6 +3067,225 @@
             </objects>
             <point key="canvasLocation" x="17443.478260869568" y="137.94642857142856"/>
         </scene>
+        <!--Label CountA View Controller-->
+        <scene sceneID="24x-m9-Dfx">
+            <objects>
+                <viewController storyboardIdentifier="LabelCountAViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ylW-67-U4J" customClass="LabelCountAViewController" customModule="UIKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4n6-yh-ZIn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1s-IY-7yL">
+                                <rect key="frame" x="172.5" y="432.5" width="69" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyq-17-UPA">
+                                <rect key="frame" x="72.5" y="423" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4nS-tO-3gV"/>
+                                    <constraint firstAttribute="height" constant="50" id="x0A-9y-9si"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="minus" catalog="system"/>
+                                <connections>
+                                    <action selector="decrementBtnAction:" destination="ylW-67-U4J" eventType="touchUpInside" id="xwR-L5-oBp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAh-1S-Ozl">
+                                <rect key="frame" x="291.5" y="423" width="50" height="50"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="incrementBtnAction:" destination="ylW-67-U4J" eventType="touchUpInside" id="U6A-GE-O4u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSv-R8-Bx1">
+                                <rect key="frame" x="142" y="514" width="130" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="3Jf-lC-M4p"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next Screen"/>
+                                <connections>
+                                    <action selector="navigateBtnAction:" destination="ylW-67-U4J" eventType="touchUpInside" id="hOE-p8-u3a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b0z-Ia-Ipb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XSv-R8-Bx1" firstAttribute="height" secondItem="eyq-17-UPA" secondAttribute="height" id="6Pt-SO-8ry"/>
+                            <constraint firstItem="NAh-1S-Ozl" firstAttribute="width" secondItem="eyq-17-UPA" secondAttribute="width" id="CQi-ZD-3bZ"/>
+                            <constraint firstItem="XSv-R8-Bx1" firstAttribute="top" secondItem="c1s-IY-7yL" secondAttribute="bottom" constant="50" id="DSD-jA-BCo"/>
+                            <constraint firstItem="c1s-IY-7yL" firstAttribute="centerY" secondItem="4n6-yh-ZIn" secondAttribute="centerY" id="H6j-to-5Zg"/>
+                            <constraint firstItem="XSv-R8-Bx1" firstAttribute="centerX" secondItem="4n6-yh-ZIn" secondAttribute="centerX" id="Pb8-J8-LOs"/>
+                            <constraint firstItem="NAh-1S-Ozl" firstAttribute="height" secondItem="eyq-17-UPA" secondAttribute="height" id="UYD-A6-akQ"/>
+                            <constraint firstItem="c1s-IY-7yL" firstAttribute="leading" secondItem="eyq-17-UPA" secondAttribute="trailing" constant="50" id="i1X-ly-kdg"/>
+                            <constraint firstItem="c1s-IY-7yL" firstAttribute="centerX" secondItem="4n6-yh-ZIn" secondAttribute="centerX" id="jo3-Ub-0E8"/>
+                            <constraint firstItem="eyq-17-UPA" firstAttribute="centerY" secondItem="c1s-IY-7yL" secondAttribute="centerY" id="rhT-SZ-7YA"/>
+                            <constraint firstItem="NAh-1S-Ozl" firstAttribute="leading" secondItem="c1s-IY-7yL" secondAttribute="trailing" constant="50" id="vRi-iu-ef1"/>
+                            <constraint firstItem="NAh-1S-Ozl" firstAttribute="centerY" secondItem="c1s-IY-7yL" secondAttribute="centerY" id="wea-cF-hqa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countLbl" destination="c1s-IY-7yL" id="OUG-er-4WM"/>
+                        <outlet property="decrementButton" destination="eyq-17-UPA" id="rKc-iH-tjb"/>
+                        <outlet property="incrementButton" destination="NAh-1S-Ozl" id="fut-o5-Cvd"/>
+                        <outlet property="navigateBtn" destination="XSv-R8-Bx1" id="xdn-D9-MKU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nZF-Ai-FHV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18343.478260869568" y="137.94642857142856"/>
+        </scene>
+        <!--CountB View Controller-->
+        <scene sceneID="v96-vt-o1D">
+            <objects>
+                <viewController storyboardIdentifier="CountBViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qbe-iu-3Uw" customClass="CountBViewController" customModule="UIKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yRZ-8n-4hN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv2-5k-dSu">
+                                <rect key="frame" x="172.5" y="432" width="69" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr6-qX-GrK">
+                                <rect key="frame" x="72.5" y="423" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8nD-me-X0C"/>
+                                    <constraint firstAttribute="width" constant="50" id="zSs-JO-xuf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="minus" catalog="system"/>
+                                <connections>
+                                    <action selector="decrementBtnAction:" destination="qbe-iu-3Uw" eventType="touchUpInside" id="dMw-xh-7AW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQn-jU-nNC">
+                                <rect key="frame" x="291.5" y="423" width="50" height="50"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="incrementBtnAction:" destination="qbe-iu-3Uw" eventType="touchUpInside" id="Sro-mh-x9X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZm-lV-nrO">
+                                <rect key="frame" x="147" y="514" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Z69-ca-leS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next Screen"/>
+                                <connections>
+                                    <action selector="navigateBtnAction:" destination="qbe-iu-3Uw" eventType="touchUpInside" id="pSB-l3-DmK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NLR-Bk-pvi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pv2-5k-dSu" firstAttribute="leading" secondItem="cr6-qX-GrK" secondAttribute="trailing" constant="50" id="0Ff-jq-rkz"/>
+                            <constraint firstItem="pZm-lV-nrO" firstAttribute="height" secondItem="cr6-qX-GrK" secondAttribute="height" id="3au-ay-lJP"/>
+                            <constraint firstItem="pZm-lV-nrO" firstAttribute="centerX" secondItem="yRZ-8n-4hN" secondAttribute="centerX" id="7SM-6D-OK2"/>
+                            <constraint firstItem="cr6-qX-GrK" firstAttribute="centerY" secondItem="Pv2-5k-dSu" secondAttribute="centerY" id="8Ep-Ui-74v"/>
+                            <constraint firstItem="BQn-jU-nNC" firstAttribute="centerY" secondItem="Pv2-5k-dSu" secondAttribute="centerY" id="8fQ-lv-fSs"/>
+                            <constraint firstItem="Pv2-5k-dSu" firstAttribute="centerY" secondItem="yRZ-8n-4hN" secondAttribute="centerY" id="AZC-sx-zBg"/>
+                            <constraint firstItem="BQn-jU-nNC" firstAttribute="height" secondItem="cr6-qX-GrK" secondAttribute="height" id="AvI-9e-eda"/>
+                            <constraint firstItem="Pv2-5k-dSu" firstAttribute="centerX" secondItem="yRZ-8n-4hN" secondAttribute="centerX" id="IOd-gp-PJT"/>
+                            <constraint firstItem="BQn-jU-nNC" firstAttribute="leading" secondItem="Pv2-5k-dSu" secondAttribute="trailing" constant="50" id="TkM-YN-5zV"/>
+                            <constraint firstItem="pZm-lV-nrO" firstAttribute="top" secondItem="Pv2-5k-dSu" secondAttribute="bottom" constant="50" id="VOl-jG-Q1z"/>
+                            <constraint firstItem="BQn-jU-nNC" firstAttribute="width" secondItem="cr6-qX-GrK" secondAttribute="width" id="tNs-c8-vyJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countLbl" destination="Pv2-5k-dSu" id="A3m-3r-Hnm"/>
+                        <outlet property="decrementButton" destination="cr6-qX-GrK" id="ch7-5a-f1t"/>
+                        <outlet property="incrementButton" destination="BQn-jU-nNC" id="fZy-1J-oOA"/>
+                        <outlet property="navigateBtn" destination="pZm-lV-nrO" id="BZR-wI-uel"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3P-FC-Mz5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19242" y="138"/>
+        </scene>
+        <!--CountC View Controller-->
+        <scene sceneID="vyG-oX-bMX">
+            <objects>
+                <viewController storyboardIdentifier="CountCViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P1D-iu-NxQ" customClass="CountCViewController" customModule="UIKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vw4-sy-w66">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1h-b3-siP">
+                                <rect key="frame" x="172.5" y="432" width="69" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Off-h6-cwV">
+                                <rect key="frame" x="72.5" y="423" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KtY-QJ-iTH"/>
+                                    <constraint firstAttribute="width" constant="50" id="Syz-Bm-Vz7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="minus" catalog="system"/>
+                                <connections>
+                                    <action selector="decrementBtnAction:" destination="P1D-iu-NxQ" eventType="touchUpInside" id="hhj-L4-guE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BZ-bf-698">
+                                <rect key="frame" x="291.5" y="423" width="50" height="50"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="incrementBtnAction:" destination="P1D-iu-NxQ" eventType="touchUpInside" id="oIQ-gt-TAj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sv6-pZ-sWn">
+                                <rect key="frame" x="157" y="514" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="fsz-u2-8M3"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Home"/>
+                                <connections>
+                                    <action selector="navigateHomeBtnAction:" destination="P1D-iu-NxQ" eventType="touchUpInside" id="jFd-mt-ef8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="omx-Vn-ZGD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sv6-pZ-sWn" firstAttribute="centerX" secondItem="Vw4-sy-w66" secondAttribute="centerX" id="0Ay-oZ-bUf"/>
+                            <constraint firstItem="B1h-b3-siP" firstAttribute="centerY" secondItem="Vw4-sy-w66" secondAttribute="centerY" id="18u-pu-5RS"/>
+                            <constraint firstItem="Off-h6-cwV" firstAttribute="centerY" secondItem="B1h-b3-siP" secondAttribute="centerY" id="CJI-BM-EkE"/>
+                            <constraint firstItem="B1h-b3-siP" firstAttribute="centerX" secondItem="Vw4-sy-w66" secondAttribute="centerX" id="Osr-eu-UPu"/>
+                            <constraint firstItem="2BZ-bf-698" firstAttribute="leading" secondItem="B1h-b3-siP" secondAttribute="trailing" constant="50" id="SZk-lO-UYK"/>
+                            <constraint firstItem="Sv6-pZ-sWn" firstAttribute="top" secondItem="B1h-b3-siP" secondAttribute="bottom" constant="50" id="XA4-EV-sHk"/>
+                            <constraint firstItem="Sv6-pZ-sWn" firstAttribute="height" secondItem="Off-h6-cwV" secondAttribute="height" id="asn-bU-Bgu"/>
+                            <constraint firstItem="B1h-b3-siP" firstAttribute="leading" secondItem="Off-h6-cwV" secondAttribute="trailing" constant="50" id="rwS-NI-aHw"/>
+                            <constraint firstItem="2BZ-bf-698" firstAttribute="centerY" secondItem="B1h-b3-siP" secondAttribute="centerY" id="t4S-fk-p1N"/>
+                            <constraint firstItem="2BZ-bf-698" firstAttribute="width" secondItem="Off-h6-cwV" secondAttribute="width" id="y31-ct-txO"/>
+                            <constraint firstItem="2BZ-bf-698" firstAttribute="height" secondItem="Off-h6-cwV" secondAttribute="height" id="z5h-2U-qxs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countLbl" destination="B1h-b3-siP" id="FTy-aB-sf1"/>
+                        <outlet property="decrementButton" destination="Off-h6-cwV" id="pUv-v3-j8R"/>
+                        <outlet property="incrementButton" destination="2BZ-bf-698" id="wuz-gV-Xnb"/>
+                        <outlet property="navigateHomeBtn" destination="Sv6-pZ-sWn" id="2D0-yY-gOc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2o-j8-cRY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20006" y="138"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
@@ -3067,6 +3296,8 @@
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="login" width="860" height="860"/>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.dashed" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="signUp" width="450" height="450"/>

@@ -96,6 +96,11 @@
 		7DD134562C3D5E1A00473503 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134542C3D5E1A00473503 /* TaskTableViewCell.swift */; };
 		7DD134572C3D5E1A00473503 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD134552C3D5E1A00473503 /* TaskTableViewCell.xib */; };
 		7DD1345C2C3E4CFA00473503 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1345B2C3E4CFA00473503 /* AddTaskViewController.swift */; };
+		7DD134622C3EB9A600473503 /* LabelCountAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134612C3EB9A600473503 /* LabelCountAViewController.swift */; };
+		7DD134642C3EBA6600473503 /* LabelCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134632C3EBA6600473503 /* LabelCountModel.swift */; };
+		7DD134662C3EBA9600473503 /* LabelCountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134652C3EBA9600473503 /* LabelCountViewModel.swift */; };
+		7DD134682C3EBE7300473503 /* CountBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134672C3EBE7300473503 /* CountBViewController.swift */; };
+		7DD1346A2C3EBE8300473503 /* CountCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134692C3EBE8300473503 /* CountCViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +193,11 @@
 		7DD134542C3D5E1A00473503 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		7DD134552C3D5E1A00473503 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		7DD1345B2C3E4CFA00473503 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		7DD134612C3EB9A600473503 /* LabelCountAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCountAViewController.swift; sourceTree = "<group>"; };
+		7DD134632C3EBA6600473503 /* LabelCountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCountModel.swift; sourceTree = "<group>"; };
+		7DD134652C3EBA9600473503 /* LabelCountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCountViewModel.swift; sourceTree = "<group>"; };
+		7DD134672C3EBE7300473503 /* CountBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBViewController.swift; sourceTree = "<group>"; };
+		7DD134692C3EBE8300473503 /* CountCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountCViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -587,6 +597,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7DD1345D2C3EB97800473503 /* Label Count */,
 				7DD134492C3D522F00473503 /* Task Management */,
 				7D40A4762C357164007B8370 /* Sticky Header */,
 				7D24F6BA2C2D35AC00958EEA /* Profile Screen */,
@@ -930,6 +941,42 @@
 			path = "Add Screen";
 			sourceTree = "<group>";
 		};
+		7DD1345D2C3EB97800473503 /* Label Count */ = {
+			isa = PBXGroup;
+			children = (
+				7DD134602C3EB98500473503 /* Model */,
+				7DD1345F2C3EB98300473503 /* View Controller */,
+				7DD1345E2C3EB98100473503 /* View Model */,
+			);
+			path = "Label Count";
+			sourceTree = "<group>";
+		};
+		7DD1345E2C3EB98100473503 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				7DD134652C3EBA9600473503 /* LabelCountViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		7DD1345F2C3EB98300473503 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7DD134612C3EB9A600473503 /* LabelCountAViewController.swift */,
+				7DD134672C3EBE7300473503 /* CountBViewController.swift */,
+				7DD134692C3EBE8300473503 /* CountCViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		7DD134602C3EB98500473503 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7DD134632C3EBA6600473503 /* LabelCountModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1022,9 +1069,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DD1346A2C3EBE8300473503 /* CountCViewController.swift in Sources */,
 				7D5AD93C2C12E28300E17724 /* AlertHelper.swift in Sources */,
 				7D40A46C2C35114E007B8370 /* ProfileButtonCell.swift in Sources */,
 				7D40A48D2C365996007B8370 /* ImageCollectionViewCell.swift in Sources */,
+				7DD134682C3EBE7300473503 /* CountBViewController.swift in Sources */,
 				7DABE0712C170BA500403B7D /* UserListCell.swift in Sources */,
 				7D5AD9512C143D3D00E17724 /* UserListViewController.swift in Sources */,
 				7D6376372C11BF4400D10B30 /* ViewController.swift in Sources */,
@@ -1033,10 +1082,12 @@
 				7D6376332C11AE0500D10B30 /* DashboardViewController.swift in Sources */,
 				7D5AD9552C143D5900E17724 /* productListModel.swift in Sources */,
 				7D24F6CC2C2D378200958EEA /* ProfileModel.swift in Sources */,
+				7DD134622C3EB9A600473503 /* LabelCountAViewController.swift in Sources */,
 				7D6D84ED2C182DAB008CA723 /* CollectionViewModel.swift in Sources */,
 				7D40A4742C352466007B8370 /* ProfileBioDataCell.swift in Sources */,
 				7D7E8A492C16C16E0095B81B /* LoginViewModel.swift in Sources */,
 				7D5AD94F2C143D2900E17724 /* userListModel.swift in Sources */,
+				7DD134642C3EBA6600473503 /* LabelCountModel.swift in Sources */,
 				7DABE06D2C170B2400403B7D /* ProductCell.swift in Sources */,
 				7DD134502C3D534A00473503 /* TaskManagerViewController.swift in Sources */,
 				7D6D85092C1C0D0B008CA723 /* AddButtonViewModel.swift in Sources */,
@@ -1081,6 +1132,7 @@
 				7D6376312C11ADD600D10B30 /* RegisterViewController.swift in Sources */,
 				7D40A47D2C3572AD007B8370 /* ProductModel.swift in Sources */,
 				7D6376262C11A05A00D10B30 /* Constant.swift in Sources */,
+				7DD134662C3EBA9600473503 /* LabelCountViewModel.swift in Sources */,
 				7D6D84FC2C1B258D008CA723 /* AddButtonViewController.swift in Sources */,
 				7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */,
 				7D40A47B2C3571B1007B8370 /* StickyHeaderViewModel.swift in Sources */,

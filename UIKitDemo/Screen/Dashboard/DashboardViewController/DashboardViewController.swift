@@ -113,6 +113,14 @@ class DashboardViewController : UIViewController {
         self.navigationController?.pushViewController(taskVC, animated: true)
     }
     
+    
+    @IBAction func labelCountAction(_ sender: Any) {
+        let labelCountVC = LabelCountAViewController.sharedIntance()
+        labelCountVC.title = "Label A"
+        labelCountVC.viewModel.resetCount()
+        self.navigationController?.pushViewController(labelCountVC, animated: true)
+    }
+    
 }
 
 // MARK: - Extension
