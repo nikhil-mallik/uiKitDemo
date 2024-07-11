@@ -1,7 +1,7 @@
 # UIKit Demo Project for Learning Purposes
 
 ## Overview
-This project is a UIKit demo application designed to provide learners with a practical understanding of various UIKit components and architectural patterns. The application covers essential concepts such as user authentication, data fetching, UI updates, and navigation within an iOS app. The app uses the Model-View-ViewModel (MVVM) architecture to clearly separate concerns and facilitate efficient data binding and user interaction.
+This project is a UIKit demo application designed to provide learners with a practical understanding of various UIKit components and architectural patterns. The application covers essential concepts such as user authentication, data fetching, UI updates, and navigation within an iOS app. The app is built using the Model-View-ViewModel (MVVM) architecture to clearly separate concerns and facilitate efficient data binding and user interaction.
 
 ## Key Features
 
@@ -28,6 +28,10 @@ This project is a UIKit demo application designed to provide learners with a pra
 6. **Image Management**
    - **Add Images**: Users can add images to a scrollable view, which can be displayed either in a list or grid layout.
    - **Full-Screen View**: Users can view images in full-screen mode with gestures like swipe, double-tap, and pinch to zoom.
+
+7. **Counter Functionality**
+   - **Increment and Decrement:** Users can increment or decrement a counter value using buttons.
+   - **Data Binding:** The counter value is dynamically updated in the UI using KVO.Navigation
 
 ## Technical Details
 
@@ -87,15 +91,19 @@ This project is a UIKit demo application designed to provide learners with a pra
 7. **Button Collection Screen**: Displays a dynamic number of buttons in a Collection View based on user input.
 8. **Button Scroll Screen**: Displays a dynamic number of buttons in a Scroll View based on user input.
 9. **Country Selection Screen**: Allows users to choose a country, state, and city from dropdown menus, with search functionality integrated.
-10. **User Image Scroll Screen**: Allows users to add and view images in a scrollable view, with list or grid layout options.
+10. **User Image Scroll Screen**: Allows users to add and view images in a scrollable view, with options for list or grid layout.
 11. **Full-Screen Image View**: Enables full-screen viewing of images with swipe, double-tap, and pinch-to-zoom gestures.
 12. **Profile Section Screen:** Shows the list of user details that have been added.
 13. **Profile Detail Screen:** Shows the details of the selected user and includes swipe functionality for deleting the user.
 14. **Profile Add Details Screen:** Shows the form where users can enter data and save it locally.
-15. **Profile Edit Details Screen:** Shows the form where users can edit and save data.
+15. **Profile Edit Details Screen:** Shows the form where users can edit data and save it.
 16. **Sticky Header Screen:** Shows the list of product data categorized by category name, with a sticky header and scrollable functionality. The first cell uses the `TableViewCell` class.
 17. **Swipe Image TableViewCell:** Shows all product images with swipe gestures.
 18. **Image TableViewCell:** Shows all product images in a vertical scroll within a `CollectionViewCell`.
+19. **Add Task Screen:** In the Screen user can add the details of about the task and this screen is used for the editing the existing data also.
+20. **Task List Screen:** In the Screen user can see the list of the task and this 
+screen is used for the navigating to edit screen and delete the existing data also. This screen have the trailing tableView swipe functionality also. 
+21. **LabelCountAViewController:** Show the increment and decrement of the count from the total three screen.
 
 ## Navigation
 
