@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LabelCountAViewController: UIViewController, LabelCountUpdateDelegate {
+class LabelCountAViewController: UIViewController {
     
     @IBOutlet weak var countLbl: UILabel!
     @IBOutlet weak var decrementButton: UIButton!
@@ -18,11 +18,31 @@ class LabelCountAViewController: UIViewController, LabelCountUpdateDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonTitle()
+        // observeTasks()
         updateCountLabel()
+        observeNotifications()
     }
     
     func updateCount(_ count: Int) {
         self.count = count
+        updateCountLabel()
+    }
+    
+    
+    func observeNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(incrementCount(_:)), name: .incrementCount, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(decrementCount(_:)), name: .decrementCount, object: nil)
+    }
+    
+    @objc func incrementCount(_ notification: Notification) {
+        count += 1
+        print("Count => \(count)")
+        updateCountLabel()
+    }
+    
+    @objc func decrementCount(_ notification: Notification) {
+        count -= 1
+        print("Count => \(count)")
         updateCountLabel()
     }
     
@@ -51,8 +71,6 @@ class LabelCountAViewController: UIViewController, LabelCountUpdateDelegate {
     
     @IBAction func navigateBtnAction(_ sender: Any) {
         let labelBVC = CountBViewController.sharedInstance()
-        labelBVC.delegate = self
-        labelBVC.startingCount = count
         labelBVC.navigationItem.title = "Label Count B"
         self.navigationController?.pushViewController(labelBVC, animated: true)
     }
@@ -60,6 +78,10 @@ class LabelCountAViewController: UIViewController, LabelCountUpdateDelegate {
     func setButtonTitle() {
         incrementButton.setTitle("", for: .normal)
         decrementButton.setTitle("", for: .normal)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }
@@ -71,7 +93,9 @@ extension LabelCountAViewController {
     }
 }
 
-protocol LabelCountUpdateDelegate: AnyObject {
-    func updateCount(_ count: Int)
+extension Notification.Name {
+    static let incrementCount = Notification.Name("incrementCount")
+    static let decrementCount = Notification.Name("decrementCount")
 }
+
 

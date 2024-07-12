@@ -14,7 +14,6 @@ class CountBViewController: UIViewController {
     @IBOutlet weak var incrementButton: UIButton!
     @IBOutlet weak var navigateBtn: UIButton!
     
-    weak var delegate: LabelCountUpdateDelegate?
     var startingCount: Int = 0
     
     override func viewDidLoad() {
@@ -25,17 +24,15 @@ class CountBViewController: UIViewController {
         
     @IBAction func incrementBtnAction(_ sender: Any) {
         startingCount += 1
-        delegate?.updateCount(startingCount)
+        NotificationCenter.default.post(name: .incrementCount, object: nil)
     }
     @IBAction func decrementBtnAction(_ sender: Any) {
         startingCount -= 1
-        delegate?.updateCount(startingCount)
+        NotificationCenter.default.post(name: .decrementCount, object: nil)
     }
     
     @IBAction func navigateBtnAction(_ sender: Any) {
         let labelCVC = CountCViewController.sharedInstance()
-        labelCVC.delegate = delegate
-        labelCVC.startingCount = startingCount
         labelCVC.navigationItem.title = "Label Count C"
         self.navigationController?.pushViewController(labelCVC, animated: true)
     }

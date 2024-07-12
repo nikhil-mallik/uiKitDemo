@@ -7,8 +7,8 @@
 
 import Foundation
 
-class LabelCountModel: NSObject {
-    @objc dynamic var labelCount: Int
+class LabelCountModel {
+   var labelCount: Int
     
     init(labelCount: Int) {
         self.labelCount = labelCount
