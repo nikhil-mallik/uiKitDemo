@@ -9,11 +9,14 @@ import UIKit
 
 class PushNotificationViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var titleTxtFd: UITextField!
     @IBOutlet weak var bodyTxtFd: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var toggleBtn: UISwitch!
     @IBOutlet weak var saveBtnOutlet: UIButton!
+    
+    // MARK: - Variable
     var hour: Int?
     var mins: Int?
     var isRepeating: Bool = false
@@ -25,6 +28,7 @@ class PushNotificationViewController: UIViewController {
         updateUI()
     }
     
+    // MARK: - Actions
     @IBAction func datePicker(_ sender: UIDatePicker) {
         let components = Calendar.current.dateComponents([.hour, .minute], from: sender.date)
         hour = components.hour
@@ -32,6 +36,16 @@ class PushNotificationViewController: UIViewController {
         updateUI()
     }
     
+    @IBAction func toggleSwitchAction(_ sender: UISwitch) {
+        isRepeating = sender.isOn
+        updateUI()
+    }
+    
+    @IBAction func saveBtnAction(_ sender: Any) {
+        postNotifications()
+    }
+    
+    // MARK: - Helper Methods
     func byDefaultHoursAndMins() {
         // Set initial values from date picker
         let components = Calendar.current.dateComponents([.hour, .minute], from: datePicker.date)
@@ -43,15 +57,6 @@ class PushNotificationViewController: UIViewController {
         // Update UI elements based on current values
         toggleBtn.isOn = isRepeating
     }
-       
-    @IBAction func toggleSwitchAction(_ sender: UISwitch) {
-        isRepeating = sender.isOn
-        updateUI()
-    }
-    
-    @IBAction func saveBtnAction(_ sender: Any) {
-        postNotifications()
-    }
     
     func postNotifications() {
         guard let title = titleTxtFd.text, !title.isEmpty,
@@ -62,6 +67,7 @@ class PushNotificationViewController: UIViewController {
             AlertHelper.showAlert(withTitle: "Alert", message: "All fields are required", from: self)
             return
         }
+        // Post notification
         NotificationCenter.default.post(name: .sendNotification, object: nil, userInfo: [
             "title": title,
             "body": body,
@@ -69,6 +75,7 @@ class PushNotificationViewController: UIViewController {
             "minutes": min,
             "isDaily": isRepeating
         ])
+        // Clear fields after saving
         clearField()
     }
     

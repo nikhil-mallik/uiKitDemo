@@ -9,8 +9,11 @@ import UIKit
 import UserNotifications
 
 class NotificationManager {
+    
+    // MARK: - Singleton Instance
     static let shared = NotificationManager()
     
+    // MARK: - Initializer
     private init() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleSendNotification), name: .sendNotification, object: nil)
     }
@@ -19,6 +22,7 @@ class NotificationManager {
         NotificationCenter.default.removeObserver(self, name: .sendNotification, object: nil)
     }
     
+    // MARK: - Notification Handler
     @objc private func handleSendNotification(notification: Notification) {
         guard let userInfo = notification.userInfo,
               let title = userInfo["title"] as? String,
@@ -37,6 +41,7 @@ class NotificationManager {
         }
     }
     
+    // MARK: - Custom Notification
     private func customNotification(withTitle title: String, withBody body: String, hours: Int, minutes: Int, repeatDaily isDaily: Bool) {
         let identifier = "\(title)-Notification"
         
@@ -46,7 +51,8 @@ class NotificationManager {
         content.title = title
         content.body = body
         content.sound = .default
-        content.badge = .init(value: +1)
+        // Increment badge count
+        content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)
         
         let calendar = Calendar.current
         var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
@@ -61,7 +67,8 @@ class NotificationManager {
         notificationCenter.add(request)
     }
     
-     func checkNotificationPermission(completion: @escaping (Bool) -> Void) {
+    // MARK: - Notification Permission Check
+    func checkNotificationPermission(completion: @escaping (Bool) -> Void) {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.getNotificationSettings { settings in
             switch settings.authorizationStatus {
@@ -72,22 +79,25 @@ class NotificationManager {
                     }
                 }
             case .denied:
-                DispatchQueue.main.async {
-                    completion(false)
-                }
+                completion(false)
             case .authorized, .provisional, .ephemeral:
                 DispatchQueue.main.async {
                     completion(true)
                 }
             @unknown default:
-                DispatchQueue.main.async {
-                    completion(false)
-                }
+                completion(false)
             }
         }
     }
+    
+    // MARK: - Clear Badge
+    func clearBadge() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
 }
 
+// MARK: - Notification Extension
 extension Notification.Name {
     static let sendNotification = Notification.Name("sendNotification")
 }
+
