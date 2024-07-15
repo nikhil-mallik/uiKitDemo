@@ -120,6 +120,14 @@ class DashboardViewController : UIViewController {
         self.navigationController?.pushViewController(labelCountVC, animated: true)
     }
     
+    
+    @IBAction func localPushNotification(_ sender: Any) {
+//        PushNotificationViewController
+        let pushNotificationVC = PushNotificationViewController.sharedInstance()
+        pushNotificationVC.title = "Push Notification"
+        self.navigationController?.pushViewController(pushNotificationVC, animated: true)
+    }
+    
 }
 
 // MARK: - Extension

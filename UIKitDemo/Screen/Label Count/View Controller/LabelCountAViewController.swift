@@ -22,13 +22,7 @@ class LabelCountAViewController: UIViewController {
         updateCountLabel()
         observeNotifications()
     }
-    
-    func updateCount(_ count: Int) {
-        self.count = count
-        updateCountLabel()
-    }
-    
-    
+      
     func observeNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(incrementCount(_:)), name: .incrementCount, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(decrementCount(_:)), name: .decrementCount, object: nil)

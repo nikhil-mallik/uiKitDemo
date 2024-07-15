@@ -14,8 +14,6 @@ class CountBViewController: UIViewController {
     @IBOutlet weak var incrementButton: UIButton!
     @IBOutlet weak var navigateBtn: UIButton!
     
-    var startingCount: Int = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         countLbl.alpha = 0
@@ -23,11 +21,10 @@ class CountBViewController: UIViewController {
     }
         
     @IBAction func incrementBtnAction(_ sender: Any) {
-        startingCount += 1
         NotificationCenter.default.post(name: .incrementCount, object: nil)
     }
+    
     @IBAction func decrementBtnAction(_ sender: Any) {
-        startingCount -= 1
         NotificationCenter.default.post(name: .decrementCount, object: nil)
     }
     

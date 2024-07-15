@@ -17,7 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-
+        // Initialize the NotificationManager
+        _ = NotificationManager.shared
+        
         if TokenService.tokenShared.checkForLogin() {
             let vc = DashboardViewController.sharedIntance()
             let navVC = UINavigationController(rootViewController: vc)
@@ -25,9 +27,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             let rootVC = ViewController.sharedIntance()
             let navVC = UINavigationController(rootViewController: rootVC)
+            
             self.window?.rootViewController = navVC
         }
+        
+        // Check for notification permissions
+        NotificationManager.shared.checkNotificationPermission { granted in
+            if granted {
+                print("Notification permissions granted")
+            } else {
+                print("Notification permissions denied")
+            }
+        }
+        
         self.window?.makeKeyAndVisible()
+        UNUserNotificationCenter.current().delegate = self
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -57,7 +71,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    
 }
 
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    
+    // Clear badge when notification is opened
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        completionHandler()
+    }
+    
+    // Clear badge when notification is delivered (optional)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        completionHandler([.alert, .sound, .badge])
+    }
+}

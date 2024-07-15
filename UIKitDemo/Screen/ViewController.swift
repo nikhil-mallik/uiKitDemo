@@ -31,7 +31,6 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         // Stop the video when the view disappears
         BgVideoPlay.shared.stopVideo()
     }
@@ -39,7 +38,6 @@ class ViewController: UIViewController {
 
 // MARK: - Extension
 extension ViewController {
-    
     // Create an instance of ViewController from storyboard
     static func sharedIntance() -> ViewController {
         return ViewController.instantiateFromStoryboard("ViewController")

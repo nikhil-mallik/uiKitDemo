@@ -100,6 +100,8 @@
 		7DD134662C3EBA9600473503 /* LabelCountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134652C3EBA9600473503 /* LabelCountViewModel.swift */; };
 		7DD134682C3EBE7300473503 /* CountBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134672C3EBE7300473503 /* CountBViewController.swift */; };
 		7DD1346A2C3EBE8300473503 /* CountCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134692C3EBE8300473503 /* CountCViewController.swift */; };
+		7DD134702C44F5CC00473503 /* PushNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1346F2C44F5CC00473503 /* PushNotificationViewController.swift */; };
+		7DD134722C45119600473503 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134712C45119600473503 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +198,8 @@
 		7DD134652C3EBA9600473503 /* LabelCountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCountViewModel.swift; sourceTree = "<group>"; };
 		7DD134672C3EBE7300473503 /* CountBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBViewController.swift; sourceTree = "<group>"; };
 		7DD134692C3EBE8300473503 /* CountCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountCViewController.swift; sourceTree = "<group>"; };
+		7DD1346F2C44F5CC00473503 /* PushNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationViewController.swift; sourceTree = "<group>"; };
+		7DD134712C45119600473503 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +599,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7DD1346B2C44F58400473503 /* Local Notification */,
 				7DD1345D2C3EB97800473503 /* Label Count */,
 				7DD134492C3D522F00473503 /* Task Management */,
 				7D40A4762C357164007B8370 /* Sticky Header */,
@@ -633,6 +638,7 @@
 				7D6D850E2C1C5AA9008CA723 /* isLikedUserDefault.swift */,
 				7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */,
 				7D24F6AF2C2AA39900958EEA /* ImagePickerHelper.swift */,
+				7DD134712C45119600473503 /* NotificationManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -974,6 +980,38 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7DD1346B2C44F58400473503 /* Local Notification */ = {
+			isa = PBXGroup;
+			children = (
+				7DD1346E2C44F5A300473503 /* Model */,
+				7DD1346D2C44F5A100473503 /* View */,
+				7DD1346C2C44F59A00473503 /* View Model */,
+			);
+			path = "Local Notification";
+			sourceTree = "<group>";
+		};
+		7DD1346C2C44F59A00473503 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		7DD1346D2C44F5A100473503 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7DD1346F2C44F5CC00473503 /* PushNotificationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7DD1346E2C44F5A300473503 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1070,6 +1108,7 @@
 				7D5AD93C2C12E28300E17724 /* AlertHelper.swift in Sources */,
 				7D40A46C2C35114E007B8370 /* ProfileButtonCell.swift in Sources */,
 				7D40A48D2C365996007B8370 /* ImageCollectionViewCell.swift in Sources */,
+				7DD134722C45119600473503 /* NotificationManager.swift in Sources */,
 				7DD134682C3EBE7300473503 /* CountBViewController.swift in Sources */,
 				7DABE0712C170BA500403B7D /* UserListCell.swift in Sources */,
 				7D5AD9512C143D3D00E17724 /* UserListViewController.swift in Sources */,
@@ -1135,6 +1174,7 @@
 				7D58BF0B2C2E864E00E910F7 /* AddProfileView + Extensions.swift in Sources */,
 				7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */,
 				7D1E15B82C243F52006CF5A6 /* CountryViewModel.swift in Sources */,
+				7DD134702C44F5CC00473503 /* PushNotificationViewController.swift in Sources */,
 				7D6376242C119DE800D10B30 /* UIViewController + Extension.swift in Sources */,
 				7D6375FC2C119B5600D10B30 /* SceneDelegate.swift in Sources */,
 				7D5AD9382C12CEFD00E17724 /* Validation.swift in Sources */,
