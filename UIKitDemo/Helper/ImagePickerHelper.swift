@@ -10,11 +10,11 @@ import UIKit
 class ImagePickerHelper: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private var imagePicker: UIImagePickerController?
     private var viewController: UIViewController?
-     var completionHandler: ((UIImage?) -> Void)?
+    var completionHandler: ((UIImage?) -> Void)?
     
     var isImagePickerPresented: Bool {
-            return imagePicker != nil && imagePicker?.presentingViewController != nil
-        }
+        return imagePicker != nil && imagePicker?.presentingViewController != nil
+    }
     func presentImagePicker(in viewController: UIViewController, completion: @escaping (UIImage?) -> Void) {
         self.viewController = viewController
         self.completionHandler = completion
@@ -84,5 +84,15 @@ class ImagePickerHelper: NSObject, UIImagePickerControllerDelegate, UINavigation
         
         completionHandler = nil
         imagePicker?.dismiss(animated: true, completion: nil)
+    }
+}
+
+class FileManagerHelper {
+    // get the imageURL
+    static func getImageURL(for imageName: String?) -> URL? {
+        guard let imageName = imageName else { return nil }
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return documentsDirectory.appendingPathComponent(imageName).appendingPathExtension("png")
     }
 }
