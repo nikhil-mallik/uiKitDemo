@@ -27,6 +27,22 @@ class AlertHelper {
         // Present the alert from the specified view controller
         viewController.present(alert, animated: true, completion: nil)
     }
+    static func showConfirmationAlert(title: String, message: String, in viewController: UIViewController, confirmAction: @escaping () -> Void, cancelAction: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { _ in
+            confirmAction()
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            cancelAction?()
+        }
+        
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UIViewController {
@@ -52,4 +68,9 @@ extension UIViewController {
         // Present the alert
         self.present(alert, animated: true, completion: nil)
     }
+    
+ 
+ 
+    
 }
+

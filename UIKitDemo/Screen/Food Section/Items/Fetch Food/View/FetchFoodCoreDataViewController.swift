@@ -29,7 +29,7 @@ class FetchFoodCoreDataViewController: UIViewController {
         super.viewWillAppear(animated)
         fetchAndUpdateFoodItems()
     }
-
+    
     @IBAction func navBarCategoryBtnAction(_ sender: Any) {
         let categoryVC = FetchCategoryCoreDataViewController.sharedInstance()
         self.navigationController?.pushViewController(categoryVC, animated: true)
@@ -74,7 +74,7 @@ extension FetchFoodCoreDataViewController {
         }
         sortedCategoryNames = groupedFoodItems.keys.sorted()
     }
-
+    
     private func handleUpdateAction(forRowAt indexPath: IndexPath) {
         let categoryName = sortedCategoryNames[indexPath.section]
         if let foodItems = groupedFoodItems[categoryName] {
@@ -91,6 +91,7 @@ extension FetchFoodCoreDataViewController {
             foodListTableView.reloadData()
         }
     }
+    
 }
 
 // MARK: - Extension for shared instance
@@ -103,15 +104,28 @@ extension FetchFoodCoreDataViewController {
 // MARK: - UITableViewDelegate
 extension FetchFoodCoreDataViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let updateAction = UIContextualAction(style: .normal, title: "Update") { [weak self] _, _, _ in
+        let updateAction = UIContextualAction(style: .normal, title: "Update") { [weak self] _, _, completionHandler in
             self?.handleUpdateAction(forRowAt: indexPath)
+            completionHandler(true)
         }
         updateAction.backgroundColor = .systemIndigo
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
-            self?.handleDeleteAction(forRowAt: indexPath)
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completionHandler in
+            guard let self = self else { return }
+            let categoryName = self.sortedCategoryNames[indexPath.section]
+            if let foodItem = self.groupedFoodItems[categoryName]?[indexPath.row] {
+                let itemName = foodItem.itemName ?? "this item"
+                AlertHelper.showConfirmationAlert(title: "Confirm Action", message: "Are you sure you want to delete \(itemName)?", in: self, confirmAction: {
+                    self.handleDeleteAction(forRowAt: indexPath)
+                    completionHandler(true)
+                }, cancelAction: {
+                    completionHandler(false)
+                })
+            }
         }
-        return UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
 }
 

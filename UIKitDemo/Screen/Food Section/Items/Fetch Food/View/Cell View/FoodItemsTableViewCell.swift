@@ -54,7 +54,7 @@ class FoodItemsTableViewCell: UITableViewCell {
         let expiryDate = calendar.startOfDay(for: expireDateValue)
         let daysToExpiry = calendar.dateComponents([.day], from: today, to: expiryDate).day ?? 0
         
-        if daysToExpiry == 1, let oneDayBefore = calendar.date(byAdding: .day, value: -1, to: expiryDate) {
+        if let oneDayBefore = calendar.date(byAdding: .day, value: -1, to: expiryDate) {
             postNotifications(date: oneDayBefore, onDay: "tomorrow")
         }
         
@@ -85,13 +85,14 @@ class FoodItemsTableViewCell: UITableViewCell {
     
     // MARK: - Notification Posting
     func postNotifications(date: Date, onDay day: String) {
+        let repeating = day == "today" ? false : true
         NotificationCenter.default.post(name: .sendNotification, object: nil, userInfo: [
             "title": foodItem!.categoryName ?? "" ,
             "body": "\(foodItem!.itemName ?? "") is going to expire \(day)",
-            "hours": 12,
-            "minutes": 10,
+            "hours": 13,
+            "minutes": 42,
             "date" : date,
-            "isDaily": false
+            "isDaily": repeating
         ])
     }
     

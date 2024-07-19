@@ -81,6 +81,8 @@ extension FetchCoreDataViewController: UITableViewDelegate {
             self.listTableView.reloadData()
         }
     
-        return UISwipeActionsConfiguration(actions: [delete, update])
+        let configuration = UISwipeActionsConfiguration(actions: [delete, update])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
 }

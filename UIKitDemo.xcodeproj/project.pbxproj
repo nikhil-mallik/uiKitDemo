@@ -88,7 +88,6 @@
 		7D65F4622C47DEED00BDF9E5 /* FoodCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65F45F2C47DEED00BDF9E5 /* FoodCategoryTableViewCell.swift */; };
 		7D65F4662C48F98A00BDF9E5 /* FoodItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D65F4652C48F98A00BDF9E5 /* FoodItemsTableViewCell.xib */; };
 		7D65F4672C48F98A00BDF9E5 /* FoodItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65F4642C48F98A00BDF9E5 /* FoodItemsTableViewCell.swift */; };
-		7D65F4692C4A2FC700BDF9E5 /* AddEditFoodCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65F4682C4A2FC700BDF9E5 /* AddEditFoodCoreDataViewModel.swift */; };
 		7D6D84E62C18268E008CA723 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84E52C18268E008CA723 /* CollectionViewController.swift */; };
 		7D6D84ED2C182DAB008CA723 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84EC2C182DAB008CA723 /* CollectionViewModel.swift */; };
 		7D6D84F12C182E52008CA723 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84EE2C182E52008CA723 /* ProductCollectionViewCell.swift */; };
@@ -205,7 +204,6 @@
 		7D65F4602C47DEED00BDF9E5 /* FoodCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		7D65F4642C48F98A00BDF9E5 /* FoodItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsTableViewCell.swift; sourceTree = "<group>"; };
 		7D65F4652C48F98A00BDF9E5 /* FoodItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodItemsTableViewCell.xib; sourceTree = "<group>"; };
-		7D65F4682C4A2FC700BDF9E5 /* AddEditFoodCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditFoodCoreDataViewModel.swift; sourceTree = "<group>"; };
 		7D6D84E52C18268E008CA723 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		7D6D84EC2C182DAB008CA723 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		7D6D84EE2C182E52008CA723 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -860,7 +858,6 @@
 		7D65F43F2C47935300BDF9E5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7D65F4682C4A2FC700BDF9E5 /* AddEditFoodCoreDataViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1432,7 +1429,6 @@
 				7D65F42A2C465BFA00BDF9E5 /* UserDataModel.swift in Sources */,
 				7D6376312C11ADD600D10B30 /* RegisterViewController.swift in Sources */,
 				7D40A47D2C3572AD007B8370 /* ProductModel.swift in Sources */,
-				7D65F4692C4A2FC700BDF9E5 /* AddEditFoodCoreDataViewModel.swift in Sources */,
 				7D6376262C11A05A00D10B30 /* Constant.swift in Sources */,
 				7DD134662C3EBA9600473503 /* LabelCountViewModel.swift in Sources */,
 				7D6D84FC2C1B258D008CA723 /* AddButtonViewController.swift in Sources */,

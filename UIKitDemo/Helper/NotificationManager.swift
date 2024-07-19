@@ -20,7 +20,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     private override init() {
         super.init()
         registerForSendNotification()
-        notificationCenter.delegate = self // Set the delegate
+        notificationCenter.delegate = self
     }
     
     deinit {
@@ -111,6 +111,12 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         clearBadge()
         completionHandler()
+    }
+    
+    // Handle notification delivery when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        UIApplication.shared.applicationIconBadgeNumber += 1
+        completionHandler([.alert, .sound, .badge])
     }
 }
 
