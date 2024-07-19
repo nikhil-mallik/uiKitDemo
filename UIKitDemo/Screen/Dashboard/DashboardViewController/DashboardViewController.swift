@@ -131,6 +131,12 @@ class DashboardViewController : UIViewController {
         let coreDataVC = FetchCoreDataViewController.sharedInstance()
         self.navigationController?.pushViewController(coreDataVC, animated: true)
     }
+    
+    @IBAction func foodCoreDataBtnAction(_ sender: UIButton) {
+        let foodVC = FetchFoodCoreDataViewController.sharedInstance()
+        self.navigationController?.pushViewController(foodVC, animated: true)
+    }
+    
 }
 
 // MARK: - Extension

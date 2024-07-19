@@ -8,59 +8,69 @@
 import UIKit
 import UserNotifications
 
-class NotificationManager {
+class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - Singleton Instance
     static let shared = NotificationManager()
     
-    // MARK: - Initializer
-    private init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSendNotification), name: .sendNotification, object: nil)
+    // MARK: - Private Properties
+    private let notificationCenter = UNUserNotificationCenter.current()
+    
+    // MARK: - Initialization
+    private override init() {
+        super.init()
+        registerForSendNotification()
+        notificationCenter.delegate = self // Set the delegate
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .sendNotification, object: nil)
     }
     
+    // MARK: - Register for Notification
+    private func registerForSendNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSendNotification(_:)), name: .sendNotification, object: nil)
+    }
+    
     // MARK: - Notification Handler
-    @objc private func handleSendNotification(notification: Notification) {
+    @objc private func handleSendNotification(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let title = userInfo["title"] as? String,
-              let body = userInfo["body"] as? String,
-              let hours = userInfo["hours"] as? Int,
-              let minutes = userInfo["minutes"] as? Int,
-              let isDaily = userInfo["isDaily"] as? Bool else { return }
+              let body = userInfo["body"] as? String else {
+            return
+        }
+        
+        let hours = userInfo["hours"] as? Int ?? 11
+        let minutes = userInfo["minutes"] as? Int ?? 0
+        let isDaily = userInfo["isDaily"] as? Bool ?? false
+        let date = userInfo["date"] as? Date ?? Date()
         
         checkNotificationPermission { granted in
             if granted {
-                self.customNotification(withTitle: title, withBody: body, hours: hours, minutes: minutes, repeatDaily: isDaily)
+                DispatchQueue.main.sync {
+                    self.scheduleNotification(withTitle: title, body: body, date: date, hours: hours, minutes: minutes, repeatDaily: isDaily)
+                }
             } else {
-                // Handle the case when permission is denied
                 print("Permission denied for notifications")
             }
         }
     }
     
-    // MARK: - Custom Notification
-    private func customNotification(withTitle title: String, withBody body: String, hours: Int, minutes: Int, repeatDaily isDaily: Bool) {
+    // MARK: - Schedule Notification
+    private func scheduleNotification(withTitle title: String, body: String, date: Date, hours: Int, minutes: Int, repeatDaily isDaily: Bool) {
         let identifier = "\(title)-Notification"
         
-        let notificationCenter = UNUserNotificationCenter.current()
+        var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        dateComponents.hour = hours
+        dateComponents.minute = minutes
         
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
         content.sound = .default
-        // Increment badge count
         content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)
         
-        let calendar = Calendar.current
-        var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
-        dateComponents.hour = hours
-        dateComponents.minute = minutes
-        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
-        
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
@@ -69,23 +79,25 @@ class NotificationManager {
     
     // MARK: - Notification Permission Check
     func checkNotificationPermission(completion: @escaping (Bool) -> Void) {
-        let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .notDetermined:
-                notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { didAllow, error in
-                    DispatchQueue.main.async {
-                        completion(didAllow)
-                    }
-                }
+                self.requestAuthorization(completion: completion)
             case .denied:
                 completion(false)
             case .authorized, .provisional, .ephemeral:
-                DispatchQueue.main.async {
-                    completion(true)
-                }
+                completion(true)
             @unknown default:
                 completion(false)
+            }
+        }
+    }
+    
+    // MARK: - Request Authorization
+    private func requestAuthorization(completion: @escaping (Bool) -> Void) {
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            DispatchQueue.main.async {
+                completion(granted)
             }
         }
     }
@@ -94,10 +106,15 @@ class NotificationManager {
     func clearBadge() {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
+    
+    // Handle tap on notification or clear from notification center
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        clearBadge()
+        completionHandler()
+    }
 }
 
 // MARK: - Notification Extension
 extension Notification.Name {
     static let sendNotification = Notification.Name("sendNotification")
 }
-

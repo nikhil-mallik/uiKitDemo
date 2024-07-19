@@ -43,6 +43,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="headerTitleLabel" destination="R5B-aG-OyH" id="pgc-Sq-0al"/>
+                <outlet property="labelBbView" destination="xDs-Ie-e3h" id="kN7-Ql-Dz3"/>
             </connections>
             <point key="canvasLocation" x="109" y="-11"/>
         </view>

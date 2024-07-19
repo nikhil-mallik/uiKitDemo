@@ -67,6 +67,9 @@ class PushNotificationViewController: UIViewController {
             AlertHelper.showAlert(withTitle: "Alert", message: "All fields are required", from: self)
             return
         }
+
+        
+        
         // Post notification
         NotificationCenter.default.post(name: .sendNotification, object: nil, userInfo: [
             "title": title,

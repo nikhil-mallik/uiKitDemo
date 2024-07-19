@@ -9,7 +9,12 @@ import UIKit
 
 class StickHeaderFooter: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var labelBbView: UIView!
     @IBOutlet weak var headerTitleLabel: UILabel!
 
-
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        labelBbView.clipsToBounds = false
+        labelBbView.layer.cornerRadius = 15
+    }
 }
