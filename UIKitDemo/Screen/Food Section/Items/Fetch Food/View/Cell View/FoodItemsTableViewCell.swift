@@ -54,10 +54,10 @@ class FoodItemsTableViewCell: UITableViewCell {
         let expiryDate = calendar.startOfDay(for: expireDateValue)
         let daysToExpiry = calendar.dateComponents([.day], from: today, to: expiryDate).day ?? 0
         
-        if let oneDayBefore = calendar.date(byAdding: .day, value: -1, to: expiryDate) {
-            postNotifications(date: oneDayBefore, onDay: "tomorrow")
-        }
-        
+//        if let oneDayBefore = calendar.date(byAdding: .day, value: -1, to: expiryDate) {
+//            postNotifications(date: oneDayBefore, onDay: "tomorrow")
+//        }
+//        
         switch daysToExpiry {
         case 0:
             setExpireDateText("Expire: Today", color: .red)
@@ -70,6 +70,7 @@ class FoodItemsTableViewCell: UITableViewCell {
             setExpireDateText("Expires in 3 days", color: .orange)
         case 4:
             setExpireDateText("Expires in 4 days", color: .orange)
+            addPostOneDayBeforeNotifications(calendar: calendar, date: expiryDate)
         case ..<0:
             setExpireDateText("Item is Expired", color: .red)
         default:
@@ -81,6 +82,12 @@ class FoodItemsTableViewCell: UITableViewCell {
     private func setExpireDateText(_ text: String, color: UIColor) {
         expireDate.text = text
         expireDate.textColor = color
+    }
+    
+    func addPostOneDayBeforeNotifications(calendar: Calendar, date: Date) {
+        if let oneDayBefore = calendar.date(byAdding: .day, value: -1, to: date) {
+            postNotifications(date: oneDayBefore, onDay: "tomorrow")
+        }
     }
     
     // MARK: - Notification Posting

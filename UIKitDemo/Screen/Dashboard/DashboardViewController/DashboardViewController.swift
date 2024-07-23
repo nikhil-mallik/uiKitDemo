@@ -21,6 +21,12 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var userImageBtn: UIButton!
     @IBOutlet weak var profileSectionBtn: UIButton!
     @IBOutlet weak var stickyHeader: UIButton!
+    @IBOutlet weak var taskManagerBtn: UIButton!
+    @IBOutlet weak var labelCountBtn: UIButton!
+    @IBOutlet weak var localNotificationBtn: UIButton!
+    @IBOutlet weak var coreDataBtn: UIButton!
+    @IBOutlet weak var foodDemoBtn: UIButton!
+    
     // Holds the user's name
     var userName = ""
     
@@ -29,7 +35,7 @@ class DashboardViewController : UIViewController {
         navigationItem.hidesBackButton = true
         getUserName() // Retrieve and display the user's name
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         // Set up the background video
         BgVideoPlay.shared.setUpVideo(on: self.view)

@@ -40,6 +40,7 @@
 		7D40A4912C3690F7007B8370 /* ProfileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4902C3690F7007B8370 /* ProfileListViewController.swift */; };
 		7D40A4952C3691B2007B8370 /* ProfileListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4932C3691B2007B8370 /* ProfileListTableViewCell.swift */; };
 		7D40A4962C3691B2007B8370 /* ProfileListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D40A4942C3691B2007B8370 /* ProfileListTableViewCell.xib */; };
+		7D4141AD2C4FA7F800CDA940 /* FilterFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4141AC2C4FA7F800CDA940 /* FilterFoodListViewController.swift */; };
 		7D58BF0B2C2E864E00E910F7 /* AddProfileView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BF0A2C2E864E00E910F7 /* AddProfileView + Extensions.swift */; };
 		7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */; };
 		7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AD9332C12B76000E17724 /* APIEndPoint.swift */; };
@@ -155,6 +156,7 @@
 		7D40A4902C3690F7007B8370 /* ProfileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListViewController.swift; sourceTree = "<group>"; };
 		7D40A4932C3691B2007B8370 /* ProfileListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListTableViewCell.swift; sourceTree = "<group>"; };
 		7D40A4942C3691B2007B8370 /* ProfileListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileListTableViewCell.xib; sourceTree = "<group>"; };
+		7D4141AC2C4FA7F800CDA940 /* FilterFoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFoodListViewController.swift; sourceTree = "<group>"; };
 		7D58BF0A2C2E864E00E910F7 /* AddProfileView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddProfileView + Extensions.swift"; sourceTree = "<group>"; };
 		7D5AD9312C12B75400E17724 /* EndPointType + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EndPointType + Enum.swift"; sourceTree = "<group>"; };
 		7D5AD9332C12B76000E17724 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
@@ -482,6 +484,14 @@
 				7D40A4942C3691B2007B8370 /* ProfileListTableViewCell.xib */,
 			);
 			path = "Cell View";
+			sourceTree = "<group>";
+		};
+		7D4141A72C4FA7AF00CDA940 /* Filter Data */ = {
+			isa = PBXGroup;
+			children = (
+				7D4141AC2C4FA7F800CDA940 /* FilterFoodListViewController.swift */,
+			);
+			path = "Filter Data";
 			sourceTree = "<group>";
 		};
 		7D58BF092C2E862000E910F7 /* Extensions */ = {
@@ -849,6 +859,7 @@
 		7D65F43D2C47934F00BDF9E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7D4141A72C4FA7AF00CDA940 /* Filter Data */,
 				7D65F4632C48F97200BDF9E5 /* Cell View */,
 				7D65F4432C4793AA00BDF9E5 /* FetchFoodCoreDataViewController.swift */,
 			);
@@ -1367,6 +1378,7 @@
 				7D5AD9442C140A3000E17724 /* BgVideoPlay.swift in Sources */,
 				7D6375FE2C119B5600D10B30 /* LoginViewController.swift in Sources */,
 				7D6376332C11AE0500D10B30 /* DashboardViewController.swift in Sources */,
+				7D4141AD2C4FA7F800CDA940 /* FilterFoodListViewController.swift in Sources */,
 				7D5AD9552C143D5900E17724 /* productListModel.swift in Sources */,
 				7D24F6CC2C2D378200958EEA /* ProfileModel.swift in Sources */,
 				7DD134622C3EB9A600473503 /* LabelCountAViewController.swift in Sources */,
