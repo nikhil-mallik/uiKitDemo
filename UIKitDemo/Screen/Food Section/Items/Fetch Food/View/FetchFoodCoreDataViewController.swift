@@ -19,10 +19,13 @@ class FetchFoodCoreDataViewController: UIViewController {
     private let manager = FoodDatabaseManager()
     private var groupedFoodItems: [String: [FoodEntity]] = [:]
     private var sortedCategoryNames: [String] = []
+    private var expandedSections: Set<Int> = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +63,8 @@ extension FetchFoodCoreDataViewController {
         foodItems = manager.fetchFood()
         groupFoodItemsByCategory()
         foodListTableView.reloadData()
+        // Set all sections as expanded initially
+        expandedSections = Set(0..<sortedCategoryNames.count)
     }
     
     private func groupFoodItemsByCategory() {
@@ -92,6 +97,18 @@ extension FetchFoodCoreDataViewController {
         }
     }
     
+    @objc private func handleHeaderTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        guard let headerView = gestureRecognizer.view as? StickHeaderFooter else { return }
+        let section = headerView.tag
+        
+        if expandedSections.contains(section) {
+            expandedSections.remove(section)
+        } else {
+            expandedSections.insert(section)
+        }
+        // Reload the affected section to show/hide rows
+        foodListTableView.reloadSections(IndexSet(integer: section), with: .automatic)
+    }
 }
 
 // MARK: - Extension for shared instance
@@ -137,8 +154,13 @@ extension FetchFoodCoreDataViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let categoryName = sortedCategoryNames[section]
-        return groupedFoodItems[categoryName]?.count ?? 0
+        if expandedSections.contains(section) {
+            return groupedFoodItems[categoryName]?.count ?? 0
+        } else {
+            return 0
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FoodItemsTableViewCell", for: indexPath) as? FoodItemsTableViewCell else {
@@ -153,11 +175,35 @@ extension FetchFoodCoreDataViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = indexPath.section
+        if expandedSections.contains(section) {
+            expandedSections.remove(section)
+        } else {
+            expandedSections.insert(section)
+        }
+        
+        // Reload the affected section to show/hide rows
+        tableView.reloadSections(IndexSet(integer: section), with: .automatic)
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "StickHeaderFooter") as? StickHeaderFooter else {
             return nil
         }
         headerView.headerTitleLabel.text = sortedCategoryNames[section]
+        // Determine the correct image based on the expanded/collapsed state
+        let isExpanded = expandedSections.contains(section)
+        let imageName = isExpanded ? "arrowtriangle.up.fill" : "arrowtriangle.down.fill"
+        headerView.headerImageView.image = UIImage(systemName: imageName)
+        
+        // Add tap gesture recognizer to the header view
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleHeaderTap(_:)))
+        headerView.addGestureRecognizer(tapGesture)
+        headerView.tag = section  // Set the section tag
+        
         return headerView
     }
 }

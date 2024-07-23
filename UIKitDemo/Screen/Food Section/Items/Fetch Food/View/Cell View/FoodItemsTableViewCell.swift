@@ -89,8 +89,8 @@ class FoodItemsTableViewCell: UITableViewCell {
         NotificationCenter.default.post(name: .sendNotification, object: nil, userInfo: [
             "title": foodItem!.categoryName ?? "" ,
             "body": "\(foodItem!.itemName ?? "") is going to expire \(day)",
-            "hours": 13,
-            "minutes": 42,
+            "hours": 11,
+            "minutes": 44,
             "date" : date,
             "isDaily": repeating
         ])
