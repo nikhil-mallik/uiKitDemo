@@ -90,7 +90,7 @@ extension FilterFoodListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if indexPath.row < categoryFood.count {
-            cell.textLabel?.text = categoryFood[indexPath.row].catName
+            cell.textLabel?.text = categoryFood[indexPath.row].categoryName
         } else {
             cell.textLabel?.text = "Category not available"
         }
@@ -104,8 +104,8 @@ extension FilterFoodListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row < categoryFood.count else { return }
-        selectedCategoryName = categoryFood[indexPath.row].catName!
-        selectedCategoryId = categoryFood[indexPath.row].catId!
+        selectedCategoryName = categoryFood[indexPath.row].categoryName!
+        selectedCategoryId = categoryFood[indexPath.row].categoryId!
         categoryLabel.text = selectedCategoryName
         selectedCategory = categoryFood[indexPath.row]
         if !tableView.isHidden {

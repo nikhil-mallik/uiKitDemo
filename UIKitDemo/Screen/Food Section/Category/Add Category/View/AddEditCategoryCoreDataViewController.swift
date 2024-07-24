@@ -33,7 +33,7 @@ class AddEditCategoryCoreDataViewController: UIViewController {
         if let category {
             saveBtn.setTitle("Update", for: .normal)
             navigationItem.title = "Update Category"
-            categoryTxtFd.text = category.catName
+            categoryTxtFd.text = category.categoryName
         } else {
             navigationItem.title = "Add Category"
             saveBtn.setTitle("Save", for: .normal)
@@ -46,13 +46,14 @@ class AddEditCategoryCoreDataViewController: UIViewController {
             AlertHelper.showAlert(withTitle: "Alert", message: "Please enter category name", from: self)
             return
         }
+        let created = Date()
         
         if let category {
-            let newCategory = CategoryModel(catId: category.catId!, catName: CategoryName)
+            let newCategory = CategoryModel(categoryId: category.categoryId!, categoryName: CategoryName, createdAt: created)
             manager.updateCategory(category: newCategory, categoryEntity: category)
         } else {
             let id = UUID().uuidString
-            let newCategory = CategoryModel(catId: id, catName: CategoryName)
+            let newCategory = CategoryModel(categoryId: id, categoryName: CategoryName, createdAt: created)
             manager.addCategory(newCategory)
         }
         delegate?.didSaveCategory()

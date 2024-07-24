@@ -26,8 +26,9 @@ class FoodDatabaseManager {
     
     
     private func addUpdateCategory(categoryEntity: CategoryEntity, category: CategoryModel) {
-        categoryEntity.catId = category.catId
-        categoryEntity.catName = category.catName
+        categoryEntity.categoryId = category.categoryId
+        categoryEntity.categoryName = category.categoryName
+        categoryEntity.createdAt = category.createdAt
         saveContext()
     }
     
@@ -55,14 +56,15 @@ class FoodDatabaseManager {
     }
     
     private func addUpdateFoodItem(foodEntity: FoodEntity, food: FoodModel) {
-        foodEntity.catId = food.catId
-        foodEntity.categoryName = food.catName
+        foodEntity.categoryId = food.categoryId
+        foodEntity.categoryName = food.categoryName
         foodEntity.expireDate = food.expireDate
         foodEntity.itemName = food.itemName
         foodEntity.priceAmt = food.priceAmt
         foodEntity.purchaseDate = food.purchaseDate
         foodEntity.quantities = food.quantity
         foodEntity.totalPrice = food.totalPrice
+        foodEntity.notificationTime = food.notificationTime
         saveContext()
     } 
     

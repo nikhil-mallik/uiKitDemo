@@ -20,6 +20,8 @@ class AddEditFoodCoreDataViewController: UIViewController {
     @IBOutlet weak var quantityTxtFd: UITextField!
     @IBOutlet weak var totalPriceLbl: UILabel!
     @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var setNotificationTime: UIDatePicker!
+    
     
     // MARK: - Variable
     private let manager =  FoodDatabaseManager()
@@ -27,6 +29,7 @@ class AddEditFoodCoreDataViewController: UIViewController {
     var selectedCategoryId = ""
     var items: FoodEntity?
     var categoryFood: [CategoryEntity] =  []
+    var selectedNotificationTime: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,13 @@ class AddEditFoodCoreDataViewController: UIViewController {
         quantityTxtFd.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
+    
+    @IBAction func settingNotificationTime(_ sender: Any) {
+        selectedNotificationTime = setNotificationTime.date
+    }
+    
+    
+    
     @IBAction func categoryDropdownBtnAction(_ sender: Any) {
         toggleDropdown()
     }
@@ -89,12 +99,13 @@ extension AddEditFoodCoreDataViewController {
     // MARK: - Data Handling
     func itemsDetailConfiguration() {
         if let items = items {
-            selectedCategoryId = items.catId!
+            selectedCategoryId = items.categoryId!
             selectedCategoryName = items.categoryName!
             categoryNameLbl.text = items.categoryName
             itemTxtFd.text = items.itemName
             purchaseDate.date = items.purchaseDate ?? Date()
             expireDate.date = items.expireDate ?? Date()
+            setNotificationTime.date = items.notificationTime ?? Date()
             priceTxtFd.text = "\(items.priceAmt)"
             quantityTxtFd.text = "\(items.quantities)"
             totalPriceLbl.text = "\(items.totalPrice)"
@@ -120,9 +131,11 @@ extension AddEditFoodCoreDataViewController {
             return
         }
         
+   
         let purchasesDate = purchaseDate.date
         let expireDate = expireDate.date
-        
+        let notificationTime = setNotificationTime.date
+
         // Validate that expire date is not earlier than purchase date
         guard expireDate >= purchasesDate else {
             showAlert(message: "Expire date cannot be earlier than purchase date")
@@ -130,14 +143,15 @@ extension AddEditFoodCoreDataViewController {
         }
         let formattedTotalCount = calculateTotal(price: price, quantity: quantity)
         
-        let newItem = FoodModel(catId: selectedCategoryId,
-                                catName: selectedCategoryName,
+        let newItem = FoodModel(categoryId: selectedCategoryId,
+                                categoryName: selectedCategoryName,
                                 expireDate: expireDate,
                                 purchaseDate: purchasesDate,
                                 itemName: itemName,
                                 priceAmt: price,
                                 quantity: Int64(quantity),
-                                totalPrice: Float(formattedTotalCount)!)
+                                totalPrice: Float(formattedTotalCount)!, 
+                                notificationTime: notificationTime)
         
         if let items = items {
             manager.updateItems(food: newItem, foodEntity: items)
@@ -160,7 +174,7 @@ extension AddEditFoodCoreDataViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if indexPath.row < categoryFood.count {
-            cell.textLabel?.text = categoryFood[indexPath.row].catName
+            cell.textLabel?.text = categoryFood[indexPath.row].categoryName
         } else {
             cell.textLabel?.text = "Category not available"
         }
@@ -174,8 +188,8 @@ extension AddEditFoodCoreDataViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row < categoryFood.count else { return }
-        selectedCategoryName = categoryFood[indexPath.row].catName!
-        selectedCategoryId = categoryFood[indexPath.row].catId!
+        selectedCategoryName = categoryFood[indexPath.row].categoryName!
+        selectedCategoryId = categoryFood[indexPath.row].categoryId!
         categoryNameLbl.text = selectedCategoryName
         if !tableView.isHidden {
             toggleDropdown()

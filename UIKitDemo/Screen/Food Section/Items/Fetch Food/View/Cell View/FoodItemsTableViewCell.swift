@@ -19,6 +19,7 @@ class FoodItemsTableViewCell: UITableViewCell {
     @IBOutlet weak var expireDate: UILabel!
     
     // MARK: - Variable
+    var setNotificationTime: Date!
     var foodItem: FoodEntity? {
         didSet {
             itemsConfiguration()
@@ -45,6 +46,7 @@ class FoodItemsTableViewCell: UITableViewCell {
         totalAmount.text = "Total: " + "\(foodItem.totalPrice)"
         orderDate.text = "Order Date: " + getDateOnly(from: foodItem.purchaseDate ?? Date())
         setExpireDateLabel(foodItem.expireDate ?? Date())
+        setNotificationTime = foodItem.notificationTime
     }
     
     // MARK: - Expiry Date Handling
@@ -54,10 +56,8 @@ class FoodItemsTableViewCell: UITableViewCell {
         let expiryDate = calendar.startOfDay(for: expireDateValue)
         let daysToExpiry = calendar.dateComponents([.day], from: today, to: expiryDate).day ?? 0
         
-//        if let oneDayBefore = calendar.date(byAdding: .day, value: -1, to: expiryDate) {
-//            postNotifications(date: oneDayBefore, onDay: "tomorrow")
-//        }
-//        
+        addPostOneDayBeforeNotifications(calendar: calendar, date: expiryDate)
+        
         switch daysToExpiry {
         case 0:
             setExpireDateText("Expire: Today", color: .red)
@@ -70,7 +70,6 @@ class FoodItemsTableViewCell: UITableViewCell {
             setExpireDateText("Expires in 3 days", color: .orange)
         case 4:
             setExpireDateText("Expires in 4 days", color: .orange)
-            addPostOneDayBeforeNotifications(calendar: calendar, date: expiryDate)
         case ..<0:
             setExpireDateText("Item is Expired", color: .red)
         default:
@@ -92,12 +91,15 @@ class FoodItemsTableViewCell: UITableViewCell {
     
     // MARK: - Notification Posting
     func postNotifications(date: Date, onDay day: String) {
+        let calendar = Calendar.current
+        let hours = calendar.component(.hour, from: foodItem!.notificationTime!)
+        let minutes = calendar.component(.minute, from: foodItem!.notificationTime!)
         let repeating = day == "today" ? false : true
         NotificationCenter.default.post(name: .sendNotification, object: nil, userInfo: [
             "title": foodItem!.categoryName ?? "" ,
             "body": "\(foodItem!.itemName ?? "") is going to expire \(day)",
-            "hours": 11,
-            "minutes": 44,
+            "hours": hours,
+            "minutes": minutes,
             "date" : date,
             "isDaily": repeating
         ])

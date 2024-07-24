@@ -8,12 +8,13 @@
 import Foundation
 
 struct FoodModel {
-    let catId: String
-    let catName: String
+    let categoryId: String
+    let categoryName: String
     let expireDate: Date
     let purchaseDate: Date
     let itemName: String
     let priceAmt: Float
     let quantity: Int64
     let totalPrice: Float
+    let notificationTime: Date
 }

@@ -8,9 +8,10 @@
 import UIKit
 
 class FoodCategoryTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var categoryName: UILabel!
+    
     @IBOutlet weak var labelBgView: UIView!
+    @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var category: CategoryEntity? {
         didSet {
@@ -32,6 +33,13 @@ class FoodCategoryTableViewCell: UITableViewCell {
     
     func categoryConfiguration() {
         guard let category else { return }
-        categoryName.text = (category.catName ?? "")
+        categoryName.text = (category.categoryName ?? "")
+        dateLabel.text = "Created at: \(getDateOnly(from: category.createdAt ?? Date()))"
+    }
+    // Convert date to string format
+    func getDateOnly(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
     }
 }

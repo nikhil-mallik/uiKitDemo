@@ -152,7 +152,7 @@ extension FetchFoodCoreDataViewController {
             guard let expiryDate = item.expireDate else { return false }
             let isInDateRange = (expiryDate >= startDate && expiryDate <= endDate)
             if let category = categoryName {
-                return isInDateRange && item.categoryName == category.catName
+                return isInDateRange && item.categoryName == category.categoryName
             } else {
                 return isInDateRange
             }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct CategoryModel {
-    let catId: String
-    let catName: String
+    let categoryId: String
+    let categoryName: String
+    let createdAt: Date
 }
