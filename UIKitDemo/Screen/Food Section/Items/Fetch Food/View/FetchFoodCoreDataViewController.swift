@@ -93,8 +93,6 @@ extension FetchFoodCoreDataViewController {
         foodItems = manager.fetchFood()
         groupFoodItemsByCategory()
         foodListTableView.reloadData()
-        // Set all sections as expanded initially
-        expandedSections = Set(0..<sortedCategoryNames.count)
         noDataLabel.alpha = 0
         foodListTableView.isHidden = false
     }
