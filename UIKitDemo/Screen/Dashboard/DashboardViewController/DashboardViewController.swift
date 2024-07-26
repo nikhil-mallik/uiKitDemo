@@ -26,6 +26,7 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var localNotificationBtn: UIButton!
     @IBOutlet weak var coreDataBtn: UIButton!
     @IBOutlet weak var foodDemoBtn: UIButton!
+    @IBOutlet weak var mapViewBtn: UIButton!
     
     // Holds the user's name
     var userName = ""
@@ -141,7 +142,15 @@ class DashboardViewController : UIViewController {
     @IBAction func foodCoreDataBtnAction(_ sender: UIButton) {
         let foodVC = FetchFoodCoreDataViewController.sharedInstance()
         self.navigationController?.pushViewController(foodVC, animated: true)
+    }  
+    
+    @IBAction func mapViewBtnAction(_ sender: UIButton) {
+        let mapVC = MapsButtonViewController.sharedInstance()
+//        let mapVC = MapIntregationViewController.sharedInstance()
+        self.navigationController?.pushViewController(mapVC, animated: true)
     }
+    
+    
     
 }
 

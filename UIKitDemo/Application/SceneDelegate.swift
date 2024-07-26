@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         // Initialize the NotificationManager
         _ = NotificationManager.shared
+        _ = LocationPermissionManager.shared
         
         if TokenService.tokenShared.checkForLogin() {
             let vc = DashboardViewController.sharedIntance()
@@ -36,6 +37,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 print("Notification permissions granted")
             } else {
                 print("Notification permissions denied")
+            }
+        }
+        
+        LocationPermissionManager.shared.requestCurrentLocation { location in
+            if let location = location {
+                print("Current location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+                // Use the location here
+            } else {
+                print("Failed to get location.")
+                // Handle the failure case
             }
         }
         

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7D02A74D2C37C171009E4359 /* SwipeImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D02A74C2C37C171009E4359 /* SwipeImageTableViewCell.xib */; };
 		7D02A74E2C37C171009E4359 /* SwipeImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D02A74B2C37C171009E4359 /* SwipeImageTableViewCell.swift */; };
+		7D0766D02C520CC9003CE6EA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7D0766CF2C520CC9003CE6EA /* Alamofire */; };
+		7D0766D32C520CD4003CE6EA /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7D0766D22C520CD4003CE6EA /* IQKeyboardManagerSwift */; };
+		7D0766D62C520CE1003CE6EA /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 7D0766D52C520CE1003CE6EA /* GoogleMaps */; };
 		7D1E15B82C243F52006CF5A6 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B72C243F52006CF5A6 /* CountryViewModel.swift */; };
 		7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15B92C243F7A006CF5A6 /* CountryModel.swift */; };
 		7D1E15BC2C298C0B006CF5A6 /* LoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */; };
@@ -17,8 +20,9 @@
 		7D24F6B92C2ADE2200958EEA /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F6B82C2ADE2200958EEA /* FullScreenImageViewController.swift */; };
 		7D24F6C62C2D367D00958EEA /* ProfileAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F6C52C2D367D00958EEA /* ProfileAddViewModel.swift */; };
 		7D24F6CC2C2D378200958EEA /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F6CB2C2D378200958EEA /* ProfileModel.swift */; };
+		7D3420E82C522D8B00C0DA64 /* GooglePlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3420E72C522D8B00C0DA64 /* GooglePlaceMapViewController.swift */; };
+		7D3420EE2C52316E00C0DA64 /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 7D3420ED2C52316E00C0DA64 /* GooglePlaces */; };
 		7D40A4562C329C79007B8370 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4552C329C79007B8370 /* AddProfileViewController.swift */; };
-		7D40A4592C33D6BC007B8370 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7D40A4582C33D6BC007B8370 /* IQKeyboardManagerSwift */; };
 		7D40A45D2C350FA2007B8370 /* FetchProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A45C2C350FA2007B8370 /* FetchProfileTableViewController.swift */; };
 		7D40A4682C351137007B8370 /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4662C351137007B8370 /* ProfileInfoCell.swift */; };
 		7D40A4692C351137007B8370 /* ProfileInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D40A4672C351137007B8370 /* ProfileInfoCell.xib */; };
@@ -71,7 +75,6 @@
 		7D6376332C11AE0500D10B30 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6376322C11AE0500D10B30 /* DashboardViewController.swift */; };
 		7D6376352C11BE0D00D10B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6376342C11BE0D00D10B30 /* Main.storyboard */; };
 		7D6376372C11BF4400D10B30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6376362C11BF4400D10B30 /* ViewController.swift */; };
-		7D63763F2C11C22700D10B30 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7D63763E2C11C22700D10B30 /* Alamofire */; };
 		7D6376412C11E01E00D10B30 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6376402C11E01E00D10B30 /* LoginModel.swift */; };
 		7D65F42A2C465BFA00BDF9E5 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65F4292C465BFA00BDF9E5 /* UserDataModel.swift */; };
 		7D65F42D2C465F2600BDF9E5 /* UIKitDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D65F42B2C465F2600BDF9E5 /* UIKitDemo.xcdatamodeld */; };
@@ -89,6 +92,10 @@
 		7D65F4622C47DEED00BDF9E5 /* FoodCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65F45F2C47DEED00BDF9E5 /* FoodCategoryTableViewCell.swift */; };
 		7D65F4662C48F98A00BDF9E5 /* FoodItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D65F4652C48F98A00BDF9E5 /* FoodItemsTableViewCell.xib */; };
 		7D65F4672C48F98A00BDF9E5 /* FoodItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65F4642C48F98A00BDF9E5 /* FoodItemsTableViewCell.swift */; };
+		7D6892A12C50F6310086356C /* AppleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6892A02C50F6310086356C /* AppleMapViewController.swift */; };
+		7D6892A42C50FE0C0086356C /* googleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6892A32C50FE0C0086356C /* googleMapViewController.swift */; };
+		7D6892BC2C5121C30086356C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6892BB2C5121C30086356C /* LocationManager.swift */; };
+		7D6892BE2C51382A0086356C /* MapsButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6892BD2C51382A0086356C /* MapsButtonViewController.swift */; };
 		7D6D84E62C18268E008CA723 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84E52C18268E008CA723 /* CollectionViewController.swift */; };
 		7D6D84ED2C182DAB008CA723 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84EC2C182DAB008CA723 /* CollectionViewModel.swift */; };
 		7D6D84F12C182E52008CA723 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D84EE2C182E52008CA723 /* ProductCollectionViewCell.swift */; };
@@ -134,6 +141,7 @@
 		7D24F6B82C2ADE2200958EEA /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		7D24F6C52C2D367D00958EEA /* ProfileAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddViewModel.swift; sourceTree = "<group>"; };
 		7D24F6CB2C2D378200958EEA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		7D3420E72C522D8B00C0DA64 /* GooglePlaceMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceMapViewController.swift; sourceTree = "<group>"; };
 		7D40A4552C329C79007B8370 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		7D40A45C2C350FA2007B8370 /* FetchProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProfileTableViewController.swift; sourceTree = "<group>"; };
 		7D40A4662C351137007B8370 /* ProfileInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
@@ -206,6 +214,10 @@
 		7D65F4602C47DEED00BDF9E5 /* FoodCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		7D65F4642C48F98A00BDF9E5 /* FoodItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsTableViewCell.swift; sourceTree = "<group>"; };
 		7D65F4652C48F98A00BDF9E5 /* FoodItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodItemsTableViewCell.xib; sourceTree = "<group>"; };
+		7D6892A02C50F6310086356C /* AppleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapViewController.swift; sourceTree = "<group>"; };
+		7D6892A32C50FE0C0086356C /* googleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleMapViewController.swift; sourceTree = "<group>"; };
+		7D6892BB2C5121C30086356C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7D6892BD2C51382A0086356C /* MapsButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsButtonViewController.swift; sourceTree = "<group>"; };
 		7D6D84E52C18268E008CA723 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		7D6D84EC2C182DAB008CA723 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		7D6D84EE2C182E52008CA723 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -245,8 +257,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D63763F2C11C22700D10B30 /* Alamofire in Frameworks */,
-				7D40A4592C33D6BC007B8370 /* IQKeyboardManagerSwift in Frameworks */,
+				7D0766D02C520CC9003CE6EA /* Alamofire in Frameworks */,
+				7D3420EE2C52316E00C0DA64 /* GooglePlaces in Frameworks */,
+				7D0766D32C520CD4003CE6EA /* IQKeyboardManagerSwift in Frameworks */,
+				7D0766D62C520CE1003CE6EA /* GoogleMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +274,14 @@
 				7D02A74C2C37C171009E4359 /* SwipeImageTableViewCell.xib */,
 			);
 			path = "Swipe Image";
+			sourceTree = "<group>";
+		};
+		7D0766C72C5204D6003CE6EA /* AppleMap */ = {
+			isa = PBXGroup;
+			children = (
+				7D6892A02C50F6310086356C /* AppleMapViewController.swift */,
+			);
+			path = AppleMap;
 			sourceTree = "<group>";
 		};
 		7D24F6A12C2A9B8E00958EEA /* Image Upload */ = {
@@ -646,6 +668,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7D68929E2C50F60B0086356C /* Map View */,
 				7D65F4392C47931E00BDF9E5 /* Food Section */,
 				7DD134732C46437F00473503 /* Core Data */,
 				7DD1346B2C44F58400473503 /* Local Notification */,
@@ -688,6 +711,7 @@
 				7D1E15BB2C298C0B006CF5A6 /* LoaderHelper.swift */,
 				7D24F6AF2C2AA39900958EEA /* ImagePickerHelper.swift */,
 				7DD134712C45119600473503 /* NotificationManager.swift */,
+				7D6892BB2C5121C30086356C /* LocationManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -966,6 +990,33 @@
 				7D65F4652C48F98A00BDF9E5 /* FoodItemsTableViewCell.xib */,
 			);
 			path = "Cell View";
+			sourceTree = "<group>";
+		};
+		7D68929E2C50F60B0086356C /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				7D68929F2C50F6140086356C /* View */,
+			);
+			path = "Map View";
+			sourceTree = "<group>";
+		};
+		7D68929F2C50F6140086356C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D0766C72C5204D6003CE6EA /* AppleMap */,
+				7D6892A22C50FDEE0086356C /* GoogleMap */,
+				7D6892BD2C51382A0086356C /* MapsButtonViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D6892A22C50FDEE0086356C /* GoogleMap */ = {
+			isa = PBXGroup;
+			children = (
+				7D6892A32C50FE0C0086356C /* googleMapViewController.swift */,
+				7D3420E72C522D8B00C0DA64 /* GooglePlaceMapViewController.swift */,
+			);
+			path = GoogleMap;
 			sourceTree = "<group>";
 		};
 		7D6D84E12C182652008CA723 /* CollectionView */ = {
@@ -1286,8 +1337,10 @@
 			);
 			name = UIKitDemo;
 			packageProductDependencies = (
-				7D63763E2C11C22700D10B30 /* Alamofire */,
-				7D40A4582C33D6BC007B8370 /* IQKeyboardManagerSwift */,
+				7D0766CF2C520CC9003CE6EA /* Alamofire */,
+				7D0766D22C520CD4003CE6EA /* IQKeyboardManagerSwift */,
+				7D0766D52C520CE1003CE6EA /* GoogleMaps */,
+				7D3420ED2C52316E00C0DA64 /* GooglePlaces */,
 			);
 			productName = UIKitDemo;
 			productReference = 7D6375F62C119B5600D10B30 /* UIKitDemo.app */;
@@ -1318,8 +1371,10 @@
 			);
 			mainGroup = 7D6375ED2C119B5600D10B30;
 			packageReferences = (
-				7D63763D2C11C22700D10B30 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				7D40A4572C33D6BC007B8370 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7D0766CE2C520CC9003CE6EA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7D0766D12C520CD4003CE6EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7D0766D42C520CE1003CE6EA /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
+				7D3420EC2C52316E00C0DA64 /* XCRemoteSwiftPackageReference "ios-places-sdk" */,
 			);
 			productRefGroup = 7D6375F72C119B5600D10B30 /* Products */;
 			projectDirPath = "";
@@ -1402,6 +1457,7 @@
 				7DD134522C3D536600473503 /* TaskManagerModel.swift in Sources */,
 				7D6D85182C240E54008CA723 /* CountryViewController.swift in Sources */,
 				7D6D850D2C1C4464008CA723 /* UITextField + Extension.swift in Sources */,
+				7D6892A12C50F6310086356C /* AppleMapViewController.swift in Sources */,
 				7D40A4882C35871D007B8370 /* ImageTableViewCell.swift in Sources */,
 				7D65F42D2C465F2600BDF9E5 /* UIKitDemo.xcdatamodeld in Sources */,
 				7D65F45B2C47C8B000BDF9E5 /* CategoryModel.swift in Sources */,
@@ -1418,6 +1474,7 @@
 				7D40A45D2C350FA2007B8370 /* FetchProfileTableViewController.swift in Sources */,
 				7D6375FA2C119B5600D10B30 /* AppDelegate.swift in Sources */,
 				7D24F6B02C2AA39900958EEA /* ImagePickerHelper.swift in Sources */,
+				7D6892BE2C51382A0086356C /* MapsButtonViewController.swift in Sources */,
 				7D65F4592C47C88000BDF9E5 /* AddEditCategoryCoreDataViewController.swift in Sources */,
 				7D6D850B2C1C361C008CA723 /* ButtonScrollView.swift in Sources */,
 				7D5AD9592C143D7700E17724 /* productListViewModel.swift in Sources */,
@@ -1431,6 +1488,7 @@
 				7D6376282C11A1D200D10B30 /* RegisterModel.swift in Sources */,
 				7DD134562C3D5E1A00473503 /* TaskTableViewCell.swift in Sources */,
 				7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */,
+				7D6892BC2C5121C30086356C /* LocationManager.swift in Sources */,
 				7D65F4462C4793F500BDF9E5 /* AddEditFoodCoreDataViewController.swift in Sources */,
 				7D24F6B92C2ADE2200958EEA /* FullScreenImageViewController.swift in Sources */,
 				7D65F4552C47C81000BDF9E5 /* FetchCategoryCoreDataViewController.swift in Sources */,
@@ -1440,8 +1498,10 @@
 				7D5AD93E2C12FEE700E17724 /* TokenService.swift in Sources */,
 				7D65F42A2C465BFA00BDF9E5 /* UserDataModel.swift in Sources */,
 				7D6376312C11ADD600D10B30 /* RegisterViewController.swift in Sources */,
+				7D6892A42C50FE0C0086356C /* googleMapViewController.swift in Sources */,
 				7D40A47D2C3572AD007B8370 /* ProductModel.swift in Sources */,
 				7D6376262C11A05A00D10B30 /* Constant.swift in Sources */,
+				7D3420E82C522D8B00C0DA64 /* GooglePlaceMapViewController.swift in Sources */,
 				7DD134662C3EBA9600473503 /* LabelCountViewModel.swift in Sources */,
 				7D6D84FC2C1B258D008CA723 /* AddButtonViewController.swift in Sources */,
 				7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */,
@@ -1675,34 +1735,60 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7D40A4572C33D6BC007B8370 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.3;
-			};
-		};
-		7D63763D2C11C22700D10B30 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		7D0766CE2C520CC9003CE6EA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.0;
+				minimumVersion = 5.9.1;
+			};
+		};
+		7D0766D12C520CD4003CE6EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
+		7D0766D42C520CE1003CE6EA /* XCRemoteSwiftPackageReference "ios-maps-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googlemaps/ios-maps-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		7D3420EC2C52316E00C0DA64 /* XCRemoteSwiftPackageReference "ios-places-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googlemaps/ios-places-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7D40A4582C33D6BC007B8370 /* IQKeyboardManagerSwift */ = {
+		7D0766CF2C520CC9003CE6EA /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7D40A4572C33D6BC007B8370 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 7D0766CE2C520CC9003CE6EA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7D0766D22C520CD4003CE6EA /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D0766D12C520CD4003CE6EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
-		7D63763E2C11C22700D10B30 /* Alamofire */ = {
+		7D0766D52C520CE1003CE6EA /* GoogleMaps */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7D63763D2C11C22700D10B30 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = 7D0766D42C520CE1003CE6EA /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMaps;
+		};
+		7D3420ED2C52316E00C0DA64 /* GooglePlaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D3420EC2C52316E00C0DA64 /* XCRemoteSwiftPackageReference "ios-places-sdk" */;
+			productName = GooglePlaces;
 		};
 /* End XCSwiftPackageProductDependency section */
 

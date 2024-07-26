@@ -1,5 +1,5 @@
 {
-  "originHash" : "08fb475f3440b08ddad56cb42f333cf77ca55d852fd0cc4c3ffdf5da86665078",
+  "originHash" : "389a50527afa3c8e907a2334f5c236f9c729696fad65f016942450e639677130",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -11,12 +11,30 @@
       }
     },
     {
+      "identity" : "ios-maps-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googlemaps/ios-maps-sdk.git",
+      "state" : {
+        "revision" : "0cd72dd45109b0225dd920ff17e0362a96489ec0",
+        "version" : "9.0.0"
+      }
+    },
+    {
+      "identity" : "ios-places-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googlemaps/ios-places-sdk.git",
+      "state" : {
+        "revision" : "5eaf8e9a64f6a2ea27fdc845f4653fdc26231cc3",
+        "version" : "9.0.0"
+      }
+    },
+    {
       "identity" : "iqkeyboardmanager",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
       "state" : {
-        "revision" : "19e111f9246b3407fe0c334dc78fa890c40d8c67",
-        "version" : "7.0.3"
+        "revision" : "fa9b2bac94b3fabe2d6ca7c74b269d4e8c355111",
+        "version" : "7.1.1"
       }
     }
   ],

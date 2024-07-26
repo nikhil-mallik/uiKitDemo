@@ -8,13 +8,17 @@
 import UIKit
 import IQKeyboardManagerSwift
 import CoreData
+import GoogleMaps
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        print("Database Location", URL.documentsDirectory)
+
+        GMSPlacesClient.provideAPIKey(google_api_Key)
+        GMSServices.provideAPIKey(google_api_Key)
         IQKeyboardManager.shared.enable = true
         return true
     }

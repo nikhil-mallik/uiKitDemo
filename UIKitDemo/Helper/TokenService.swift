@@ -31,7 +31,7 @@ class TokenService {
     // Method to retrieve the username from UserDefaults
     func getName() -> String {
         // Force unwrap is safe here as we know the value should exist if saved correctly
-        return userDefault.string(forKey: TokenKey.userName)!
+        return userDefault.string(forKey: TokenKey.userName) ?? "Test"
     }
     
     // Method to check if a user is logged in based on the presence of a token
