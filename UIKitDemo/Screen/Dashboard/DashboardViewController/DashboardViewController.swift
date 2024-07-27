@@ -34,6 +34,7 @@ class DashboardViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        nameLabel.alpha = 0
         getUserName() // Retrieve and display the user's name
     }
         
@@ -146,7 +147,7 @@ class DashboardViewController : UIViewController {
     
     @IBAction func mapViewBtnAction(_ sender: UIButton) {
         let mapVC = MapsButtonViewController.sharedInstance()
-//        let mapVC = MapIntregationViewController.sharedInstance()
+//        let mapVC = SocialAccountViewController.sharedIntance()
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
     

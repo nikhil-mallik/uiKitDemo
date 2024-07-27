@@ -2,10 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>We need your location to show nearby places.</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>We need your location to provide better services.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Required for the security reason</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>GoogleSignIn</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.723622893011-h6ork32m4487gfk79kmp0n0dogjlhvda</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>723622893011-h6ork32m4487gfk79kmp0n0dogjlhvda.apps.googleusercontent.com</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>

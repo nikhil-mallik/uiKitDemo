@@ -22,6 +22,19 @@
 		7D24F6CC2C2D378200958EEA /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F6CB2C2D378200958EEA /* ProfileModel.swift */; };
 		7D3420E82C522D8B00C0DA64 /* GooglePlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3420E72C522D8B00C0DA64 /* GooglePlaceMapViewController.swift */; };
 		7D3420EE2C52316E00C0DA64 /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 7D3420ED2C52316E00C0DA64 /* GooglePlaces */; };
+		7D3420F22C536CF500C0DA64 /* SocialAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3420F12C536CF500C0DA64 /* SocialAccountViewController.swift */; };
+		7D3420F62C53904C00C0DA64 /* SocialAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3420F52C53904C00C0DA64 /* SocialAccountViewModel.swift */; };
+		7D3420F92C5395E700C0DA64 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7D3420F82C5395E700C0DA64 /* FirebaseAuth */; };
+		7D3420FC2C5395FF00C0DA64 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 7D3420FB2C5395FF00C0DA64 /* GoogleSignIn */; };
+		7D3420FE2C5395FF00C0DA64 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7D3420FD2C5395FF00C0DA64 /* GoogleSignInSwift */; };
+		7D3421002C53967B00C0DA64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D3420FF2C53967B00C0DA64 /* GoogleService-Info.plist */; };
+		7D3421022C539C8800C0DA64 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3421012C539C8800C0DA64 /* Utilities.swift */; };
+		7D3421052C539D0000C0DA64 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3421042C539D0000C0DA64 /* SignInGoogleHelper.swift */; };
+		7D3421072C539DBE00C0DA64 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3421062C539DBE00C0DA64 /* AuthenticationManager.swift */; };
+		7D3421092C539E6800C0DA64 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3421082C539E6800C0DA64 /* SignInAppleHelper.swift */; };
+		7D34210B2C53AF9100C0DA64 /* SocialDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D34210A2C53AF9100C0DA64 /* SocialDashboardViewController.swift */; };
+		7D34210F2C54A6A200C0DA64 /* PhoneBiometricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D34210E2C54A6A200C0DA64 /* PhoneBiometricViewController.swift */; };
+		7D3421112C54B40000C0DA64 /* BiometricAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3421102C54B40000C0DA64 /* BiometricAuth.swift */; };
 		7D40A4562C329C79007B8370 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4552C329C79007B8370 /* AddProfileViewController.swift */; };
 		7D40A45D2C350FA2007B8370 /* FetchProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A45C2C350FA2007B8370 /* FetchProfileTableViewController.swift */; };
 		7D40A4682C351137007B8370 /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40A4662C351137007B8370 /* ProfileInfoCell.swift */; };
@@ -142,6 +155,16 @@
 		7D24F6C52C2D367D00958EEA /* ProfileAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddViewModel.swift; sourceTree = "<group>"; };
 		7D24F6CB2C2D378200958EEA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		7D3420E72C522D8B00C0DA64 /* GooglePlaceMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceMapViewController.swift; sourceTree = "<group>"; };
+		7D3420F12C536CF500C0DA64 /* SocialAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccountViewController.swift; sourceTree = "<group>"; };
+		7D3420F52C53904C00C0DA64 /* SocialAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccountViewModel.swift; sourceTree = "<group>"; };
+		7D3420FF2C53967B00C0DA64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D3421012C539C8800C0DA64 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		7D3421042C539D0000C0DA64 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
+		7D3421062C539DBE00C0DA64 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		7D3421082C539E6800C0DA64 /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
+		7D34210A2C53AF9100C0DA64 /* SocialDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDashboardViewController.swift; sourceTree = "<group>"; };
+		7D34210E2C54A6A200C0DA64 /* PhoneBiometricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBiometricViewController.swift; sourceTree = "<group>"; };
+		7D3421102C54B40000C0DA64 /* BiometricAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuth.swift; sourceTree = "<group>"; };
 		7D40A4552C329C79007B8370 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		7D40A45C2C350FA2007B8370 /* FetchProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProfileTableViewController.swift; sourceTree = "<group>"; };
 		7D40A4662C351137007B8370 /* ProfileInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
@@ -258,9 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D0766D02C520CC9003CE6EA /* Alamofire in Frameworks */,
+				7D3420F92C5395E700C0DA64 /* FirebaseAuth in Frameworks */,
+				7D3420FE2C5395FF00C0DA64 /* GoogleSignInSwift in Frameworks */,
 				7D3420EE2C52316E00C0DA64 /* GooglePlaces in Frameworks */,
 				7D0766D32C520CD4003CE6EA /* IQKeyboardManagerSwift in Frameworks */,
 				7D0766D62C520CE1003CE6EA /* GoogleMaps in Frameworks */,
+				7D3420FC2C5395FF00C0DA64 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +410,43 @@
 				7D24F6CB2C2D378200958EEA /* ProfileModel.swift */,
 			);
 			path = "Profile Model";
+			sourceTree = "<group>";
+		};
+		7D3420EF2C536C9E00C0DA64 /* Social Login */ = {
+			isa = PBXGroup;
+			children = (
+				7D3421032C539CE100C0DA64 /* Auth Helper */,
+				7D3420F02C536CB800C0DA64 /* View */,
+				7D3420F32C53902000C0DA64 /* ViewModel */,
+			);
+			path = "Social Login";
+			sourceTree = "<group>";
+		};
+		7D3420F02C536CB800C0DA64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D3420F12C536CF500C0DA64 /* SocialAccountViewController.swift */,
+				7D34210A2C53AF9100C0DA64 /* SocialDashboardViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D3420F32C53902000C0DA64 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7D3420F52C53904C00C0DA64 /* SocialAccountViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7D3421032C539CE100C0DA64 /* Auth Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7D3421062C539DBE00C0DA64 /* AuthenticationManager.swift */,
+				7D3421042C539D0000C0DA64 /* SignInGoogleHelper.swift */,
+				7D3421082C539E6800C0DA64 /* SignInAppleHelper.swift */,
+			);
+			path = "Auth Helper";
 			sourceTree = "<group>";
 		};
 		7D40A45E2C350FD6007B8370 /* Cell Views */ = {
@@ -668,6 +731,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7D3420EF2C536C9E00C0DA64 /* Social Login */,
 				7D68929E2C50F60B0086356C /* Map View */,
 				7D65F4392C47931E00BDF9E5 /* Food Section */,
 				7DD134732C46437F00473503 /* Core Data */,
@@ -687,6 +751,7 @@
 				7D6376162C119C1200D10B30 /* Sign Up */,
 				7D6376172C119C1F00D10B30 /* Dashboard */,
 				7D6376362C11BF4400D10B30 /* ViewController.swift */,
+				7D34210E2C54A6A200C0DA64 /* PhoneBiometricViewController.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -712,6 +777,8 @@
 				7D24F6AF2C2AA39900958EEA /* ImagePickerHelper.swift */,
 				7DD134712C45119600473503 /* NotificationManager.swift */,
 				7D6892BB2C5121C30086356C /* LocationManager.swift */,
+				7D3421012C539C8800C0DA64 /* Utilities.swift */,
+				7D3421102C54B40000C0DA64 /* BiometricAuth.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -740,6 +807,7 @@
 			children = (
 				7D6375F92C119B5600D10B30 /* AppDelegate.swift */,
 				7D6375FB2C119B5600D10B30 /* SceneDelegate.swift */,
+				7D3420FF2C53967B00C0DA64 /* GoogleService-Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1341,6 +1409,9 @@
 				7D0766D22C520CD4003CE6EA /* IQKeyboardManagerSwift */,
 				7D0766D52C520CE1003CE6EA /* GoogleMaps */,
 				7D3420ED2C52316E00C0DA64 /* GooglePlaces */,
+				7D3420F82C5395E700C0DA64 /* FirebaseAuth */,
+				7D3420FB2C5395FF00C0DA64 /* GoogleSignIn */,
+				7D3420FD2C5395FF00C0DA64 /* GoogleSignInSwift */,
 			);
 			productName = UIKitDemo;
 			productReference = 7D6375F62C119B5600D10B30 /* UIKitDemo.app */;
@@ -1375,6 +1446,8 @@
 				7D0766D12C520CD4003CE6EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				7D0766D42C520CE1003CE6EA /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
 				7D3420EC2C52316E00C0DA64 /* XCRemoteSwiftPackageReference "ios-places-sdk" */,
+				7D3420F72C5395E600C0DA64 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7D3420FA2C5395FF00C0DA64 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 7D6375F72C119B5600D10B30 /* Products */;
 			projectDirPath = "";
@@ -1407,6 +1480,7 @@
 				7D65F4612C47DEED00BDF9E5 /* FoodCategoryTableViewCell.xib in Resources */,
 				7DD134572C3D5E1A00473503 /* TaskTableViewCell.xib in Resources */,
 				7D40A4892C35871D007B8370 /* ImageTableViewCell.xib in Resources */,
+				7D3421002C53967B00C0DA64 /* GoogleService-Info.plist in Resources */,
 				7D6376062C119B5700D10B30 /* Base in Resources */,
 				7D6376352C11BE0D00D10B30 /* Main.storyboard in Resources */,
 			);
@@ -1429,6 +1503,7 @@
 				7DD134682C3EBE7300473503 /* CountBViewController.swift in Sources */,
 				7DABE0712C170BA500403B7D /* UserListCell.swift in Sources */,
 				7D5AD9512C143D3D00E17724 /* UserListViewController.swift in Sources */,
+				7D3421052C539D0000C0DA64 /* SignInGoogleHelper.swift in Sources */,
 				7D6376372C11BF4400D10B30 /* ViewController.swift in Sources */,
 				7D5AD9442C140A3000E17724 /* BgVideoPlay.swift in Sources */,
 				7D6375FE2C119B5600D10B30 /* LoginViewController.swift in Sources */,
@@ -1442,6 +1517,7 @@
 				7D7E8A492C16C16E0095B81B /* LoginViewModel.swift in Sources */,
 				7D5AD94F2C143D2900E17724 /* userListModel.swift in Sources */,
 				7D65F4332C46751900BDF9E5 /* DatabaseManager.swift in Sources */,
+				7D3420F62C53904C00C0DA64 /* SocialAccountViewModel.swift in Sources */,
 				7DD134642C3EBA6600473503 /* LabelCountModel.swift in Sources */,
 				7DABE06D2C170B2400403B7D /* ProductCell.swift in Sources */,
 				7DD134502C3D534A00473503 /* TaskManagerViewController.swift in Sources */,
@@ -1463,6 +1539,8 @@
 				7D65F45B2C47C8B000BDF9E5 /* CategoryModel.swift in Sources */,
 				7D65F44A2C47C09200BDF9E5 /* FoodModel.swift in Sources */,
 				7D40A4952C3691B2007B8370 /* ProfileListTableViewCell.swift in Sources */,
+				7D3420F22C536CF500C0DA64 /* SocialAccountViewController.swift in Sources */,
+				7D3421072C539DBE00C0DA64 /* AuthenticationManager.swift in Sources */,
 				7D24F6B32C2ACAD000958EEA /* UserImageScrollViewController.swift in Sources */,
 				7D65F4622C47DEED00BDF9E5 /* FoodCategoryTableViewCell.swift in Sources */,
 				7D5AD95F2C1443D500E17724 /* UserListViewModel.swift in Sources */,
@@ -1481,6 +1559,8 @@
 				7D5AD9672C144BE100E17724 /* UIImageView + Extension.swift in Sources */,
 				7D5AD9342C12B76000E17724 /* APIEndPoint.swift in Sources */,
 				7D6D84F62C1AFBE1008CA723 /* productDetailView.swift in Sources */,
+				7D3421022C539C8800C0DA64 /* Utilities.swift in Sources */,
+				7D3421112C54B40000C0DA64 /* BiometricAuth.swift in Sources */,
 				7D65F44C2C47C16B00BDF9E5 /* FoodDatabaseManager.swift in Sources */,
 				7D24F6C62C2D367D00958EEA /* ProfileAddViewModel.swift in Sources */,
 				7D6D85072C1C0378008CA723 /* ButtonViewCell.swift in Sources */,
@@ -1488,8 +1568,11 @@
 				7D6376282C11A1D200D10B30 /* RegisterModel.swift in Sources */,
 				7DD134562C3D5E1A00473503 /* TaskTableViewCell.swift in Sources */,
 				7D1E15BA2C243F7A006CF5A6 /* CountryModel.swift in Sources */,
+				7D34210B2C53AF9100C0DA64 /* SocialDashboardViewController.swift in Sources */,
 				7D6892BC2C5121C30086356C /* LocationManager.swift in Sources */,
+				7D34210F2C54A6A200C0DA64 /* PhoneBiometricViewController.swift in Sources */,
 				7D65F4462C4793F500BDF9E5 /* AddEditFoodCoreDataViewController.swift in Sources */,
+				7D3421092C539E6800C0DA64 /* SignInAppleHelper.swift in Sources */,
 				7D24F6B92C2ADE2200958EEA /* FullScreenImageViewController.swift in Sources */,
 				7D65F4552C47C81000BDF9E5 /* FetchCategoryCoreDataViewController.swift in Sources */,
 				7DD134822C46444000473503 /* AddEditCoreDataViewController.swift in Sources */,
@@ -1767,6 +1850,22 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		7D3420F72C5395E600C0DA64 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
+		7D3420FA2C5395FF00C0DA64 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1789,6 +1888,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7D3420EC2C52316E00C0DA64 /* XCRemoteSwiftPackageReference "ios-places-sdk" */;
 			productName = GooglePlaces;
+		};
+		7D3420F82C5395E700C0DA64 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D3420F72C5395E600C0DA64 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7D3420FB2C5395FF00C0DA64 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D3420FA2C5395FF00C0DA64 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		7D3420FD2C5395FF00C0DA64 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D3420FA2C5395FF00C0DA64 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

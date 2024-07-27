@@ -24,6 +24,19 @@ class MapsButtonViewController: UIViewController {
         let mapVC = googleMapViewController.sharedInstance()
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
+    
+    
+    @IBAction func socailAccount(_ sender: Any) {
+        let socailVC = SocialAccountViewController.sharedIntance()
+        self.navigationController?.pushViewController(socailVC, animated: true)
+    }
+    
+    
+    @IBAction func bioMetricBtnAction(_ sender: Any) {
+        let biometricVC = PhoneBiometricViewController.sharedInstance()
+        self.navigationController?.pushViewController(biometricVC, animated: true)
+    }
+    
 }
 
 // MARK: - Extension for shared instance
