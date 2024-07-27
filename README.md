@@ -33,6 +33,20 @@ This project is a UIKit demo application designed to provide learners with a pra
    - **Increment and Decrement:** Users can increment or decrement a counter value using buttons.
    - **Data Binding:** The counter value is dynamically updated in the UI using KVO.Navigation
 
+8. **Local Notifications**
+   - **Scheduled Notifications:** Users can schedule local notifications to be triggered at a specified time.
+   - **Expiry Notifications:** The app will push local notifications one day before an item expires and on the day of expiry.
+
+9. **CRUD with Core Data**
+   - **Food Demo CRUD:** Users can perform CRUD operations (Create, Read, Update, Delete) on food items, with core data integration. This includes notifications for item expiry.
+
+10. **Map Integration**
+
+   - **Google Maps and Apple Maps:** Users can view and interact with locations on both Google Maps and Apple Maps.
+
+11. **Biometric Authentication**
+   - **Face ID/Touch ID:** Provides an additional layer of security through biometric authentication.
+
 ## Technical Details
 
 - **Architecture**: Model-View-ViewModel (MVVM)
@@ -100,10 +114,15 @@ This project is a UIKit demo application designed to provide learners with a pra
 16. **Sticky Header Screen:** Shows the list of product data categorized by category name, with a sticky header and scrollable functionality. The first cell uses the `TableViewCell` class.
 17. **Swipe Image TableViewCell:** Shows all product images with swipe gestures.
 18. **Image TableViewCell:** Shows all product images in a vertical scroll within a `CollectionViewCell`.
-19. **Add Task Screen:** In the Screen user can add the details of about the task and this screen is used for the editing the existing data also.
-20. **Task List Screen:** In the Screen user can see the list of the task and this 
-screen is used for the navigating to edit screen and delete the existing data also. This screen have the trailing tableView swipe functionality also. 
-21. **LabelCountAViewController:** Show the increment and decrement of the count from the total three screen.
+19. **Add Task Screen:** In the Screen, the user can add the details of the task and this screen is used for editing the existing data also.
+20. **Task List Screen:** In the Screen, the user can see the list of tasks and this 
+screen is used for the navigating to edit screen and deleting the existing data. This screen has the trailing tableView swipe functionality also. 
+21. **LabelCountAViewController:** Show the increment and decrement of the count from the total three screens.
+22. **Local Notification Screen:** Users can schedule local notifications and view a list of scheduled notifications.
+23. **Food Demo CRUD Screen:** Allows users to perform CRUD operations on food items with core data integration, including local notifications for item expiry.
+24. **Google Map Screen:** Displays a map with Google Maps integration.
+25. **Apple Map Screen:** Displays a map with Apple Maps integration.
+26. **Biometric Authentication Screen:** Enables biometric authentication (Face ID/Touch ID) for enhanced security.
 
 ## Navigation
 
