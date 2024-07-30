@@ -126,6 +126,9 @@
 		7DABE06D2C170B2400403B7D /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABE06B2C170B2400403B7D /* ProductCell.swift */; };
 		7DABE0702C170BA500403B7D /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DABE06F2C170BA500403B7D /* UserListCell.xib */; };
 		7DABE0712C170BA500403B7D /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABE06E2C170BA500403B7D /* UserListCell.swift */; };
+		7DB304D52C58CCFD00C024C1 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB304D42C58CCFD00C024C1 /* TabbarViewController.swift */; };
+		7DC13DB52C58EE2D00BE066D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC13DB42C58EE2D00BE066D /* MainPageViewController.swift */; };
+		7DC13DB82C58F67000BE066D /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC13DB72C58F67000BE066D /* SegmentViewController.swift */; };
 		7DD1344E2C3D531A00473503 /* TaskManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1344D2C3D531A00473503 /* TaskManagerViewModel.swift */; };
 		7DD134502C3D534A00473503 /* TaskManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1344F2C3D534A00473503 /* TaskManagerViewController.swift */; };
 		7DD134522C3D536600473503 /* TaskManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134512C3D536600473503 /* TaskManagerModel.swift */; };
@@ -258,6 +261,9 @@
 		7DABE06B2C170B2400403B7D /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		7DABE06E2C170BA500403B7D /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		7DABE06F2C170BA500403B7D /* UserListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
+		7DB304D42C58CCFD00C024C1 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		7DC13DB42C58EE2D00BE066D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		7DC13DB72C58F67000BE066D /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
 		7DD1344D2C3D531A00473503 /* TaskManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerViewModel.swift; sourceTree = "<group>"; };
 		7DD1344F2C3D534A00473503 /* TaskManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerViewController.swift; sourceTree = "<group>"; };
 		7DD134512C3D536600473503 /* TaskManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerModel.swift; sourceTree = "<group>"; };
@@ -731,6 +737,8 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7DC13DB62C58F62100BE066D /* Segment View */,
+				7DC13DB32C58EDB400BE066D /* Page View Controller */,
 				7D3420EF2C536C9E00C0DA64 /* Social Login */,
 				7D68929E2C50F60B0086356C /* Map View */,
 				7D65F4392C47931E00BDF9E5 /* Food Section */,
@@ -752,6 +760,7 @@
 				7D6376172C119C1F00D10B30 /* Dashboard */,
 				7D6376362C11BF4400D10B30 /* ViewController.swift */,
 				7D34210E2C54A6A200C0DA64 /* PhoneBiometricViewController.swift */,
+				7DB304D42C58CCFD00C024C1 /* TabbarViewController.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -1215,6 +1224,22 @@
 			path = "Country Model";
 			sourceTree = "<group>";
 		};
+		7DC13DB32C58EDB400BE066D /* Page View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7DC13DB42C58EE2D00BE066D /* MainPageViewController.swift */,
+			);
+			path = "Page View Controller";
+			sourceTree = "<group>";
+		};
+		7DC13DB62C58F62100BE066D /* Segment View */ = {
+			isa = PBXGroup;
+			children = (
+				7DC13DB72C58F67000BE066D /* SegmentViewController.swift */,
+			);
+			path = "Segment View";
+			sourceTree = "<group>";
+		};
 		7DD134492C3D522F00473503 /* Task Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -1501,6 +1526,7 @@
 				7D40A48D2C365996007B8370 /* ImageCollectionViewCell.swift in Sources */,
 				7DD134722C45119600473503 /* NotificationManager.swift in Sources */,
 				7DD134682C3EBE7300473503 /* CountBViewController.swift in Sources */,
+				7DB304D52C58CCFD00C024C1 /* TabbarViewController.swift in Sources */,
 				7DABE0712C170BA500403B7D /* UserListCell.swift in Sources */,
 				7D5AD9512C143D3D00E17724 /* UserListViewController.swift in Sources */,
 				7D3421052C539D0000C0DA64 /* SignInGoogleHelper.swift in Sources */,
@@ -1514,6 +1540,7 @@
 				7DD134622C3EB9A600473503 /* LabelCountAViewController.swift in Sources */,
 				7D6D84ED2C182DAB008CA723 /* CollectionViewModel.swift in Sources */,
 				7D40A4742C352466007B8370 /* ProfileBioDataCell.swift in Sources */,
+				7DC13DB82C58F67000BE066D /* SegmentViewController.swift in Sources */,
 				7D7E8A492C16C16E0095B81B /* LoginViewModel.swift in Sources */,
 				7D5AD94F2C143D2900E17724 /* userListModel.swift in Sources */,
 				7D65F4332C46751900BDF9E5 /* DatabaseManager.swift in Sources */,
@@ -1588,6 +1615,7 @@
 				7DD134662C3EBA9600473503 /* LabelCountViewModel.swift in Sources */,
 				7D6D84FC2C1B258D008CA723 /* AddButtonViewController.swift in Sources */,
 				7D5AD9362C12BD9400E17724 /* RegisterViewModel.swift in Sources */,
+				7DC13DB52C58EE2D00BE066D /* MainPageViewController.swift in Sources */,
 				7D40A47B2C3571B1007B8370 /* StickyHeaderViewModel.swift in Sources */,
 				7D58BF0B2C2E864E00E910F7 /* AddProfileView + Extensions.swift in Sources */,
 				7D5AD9322C12B75400E17724 /* EndPointType + Enum.swift in Sources */,

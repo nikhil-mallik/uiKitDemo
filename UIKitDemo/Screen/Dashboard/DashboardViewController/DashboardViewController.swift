@@ -10,10 +10,8 @@ import UIKit
 class DashboardViewController : UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userListButton: UIButton!
     @IBOutlet weak var productListButton: UIButton!
-    @IBOutlet weak var logoutButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var collectionViewButton: UIButton!
     @IBOutlet weak var buttonCollectionViewBtn: UIButton!
     @IBOutlet weak var buttonScrollViewBtn: UIButton!
@@ -34,39 +32,28 @@ class DashboardViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        nameLabel.alpha = 0
-        getUserName() // Retrieve and display the user's name
     }
-        
+    
     override func viewWillAppear(_ animated: Bool) {
         // Set up the background video
-        BgVideoPlay.shared.setUpVideo(on: self.view)
+        //        BgVideoPlay.shared.setUpVideo(on: self.view)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Stop the video when the view disappears
-        BgVideoPlay.shared.stopVideo()
+        //        BgVideoPlay.shared.stopVideo()
     }
     
-    // MARK: - Button Actions
-    @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
-        // Perform logout API call
-        APIManager.shared.logoutApiCall(vc: self)
+    @IBAction func pageViewButtonTapped(_ sender: Any) {
+        let mapVC = MainPageViewController.sharedIntance()
+        self.navigationController?.pushViewController(mapVC, animated: true)
     }
     
-    @IBAction func userListButtonTapped(_ sender: Any) {
-        // Navigate to the user list screen
-        let userListVC = UserListViewController.sharedIntance()
-        userListVC.navigationItem.title = "User List"
-        self.navigationController?.pushViewController(userListVC, animated: true)
-    }
-    
-    @IBAction func productListButtonTapped(_ sender: Any) {
-        // Navigate to the product list screen
-        let productListVC = ProductListViewController.sharedIntance()
-        productListVC.navigationItem.title = "Product List"
-        self.navigationController?.pushViewController(productListVC, animated: true)
+    @IBAction func segmentViewButtonTapped(_ sender: Any) {
+        let mapVC = SegmentViewController.sharedIntance()
+        mapVC.navigationItem.title = "Segment Controller"
+        self.navigationController?.pushViewController(mapVC, animated: true)
     }
     
     @IBAction func collectionViewAction(_ sender: Any) {
@@ -129,10 +116,9 @@ class DashboardViewController : UIViewController {
     }
     
     
-    @IBAction func localPushNotification(_ sender: Any) {
-        let pushNotificationVC = PushNotificationViewController.sharedInstance()
-        pushNotificationVC.title = "Push Notification"
-        self.navigationController?.pushViewController(pushNotificationVC, animated: true)
+    @IBAction func socialAccountBtnAction(_ sender: Any) {
+        let socailVC = SocialAccountViewController.sharedIntance()
+        self.navigationController?.pushViewController(socailVC, animated: true)
     }
     
     @IBAction func coreDataBtnAction(_ sender: UIButton) {
@@ -143,11 +129,10 @@ class DashboardViewController : UIViewController {
     @IBAction func foodCoreDataBtnAction(_ sender: UIButton) {
         let foodVC = FetchFoodCoreDataViewController.sharedInstance()
         self.navigationController?.pushViewController(foodVC, animated: true)
-    }  
+    }
     
     @IBAction func mapViewBtnAction(_ sender: UIButton) {
         let mapVC = MapsButtonViewController.sharedInstance()
-//        let mapVC = SocialAccountViewController.sharedIntance()
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
     
@@ -166,6 +151,6 @@ extension DashboardViewController {
     // Retrieve and display the user's name
     func getUserName() {
         let userName = TokenService.tokenShared.getName()
-        nameLabel.text = "Welcome \(userName)"
+        
     }
 }

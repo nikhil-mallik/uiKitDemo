@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let self = self else { return }
             
             if TokenService.tokenShared.checkForLogin() {
-                let vc = DashboardViewController.sharedIntance()
+                let vc = TabbarViewController.sharedIntance()
                 let navVC = UINavigationController(rootViewController: vc)
                 self.window?.rootViewController = navVC
             } else {

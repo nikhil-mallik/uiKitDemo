@@ -107,7 +107,7 @@ extension LoginViewController {
     
     // Navigate to dashboard view controller
     func navigateToDashboard() {
-        let dashboardVC = DashboardViewController.sharedIntance()
+        let dashboardVC = TabbarViewController.sharedIntance()
         self.navigationController?.pushViewController(dashboardVC, animated: true)
     }
     
