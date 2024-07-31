@@ -275,7 +275,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbp-cd-FIV">
                                         <rect key="frame" x="0.0" y="101.5" width="364" height="40.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Collection View" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" title="Video Player" cornerStyle="capsule">
                                             <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -574,7 +574,7 @@
                             <constraint firstItem="MDS-lv-I2H" firstAttribute="bottom" secondItem="2uf-C4-0up" secondAttribute="bottom" id="QYR-IG-gYj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="User" image="pencil.and.list.clipboard.rtl" catalog="system" id="XHd-fm-eLt"/>
+                    <tabBarItem key="tabBarItem" title="User" image="pencil.and.list.clipboard.rtl" catalog="system" selectedImage="pencil.and.list.clipboard.rtl" id="XHd-fm-eLt"/>
                     <navigationItem key="navigationItem" title="User List" id="44m-EV-ZBU"/>
                     <connections>
                         <outlet property="userListTableView" destination="2uf-C4-0up" id="IC7-ZD-xfO"/>
@@ -610,8 +610,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" name="171717"/>
-                        <tabBarAppearance key="standardAppearance"/>
+                        <color key="selectedImageTintColor" systemColor="systemIndigoColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="Tqn-0P-ZpE" kind="relationship" relationship="viewControllers" id="w7H-v7-wEh"/>
@@ -4579,7 +4578,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3o-J3-zt4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="1273"/>
+            <point key="canvasLocation" x="1643" y="1302"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="Ven-E7-YH2">
+            <objects>
+                <viewController storyboardIdentifier="VideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KBk-4C-xfF" customClass="VideoViewController" customModule="UIKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bXv-v5-JmO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TJi-ep-txD">
+                                <rect key="frame" x="0.0" y="48" width="414" height="848"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Ft-ZA-2zJ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t9Z-zW-bkL">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4Hw-Xj-b9J">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9KU-0P-Yyr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9KU-0P-Yyr" firstAttribute="trailing" secondItem="TJi-ep-txD" secondAttribute="trailing" id="D5S-Jr-7mq"/>
+                            <constraint firstItem="TJi-ep-txD" firstAttribute="top" secondItem="9KU-0P-Yyr" secondAttribute="top" id="uAY-iQ-xHD"/>
+                            <constraint firstItem="TJi-ep-txD" firstAttribute="leading" secondItem="9KU-0P-Yyr" secondAttribute="leading" id="zRc-Kd-6Li"/>
+                            <constraint firstAttribute="bottom" secondItem="TJi-ep-txD" secondAttribute="bottom" id="zmN-iZ-uvI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="TJi-ep-txD" id="1Yj-xa-ZFk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bdb-Jr-PQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3270" y="1302"/>
         </scene>
         <!--Main Page View Controller-->
         <scene sceneID="WgZ-YM-pu2">
@@ -4587,7 +4632,7 @@
                 <pageViewController storyboardIdentifier="MainPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dYE-lh-cYF" customClass="MainPageViewController" customModule="UIKitDemo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="988-Qt-UMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2959" y="1317"/>
+            <point key="canvasLocation" x="4559" y="1302"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="M6D-gP-5Sc">
@@ -4614,7 +4659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxP-8F-4yF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3849" y="1317"/>
+            <point key="canvasLocation" x="5296" y="1302"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4vn-iw-Ker">
@@ -4641,7 +4686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLl-t8-JOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4728" y="1317"/>
+            <point key="canvasLocation" x="6041" y="1302"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pWg-zH-rpx">
@@ -4668,7 +4713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3s-zh-lsh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5604" y="1317"/>
+            <point key="canvasLocation" x="6761" y="1302"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aPc-Me-WSr">
@@ -4695,7 +4740,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ny-ep-4Gl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6433" y="1317"/>
+            <point key="canvasLocation" x="7575" y="1302"/>
         </scene>
         <!--Google Map View Controller-->
         <scene sceneID="bIf-EC-2hq">

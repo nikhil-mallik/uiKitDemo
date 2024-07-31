@@ -58,8 +58,8 @@ class DashboardViewController : UIViewController {
     
     @IBAction func collectionViewAction(_ sender: Any) {
         // Navigate to the product Collection View screen
-        let productListVC = CollectionViewController.sharedIntance()
-        productListVC.navigationItem.title = "Collection View"
+        let productListVC = VideoViewController.sharedIntance()
+        productListVC.navigationItem.title = "Video View"
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
     

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="gTV-IL-0wX" customClass="VideoPlayerCellView" customModule="UIKitDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="383"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="420" height="383"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQz-wx-91Z">
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="383"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <wkWebViewConfiguration key="configuration">
+                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                            <wkPreferences key="preferences"/>
+                        </wkWebViewConfiguration>
+                    </wkWebView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="bQz-wx-91Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5cb-hJ-8lm"/>
+                <constraint firstItem="bQz-wx-91Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5tX-VB-RyF"/>
+                <constraint firstAttribute="bottom" secondItem="bQz-wx-91Z" secondAttribute="bottom" id="T54-AH-Zlx"/>
+                <constraint firstAttribute="trailing" secondItem="bQz-wx-91Z" secondAttribute="trailing" id="iRI-2d-SSh"/>
+            </constraints>
+            <size key="customSize" width="420" height="383"/>
+            <connections>
+                <outlet property="webView" destination="bQz-wx-91Z" id="DA2-GX-dsG"/>
+            </connections>
+            <point key="canvasLocation" x="96" y="-38"/>
+        </collectionViewCell>
+    </objects>
+</document>

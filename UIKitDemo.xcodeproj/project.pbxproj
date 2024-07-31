@@ -129,6 +129,9 @@
 		7DB304D52C58CCFD00C024C1 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB304D42C58CCFD00C024C1 /* TabbarViewController.swift */; };
 		7DC13DB52C58EE2D00BE066D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC13DB42C58EE2D00BE066D /* MainPageViewController.swift */; };
 		7DC13DB82C58F67000BE066D /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC13DB72C58F67000BE066D /* SegmentViewController.swift */; };
+		7DC13DC42C5A16D300BE066D /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC13DC32C5A16D300BE066D /* VideoViewController.swift */; };
+		7DC13DC82C5A180F00BE066D /* VideoPlayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC13DC62C5A180F00BE066D /* VideoPlayerCellView.swift */; };
+		7DC13DC92C5A180F00BE066D /* VideoPlayerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DC13DC72C5A180F00BE066D /* VideoPlayerCellView.xib */; };
 		7DD1344E2C3D531A00473503 /* TaskManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1344D2C3D531A00473503 /* TaskManagerViewModel.swift */; };
 		7DD134502C3D534A00473503 /* TaskManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1344F2C3D534A00473503 /* TaskManagerViewController.swift */; };
 		7DD134522C3D536600473503 /* TaskManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD134512C3D536600473503 /* TaskManagerModel.swift */; };
@@ -264,6 +267,9 @@
 		7DB304D42C58CCFD00C024C1 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		7DC13DB42C58EE2D00BE066D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		7DC13DB72C58F67000BE066D /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
+		7DC13DC32C5A16D300BE066D /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		7DC13DC62C5A180F00BE066D /* VideoPlayerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerCellView.swift; sourceTree = "<group>"; };
+		7DC13DC72C5A180F00BE066D /* VideoPlayerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerCellView.xib; sourceTree = "<group>"; };
 		7DD1344D2C3D531A00473503 /* TaskManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerViewModel.swift; sourceTree = "<group>"; };
 		7DD1344F2C3D534A00473503 /* TaskManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerViewController.swift; sourceTree = "<group>"; };
 		7DD134512C3D536600473503 /* TaskManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerModel.swift; sourceTree = "<group>"; };
@@ -737,6 +743,7 @@
 		7D63760F2C119BAC00D10B30 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7DC13DB92C5A0FA700BE066D /* Video Player */,
 				7DC13DB62C58F62100BE066D /* Segment View */,
 				7DC13DB32C58EDB400BE066D /* Page View Controller */,
 				7D3420EF2C536C9E00C0DA64 /* Social Login */,
@@ -1240,6 +1247,32 @@
 			path = "Segment View";
 			sourceTree = "<group>";
 		};
+		7DC13DB92C5A0FA700BE066D /* Video Player */ = {
+			isa = PBXGroup;
+			children = (
+				7DC13DBB2C5A0FC800BE066D /* view */,
+			);
+			path = "Video Player";
+			sourceTree = "<group>";
+		};
+		7DC13DBB2C5A0FC800BE066D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7DC13DC52C5A17E000BE066D /* cell View */,
+				7DC13DC32C5A16D300BE066D /* VideoViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7DC13DC52C5A17E000BE066D /* cell View */ = {
+			isa = PBXGroup;
+			children = (
+				7DC13DC62C5A180F00BE066D /* VideoPlayerCellView.swift */,
+				7DC13DC72C5A180F00BE066D /* VideoPlayerCellView.xib */,
+			);
+			path = "cell View";
+			sourceTree = "<group>";
+		};
 		7DD134492C3D522F00473503 /* Task Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -1489,6 +1522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D40A4712C3512F6007B8370 /* ProfileImageCell.xib in Resources */,
+				7DC13DC92C5A180F00BE066D /* VideoPlayerCellView.xib in Resources */,
 				7D40A4962C3691B2007B8370 /* ProfileListTableViewCell.xib in Resources */,
 				7D40A46D2C35114E007B8370 /* ProfileButtonCell.xib in Resources */,
 				7D5AD9402C133FFC00E17724 /* loginbg.mp4 in Resources */,
@@ -1566,6 +1600,7 @@
 				7D65F45B2C47C8B000BDF9E5 /* CategoryModel.swift in Sources */,
 				7D65F44A2C47C09200BDF9E5 /* FoodModel.swift in Sources */,
 				7D40A4952C3691B2007B8370 /* ProfileListTableViewCell.swift in Sources */,
+				7DC13DC82C5A180F00BE066D /* VideoPlayerCellView.swift in Sources */,
 				7D3420F22C536CF500C0DA64 /* SocialAccountViewController.swift in Sources */,
 				7D3421072C539DBE00C0DA64 /* AuthenticationManager.swift in Sources */,
 				7D24F6B32C2ACAD000958EEA /* UserImageScrollViewController.swift in Sources */,
@@ -1580,6 +1615,7 @@
 				7D6375FA2C119B5600D10B30 /* AppDelegate.swift in Sources */,
 				7D24F6B02C2AA39900958EEA /* ImagePickerHelper.swift in Sources */,
 				7D6892BE2C51382A0086356C /* MapsButtonViewController.swift in Sources */,
+				7DC13DC42C5A16D300BE066D /* VideoViewController.swift in Sources */,
 				7D65F4592C47C88000BDF9E5 /* AddEditCategoryCoreDataViewController.swift in Sources */,
 				7D6D850B2C1C361C008CA723 /* ButtonScrollView.swift in Sources */,
 				7D5AD9592C143D7700E17724 /* productListViewModel.swift in Sources */,
