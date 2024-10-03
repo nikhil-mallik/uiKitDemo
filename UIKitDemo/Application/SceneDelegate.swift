@@ -18,15 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         _ = NotificationManager.shared
         _ = LocationPermissionManager.shared
         
-        BiometricHelper.shared.authenticateUser { [weak self]  in
-            guard let self = self else { return }
+//        BiometricHelper.shared.authenticateUser { [weak self]  in
+//            guard let self = self else { return }
             
             if TokenService.tokenShared.checkForLogin() {
                 let vc = TabbarViewController.sharedIntance()
                 let navVC = UINavigationController(rootViewController: vc)
                 self.window?.rootViewController = navVC
             } else {
-                let rootVC = ViewController.sharedIntance()
+                let rootVC = TabbarViewController.sharedIntance() //ViewController.sharedIntance()
                 let navVC = UINavigationController(rootViewController: rootVC)
                 self.window?.rootViewController = navVC
             }
@@ -52,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             self.window?.makeKeyAndVisible()
             UNUserNotificationCenter.current().delegate = self
-        }
+//        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

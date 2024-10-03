@@ -14,9 +14,9 @@ class VideoViewController: UIViewController , UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     
     let videoURLs: [String] = [
+        "https://vimeo.com/user196125621/review/1014363323/3e86fd80e1",
         "https://vimeo.com/580298409",
-        "https://vimeo.com/336812686",
-        "loginbg.mp4"
+        "https://vimeo.com/336812686"
     ]
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class VideoViewController: UIViewController , UICollectionViewDataSource, UIColl
         // Register the cell XIB file
         let nib = UINib(nibName: "VideoPlayerCellView", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "VideoCell")
-    
+        
         collectionView.decelerationRate = .fast
     }
     
@@ -46,17 +46,7 @@ class VideoViewController: UIViewController , UICollectionViewDataSource, UIColl
         let videoURL = videoURLs[indexPath.row]
         
         if videoURL.hasPrefix("http") {
-            // Web-based videos (YouTube, Vimeo)
-            //            let embedURL = getEmbedURL(from: videoURL)
-            //            if let url = URL(string: embedURL) {
-            //                let request = URLRequest(url: url)
-            //                cell.webView.isHidden = false
-            //                cell.webView.load(request)
-            //                cell.avPlayerLayer?.removeFromSuperlayer()
-            //            }
-            // Web-based videos (YouTube, Vimeo)
-            let embedHTML = getEmbedHTML(from: videoURL)
-            cell.loadWebViewWithHTML(embedHTML)
+            cell.loadMedia(videoURL: videoURL)
         } else {
             // Local MP4 video
             if let path = Bundle.main.path(forResource: videoURL, ofType: nil) {
@@ -81,58 +71,52 @@ class VideoViewController: UIViewController , UICollectionViewDataSource, UIColl
     }
     
     // MARK: - Helper Methods
-    
-    //    private func getEmbedURL(from videoURL: String) -> String {
-    //        if videoURL.contains("youtube.com") || videoURL.contains("youtu.be") {
-    //            return videoURL.replacingOccurrences(of: "watch?v=", with: "embed/")
-    //        } else if videoURL.contains("vimeo.com") {
-    //            let components = videoURL.split(separator: "/")
-    //            if let videoID = components.last {
-    //                return "https://player.vimeo.com/video/\(videoID)"
-    //            }
-    //        }
-    //        return videoURL
-    //    }
-    
     private func getEmbedHTML(from videoURL: String) -> String {
-        let embedURL: String
-        if videoURL.contains("youtube.com") || videoURL.contains("youtu.be") {
-            embedURL = videoURL.replacingOccurrences(of: "watch?v=", with: "embed/")
-        } else if videoURL.contains("vimeo.com") {
-            let components = videoURL.split(separator: "/")
-            if let videoID = components.last {
-                embedURL = "https://player.vimeo.com/video/\(videoID)"
-            } else {
-                embedURL = videoURL
-            }
-        } else {
-            embedURL = videoURL
-        }
+        let embedURL: String = "https://vimeo.com/user196125621/review/1014363323/3e86fd80e1"
+        
+        // Return HTML string for embedding the video
         return """
         <html>
         <body style="margin:0px;padding:0px;">
-        <iframe width="100%" height="100%" src="\(embedURL)?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe width="100%" height="100%" src="\(embedURL)?muted=0&controls=1&autoplay=1&background=0&loop=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </body>
         </html>
         """
     }
+
+
     
     // MARK: - UIScrollViewDelegate
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Check visibility of cells during scroll
+        handlePlaybackForVisibleCells()
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        handlePlayback(for: collectionView.visibleCells as! [VideoPlayerCellView], play: true)
+        // Play videos in fully visible cells after scrolling ends
+        handlePlaybackForVisibleCells(play: true)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        handlePlayback(for: collectionView.visibleCells as! [VideoPlayerCellView], play: false)
+        // Pause videos when user starts dragging
+        handlePlaybackForVisibleCells(play: false)
     }
     
     // MARK: - Playback Control
-    private func handlePlayback(for cells: [VideoPlayerCellView], play: Bool) {
-        for cell in cells {
-            if play {
-                cell.playVideo()
-            } else {
-                cell.pauseVideo()
+    
+    private func handlePlaybackForVisibleCells(play: Bool = false) {
+        for cell in collectionView.visibleCells {
+            guard let videoCell = cell as? VideoPlayerCellView else { continue }
+            
+            let cellFrameInSuperview = collectionView.convert(videoCell.frame, to: collectionView.superview)
+            let isFullyVisible = collectionView.bounds.contains(cellFrameInSuperview)
+            
+            if isFullyVisible {
+                if play {
+                    videoCell.playVideo()
+                } else {
+                    videoCell.pauseVideo()
+                }
             }
         }
     }
